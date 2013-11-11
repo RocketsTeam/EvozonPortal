@@ -1,18 +1,11 @@
 package com.pages;
 
-import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
+import net.thucydides.core.pages.PageObject;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import net.thucydides.core.pages.PageObject;
-
-import java.util.List;
-
-import static ch.lambdaj.Lambda.convert;
 
 @DefaultUrl("http://172.22.8.38:9090/web/guest/login")
 public class DictionaryPage extends PageObject {
