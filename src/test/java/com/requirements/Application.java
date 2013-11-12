@@ -7,5 +7,12 @@ public class Application {
     public class Login {
         public class IndividualLogin {}
         public class LoginCSVTest {}
+        
     }
+    @Feature
+    public class HandleRequests{
+    	
+    	public class HandleRequestsTest{}
+    }
+    
 }
