@@ -11,8 +11,8 @@ import net.thucydides.core.pages.PageObject;
 
 public class VacationRequestsPageMihai extends PageObject {
 
-	// @FindBy(css = ".aui-tab-content a[href*=summary]")
-	// private WebElement summary;
+	@FindBy(css = ".aui-tab-content a[href*=summary]")
+	private WebElement summary;
 
 	// @FindBy(id = "aui_3_4_0_1_918")
 	@FindBy(css = "ul.aui-tabview-list > li:last-child a.aui-tab-label")
@@ -20,51 +20,52 @@ public class VacationRequestsPageMihai extends PageObject {
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_kaleoProcessesSearchContainer_col-name_row-1")
 	private WebElement vacreqlink;
-	
+
 	@FindBy(css = "table.taglib-search-iterator")
 	private WebElement myVacationCompletedRequestTable;
 
 	@FindBy(css = ".portlet-borderless-container")
 	private WebElement processestable;
-	
+
 	@FindBy(css = ".aui-column aui-w75 aui-column-last")
 	private WebElement summaryTable;
-	
+
 	@FindBy(css = ".lfr-panel lfr-collapsible lfr-panel-basic")
 	private WebElement assignedToMeTable;
-	
+
 	@FindBy(css = ".lfr-panel lfr-collapsible lfr-panel-basic")
 	private WebElement assignedToMyRolesTable;
-	
+
 	@FindBy(css = ".taglib-search-iterator")
 	private WebElement assignedToOthersTable;
 
-	// @FindBy(css = ".aui-button-input")portlet-body
-	// private WebElement submitNewVacationRequest;
+	@FindBy(css = ".aui-button-input")
+	private WebElement submitNewVacationRequest;
 
-	// @FindBy(id = "aui_3_4_0_1_1708")
-	// private WebElement myvacationrequests;
+	@FindBy(id = "aui_3_4_0_1_1708")
+	private WebElement myvacationrequests;
 
-	// @FindBy(id = "aui_3_4_0_1_1733")
-	// private WebElement myvacationcompletedrequests;
+	@FindBy(id = "aui_3_4_0_1_1733")
+	private WebElement myvacationcompletedrequests;
 
 	public VacationRequestsPageMihai(WebDriver driver) {
 		super(driver);
 	}
 
-	public void getMyVacationCompletedRequests(){
+	public void getMyVacationCompletedRequests() {
 		element(myVacationCompletedRequestTable).waitUntilVisible();
-		List<WebElement> resultList = myVacationCompletedRequestTable.findElements(By.cssSelector("tr a"));
-		
-		for(WebElement elementNow:resultList){
+		List<WebElement> resultList = myVacationCompletedRequestTable
+				.findElements(By.cssSelector("tr a"));
+
+		for (WebElement elementNow : resultList) {
 			System.out.println("Element now: " + elementNow.getText());
 		}
-		
+
 	}
-	
-	// public void click_on_summary() {
-	// element(summary).click();
-	// }
+
+	public void click_on_summary() {
+		element(summary).click();
+	}
 
 	public void click_on_processes() {
 		element(processesButton).waitUntilVisible();
@@ -87,29 +88,28 @@ public class VacationRequestsPageMihai extends PageObject {
 		return element(processestable).isPresent();
 	}
 
-	//
-	// public boolean check_myvacationrequests() {
-	//
-	// return element(myvacationrequests).isPresent();
-	// }
-	//
-	// public void click_myvacationrequests() {
-	// myvacationrequests.click();
-	// }
+	public boolean check_myvacationrequests() {
 
-	// public boolean check_mycompletedvacationrequests() {
-	//
-	// return element(myvacationcompletedrequests).isPresent();
-	// }
-	//
-	// public void click_mycompletedvacationrequests() {
-	// myvacationcompletedrequests.click();
-	// }
+		return element(myvacationrequests).isPresent();
+	}
 
-	// public boolean check_for_summary_link() {
-	//
-	// return element(summary).isPresent();
-	// }
+	public void click_myvacationrequests() {
+		myvacationrequests.click();
+	}
+
+	public boolean check_mycompletedvacationrequests() {
+
+		return element(myvacationcompletedrequests).isPresent();
+	}
+
+	public void click_mycompletedvacationrequests() {
+		myvacationcompletedrequests.click();
+	}
+
+	public boolean check_for_summary_link() {
+
+		return element(summary).isPresent();
+	}
 
 	public boolean check_for_processes_link() {
 

@@ -16,10 +16,10 @@ import org.openqa.selenium.WebDriver;
 import com.requirements.Application;
 import com.steps.EndUserSteps;
 
-@Story(Application.Login.LoginCSVTest.class)
+@Story(Application.ApproverReq.ApproverRequestsTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginData.csv")
-public class LoginCSVTest {
+public class ApproverRequestsTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -57,9 +57,6 @@ public class LoginCSVTest {
         endUser.submit();
         endUser.should_be_on_department_page();
         endUser.should_be_on_department_page1();
-        endUser.click_v();
-        endUser.check_new_request();
-        endUser.click_concediuo();
         endUser.check_vacationre();
         endUser.click_vacationre();
         endUser.check_actionsbutton();
