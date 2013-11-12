@@ -14,5 +14,10 @@ public class Application {
     	
     	public class HandleRequestsTest{}
     }
+    @Feature
+    public class ApproverReq{
+    	
+    	public class ApproverRequestsTest{}
+    }
     
 }
