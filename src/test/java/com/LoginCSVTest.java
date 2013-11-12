@@ -62,12 +62,11 @@ public class LoginCSVTest {
         endUser.v_req();
         endUser.check_new_request();
         endUser.click_concediuo();
-       // endUser.should_go_to_processes_section();
-       // endUser.should_go_to_summary_section();
-       // endUser.should_be_a_Vacation_Request_link();
-       // endUser.should_go_to_vacation_reguest();
+        endUser.check_vacationre();
+        endUser.click_vacationre();
     }
 }
+
 
 
     

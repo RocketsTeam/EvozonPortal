@@ -1,5 +1,9 @@
 package com.steps;
 
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.pages.Pages;
+import net.thucydides.core.steps.ScenarioSteps;
+
 import org.junit.Assert;
 
 import com.pages.DepartmentPage;
@@ -14,6 +18,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 
 import static ch.lambdaj.Lambda.join;
 import static org.fest.assertions.Assertions.assertThat;
+import com.pages.VacationRequestsPage;
 
 public class EndUserSteps extends ScenarioSteps {
 
@@ -22,6 +27,7 @@ public class EndUserSteps extends ScenarioSteps {
 	SubmitVacationRequest VacPage;
 	NewVacationRequest NewVac;
 	VacationRequestsPageMihai vacReqPage;
+    VacationRequestsPage ReqPage;
 
 	public EndUserSteps(Pages pages) {
 		super(pages);
@@ -77,16 +83,6 @@ public class EndUserSteps extends ScenarioSteps {
 		VacPage.click_vacationrequest();
 	}
 
-	@Step
-	public void check_new_request() {
-		Assert.assertTrue("A new vacation request sholud appear",
-				NewVac.check_new_request());
-	}
-
-	@Step
-	public void click_concediuo() {
-		VacPage.click_vacationrequest();
-	}
 
 	@Step
 	public void should_go_to_summary_section() {
@@ -109,4 +105,25 @@ public class EndUserSteps extends ScenarioSteps {
 		vacReqPage.click_vacationrequest();
 	}
 
+	@Step
+    public void check_new_request(){
+    	Assert.assertTrue("A new vacation request sholud appear", NewVac.check_new_request());
+    }
+    
+    @Step
+    public void click_concediuo(){
+    	VacPage.click_vacationrequest();
+    }
+    
+    @Step
+    public void check_vacationre(){
+    	ReqPage.check_vacationreq();
+    }
+    
+    @Step
+    public void click_vacationre(){
+    	ReqPage.click_vacationreq();
+    }
+    
+    
 }
