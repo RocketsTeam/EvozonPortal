@@ -37,7 +37,10 @@ public class SubmitVacationRequest extends PageObject {
 	 public void click_vacationrequest() {
 	    	vacationrequest.click();
 	    }
-}
+
+	
+	}
+
 
 
     

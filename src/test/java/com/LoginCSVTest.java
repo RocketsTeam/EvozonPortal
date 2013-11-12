@@ -61,13 +61,15 @@ public class LoginCSVTest {
         endUser. vacation_request();
         endUser.v_req();
         endUser.check_new_request();
-        endUser.click_concediuo();
-        endUser.check_vacationre();
-        endUser.click_vacationre();
-        endUser.check_actionsbutton();
-        endUser.click_actionsbutton();
+        endUser.selectTipConcediu("Concediu fara plata * (Required)");
+        //endUser.click_concediuo();
+        endUser.click_month();
+        endUser.click_month1();
+        endUser.click_day();
+        
     }
 }
+
 
 
 

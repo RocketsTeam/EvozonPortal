@@ -10,24 +10,17 @@ import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.NewVacationRequest;
 import com.pages.SubmitVacationRequest;
-import com.pages.VacationRequestsPageMihai;
-
-import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.Pages;
-import net.thucydides.core.steps.ScenarioSteps;
-
-import static ch.lambdaj.Lambda.join;
-import static org.fest.assertions.Assertions.assertThat;
 import com.pages.VacationRequestsPage;
+import com.pages.VacationRequestsPageMihai;
 
 public class EndUserSteps extends ScenarioSteps {
 
 	DictionaryPage dictionaryPage;
 	DepartmentPage depPage;
 	SubmitVacationRequest VacPage;
-	NewVacationRequest NewVac;
+	NewVacationRequest newVac;
 	VacationRequestsPageMihai vacReqPage;
-    VacationRequestsPage ReqPage;
+	VacationRequestsPage ReqPage;
 
 	public EndUserSteps(Pages pages) {
 		super(pages);
@@ -83,7 +76,6 @@ public class EndUserSteps extends ScenarioSteps {
 		VacPage.click_vacationrequest();
 	}
 
-
 	@Step
 	public void should_go_to_summary_section() {
 		vacReqPage.click_on_summary();
@@ -106,34 +98,58 @@ public class EndUserSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void check_new_request(){
-    	Assert.assertTrue("A new vacation request sholud appear", NewVac.check_new_request());
-    }
-    
-    @Step
-    public void click_concediuo(){
-    	VacPage.click_vacationrequest();
-    }
-    
-    @Step
-    public void check_vacationre(){
-    	ReqPage.check_vacationreq();
-    }
-    
-    @Step
-    public void click_vacationre(){
-    	ReqPage.click_vacationreq();
-    }
-    
-    @Step
-    public void check_actionsbutton(){
-    	ReqPage.check_actions();
-    }
-    
-    @Step
-    public void click_actionsbutton(){
-    	ReqPage.click_actions();
-    }
-    
-    
+	public void check_new_request() {
+		Assert.assertTrue("A new vacation request sholud appear",
+				newVac.check_new_request());
+	}
+
+	@Step
+	public void check_vacationre() {
+		ReqPage.check_vacationreq();
+	}
+
+	@Step
+	public void click_vacationre() {
+		ReqPage.click_vacationreq();
+	}
+
+	@Step
+	public void check_actionsbutton() {
+		ReqPage.check_actions();
+	}
+
+	@Step
+	public void click_actionsbutton() {
+		ReqPage.click_actions();
+	}
+
+	@Step
+	public void click_month() {
+		newVac.select_month();
+
+	}
+
+	//@Step
+	//public void click_concediuo() {
+	//	newVac.click_concediufaraplata();
+	//}
+
+	@Step
+	public void click_month1() {
+		String monthName = "December";
+		newVac.selectMonthDate(monthName);
+
+	}
+
+	@Step
+	public void click_day() {
+		newVac.select_day();
+
+	}
+	
+	@Step
+	public void selectTipConcediu(String concediu){
+		newVac.selectRadioButton(concediu);
+	}
+	
 }
