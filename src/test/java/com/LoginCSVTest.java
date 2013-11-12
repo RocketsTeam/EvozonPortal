@@ -64,8 +64,10 @@ public class LoginCSVTest {
         endUser.click_concediuo();
         endUser.check_vacationre();
         endUser.click_vacationre();
-        endUser.check_actionsbutton();
-        endUser.click_actionsbutton();
+        endUser.check_actionsbutton1();
+        endUser.click_actionsbutton1();
+        endUser.check_actionsbutton2();
+        endUser.click_actionsbutton2();
     }
 }
 

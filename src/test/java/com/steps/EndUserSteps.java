@@ -34,6 +34,11 @@ public class EndUserSteps extends ScenarioSteps {
 	}
 
 	@Step
+	public void myRoleListElementAction(String element, String action){
+		ReqPage.markListEntry(element, action);
+	}
+	
+	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
 	}
@@ -126,14 +131,62 @@ public class EndUserSteps extends ScenarioSteps {
     }
     
     @Step
-    public void check_actionsbutton(){
-    	ReqPage.check_actions();
+    public void check_actionsbutton1(){
+    	ReqPage.check_actions1();
     }
     
     @Step
-    public void click_actionsbutton(){
-    	ReqPage.click_actions();
+    public void click_actionsbutton1(){
+    	ReqPage.click_actions1();
     }
     
+    @Step
+    public void check_approveoption(){
+    	ReqPage.check_approve();
+    }
     
+    @Step
+    public void click_approveoption(){
+    	ReqPage.click_approve();
+    }
+    
+    @Step
+    public void check_actionsbutton2(){
+    	ReqPage.check_actions2();
+    }
+    
+    @Step
+    public void click_actionsbutton2(){
+    	ReqPage.click_actions2();
+    }
+    
+    @Step
+    public void check_rejectoption(){
+    	ReqPage.check_reject();
+    }
+    
+    @Step
+    public void click_rejectoption(){
+    	ReqPage.click_reject();
+    }
+    
+    @Step
+    public void check_assigntopt(){
+    	ReqPage.check_assignto();
+    }
+    
+    @Step
+    public void click_assigntopt(){
+    	ReqPage.click_assignto();
+    }
+    
+    @Step
+    public void check_updateduedateopt(){
+    	ReqPage.check_updateduedate();
+    }
+    
+    @Step
+    public void click_updateduedateopt(){
+    	ReqPage.click_updateduedate();
+    }
 }
