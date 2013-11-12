@@ -58,8 +58,6 @@ public class LoginCSVTest {
         endUser.should_be_on_department_page();
         endUser.should_be_on_department_page1();
         endUser.click_v();
-        endUser. vacation_request();
-        endUser.v_req();
         endUser.check_new_request();
         endUser.click_concediuo();
         endUser.check_vacationre();

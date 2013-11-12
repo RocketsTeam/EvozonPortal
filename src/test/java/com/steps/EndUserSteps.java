@@ -10,6 +10,7 @@ import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.NewVacationRequest;
 import com.pages.SubmitVacationRequest;
+import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
 
 import net.thucydides.core.annotations.Step;
@@ -26,8 +27,8 @@ public class EndUserSteps extends ScenarioSteps {
 	DepartmentPage depPage;
 	SubmitVacationRequest VacPage;
 	NewVacationRequest NewVac;
-	VacationRequestsPageMihai vacReqPage;
-    VacationRequestsPage ReqPage;
+	VacationRequestsPageMihai vacReqPageMihai;
+	VacationRequestsPage ReqPage;
 
 	public EndUserSteps(Pages pages) {
 		super(pages);
@@ -52,11 +53,22 @@ public class EndUserSteps extends ScenarioSteps {
 	public void is_the_home_page() {
 		dictionaryPage.open();
 	}
+	
+	@Step
+	public void retrieveMyVacationCompletedRequests(){
+		vacReqPageMihai.getMyVacationCompletedRequests();
+	}
 
 	@Step
 	public void should_be_on_department_page() {
 		Assert.assertTrue("Should be on department page",
 				depPage.check_signout_link());
+	}
+	
+	@Step
+	public void should_show_processes_table() {
+		Assert.assertTrue("Should be on department page",
+				vacReqPageMihai.check_for_processes_table());
 	}
 
 	@Step
@@ -65,6 +77,74 @@ public class EndUserSteps extends ScenarioSteps {
 				depPage.check_vacation());
 
 	}
+
+	@Step
+	public void show_vacation_request_link() {
+		Assert.assertTrue("Submit vacation request should appear",
+				vacReqPageMihai.check_vacationrequest());
+	}
+
+	@Step
+	public void clink_on_vacation_request_link() {
+		vacReqPageMihai.click_vacationrequest();
+	}
+
+	@Step
+	public void should_be_Summary_link() {
+		// Assert.assertTrue("Should be a Vacation Request",
+		// vacReqPageMihai.check_for_summary_link());
+	}
+
+	@Step
+	public void should_be_a_Processes_link() {
+		Assert.assertTrue("Should be a Vacation Request",
+				vacReqPageMihai.check_for_processes_link());
+	}
+
+	@Step
+	public void should_go_to_summary_section() {
+		// vacReqPageMihai.click_on_summary();
+	}
+
+	@Step
+	public void go_to_processes_section() {
+		vacReqPageMihai.click_on_processes();
+	}
+
+	@Step
+	public void should_be_a_Vacation_Request_link() {
+		// Assert.assertTrue("Should be a Vacation Request",
+		// vacReqPageMihai.check_vacationrequest());
+	}
+
+	@Step
+	public void go_to_vacation_reguest() {
+		// vacReqPageMihai.click_vacationrequest();
+	}
+
+	@Step
+	public void check_new_request() {
+		Assert.assertTrue("A new vacation request sholud appear",
+				NewVac.check_new_request());
+	}
+
+	@Step
+	public void click_concediuo() {
+		VacPage.click_vacationrequest();
+	}
+
+	@Step
+	public void check_vacationre() {
+		ReqPage.check_vacationreq();
+	}
+
+	@Step
+	public void click_vacationre() {
+		ReqPage.click_vacationreq();
+	}
+
+
+	
 
 	@Step
 	public void click_v() {
@@ -83,47 +163,4 @@ public class EndUserSteps extends ScenarioSteps {
 		VacPage.click_vacationrequest();
 	}
 
-
-	@Step
-	public void should_go_to_summary_section() {
-		vacReqPage.click_on_summary();
-	}
-
-	@Step
-	public void should_go_to_processes_section() {
-		vacReqPage.click_on_processes();
-	}
-
-	@Step
-	public void should_be_a_Vacation_Request_link() {
-		Assert.assertTrue("Should be a Vacation Request",
-				vacReqPage.check_vacationrequest());
-	}
-
-	@Step
-	public void should_go_to_vacation_reguest() {
-		vacReqPage.click_vacationrequest();
-	}
-
-	@Step
-    public void check_new_request(){
-    	Assert.assertTrue("A new vacation request sholud appear", NewVac.check_new_request());
-    }
-    
-    @Step
-    public void click_concediuo(){
-    	VacPage.click_vacationrequest();
-    }
-    
-    @Step
-    public void check_vacationre(){
-    	ReqPage.check_vacationreq();
-    }
-    
-    @Step
-    public void click_vacationre(){
-    	ReqPage.click_vacationreq();
-    }
-    
-    
 }
