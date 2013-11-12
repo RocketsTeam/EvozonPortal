@@ -58,18 +58,15 @@ public class LoginCSVTest {
         endUser.should_be_on_department_page();
         endUser.should_be_on_department_page1();
         endUser.click_v();
-        endUser. vacation_request();
-        endUser.v_req();
         endUser.check_new_request();
-        endUser.click_concediuo();
-        endUser.check_vacationre();
-        endUser.click_vacationre();
-        endUser.check_actionsbutton1();
-        endUser.click_actionsbutton1();
-        endUser.check_actionsbutton2();
-        endUser.click_actionsbutton2();
+        endUser.selectTipConcediu("Concediu fara plata * (Required)");
+        //endUser.click_concediuo();
+        endUser.click_month();
+        endUser.click_month1();
+        endUser.click_day();
     }
 }
+
 
 
 
