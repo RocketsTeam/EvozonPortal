@@ -125,5 +125,15 @@ public class EndUserSteps extends ScenarioSteps {
     	ReqPage.click_vacationreq();
     }
     
+    @Step
+    public void check_actionsbutton(){
+    	ReqPage.check_actions();
+    }
+    
+    @Step
+    public void click_actionsbutton(){
+    	ReqPage.click_actions();
+    }
+    
     
 }
