@@ -62,6 +62,6 @@ public class RejectRequestsTest {
 		endUser.myRoleListElementAction("test1 test1", "Approve");
 		endUser.myRoleListElementAction("test1 test1", "Reject");
 
-
+	}
 
 }
