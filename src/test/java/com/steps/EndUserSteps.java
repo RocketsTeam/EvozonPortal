@@ -6,7 +6,6 @@ import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.NewVacationRequest;
 import com.pages.SubmitVacationRequest;
-import com.pages.VacationRequestsPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
@@ -21,7 +20,6 @@ public class EndUserSteps extends ScenarioSteps {
     DepartmentPage depPage;
     SubmitVacationRequest VacPage;
     NewVacationRequest NewVac;
-    VacationRequestsPage ReqPage;
 
     public EndUserSteps(Pages pages) {
         super(pages);
@@ -86,17 +84,6 @@ public class EndUserSteps extends ScenarioSteps {
     public void click_concediuo(){
     	VacPage.click_vacationrequest();
     }
-    
-    @Step
-    public void check_vacationre(){
-    	ReqPage.check_vacationreq();
-    }
-    
-    @Step
-    public void click_vacationre(){
-    	ReqPage.click_vacationreq();
-    }
-    
     
 }
 

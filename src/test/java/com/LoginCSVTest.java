@@ -62,11 +62,8 @@ public class LoginCSVTest {
         endUser.v_req();
         endUser.check_new_request();
         endUser.click_concediuo();
-        endUser.check_vacationre();
-        endUser.click_vacationre();
     }
 }
-
 
 
     
