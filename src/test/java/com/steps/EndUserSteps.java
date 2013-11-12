@@ -20,6 +20,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 import static ch.lambdaj.Lambda.join;
 import static org.fest.assertions.Assertions.assertThat;
 import com.pages.VacationRequestsPage;
+import com.pages.VacationRequestsPageMihai;
 
 public class EndUserSteps extends ScenarioSteps {
 
@@ -29,6 +30,9 @@ public class EndUserSteps extends ScenarioSteps {
 	NewVacationRequest NewVac;
 	VacationRequestsPageMihai vacReqPageMihai;
 	VacationRequestsPage vacationRequestsPage;
+	NewVacationRequest newVac;
+	VacationRequestsPageMihai vacReqPage;
+	VacationRequestsPage ReqPage;
 
 	public EndUserSteps(Pages pages) {
 		super(pages);
@@ -209,5 +213,34 @@ public class EndUserSteps extends ScenarioSteps {
 	@Step
 	public void click_actionsbutton() {
 		vacationRequestsPage.click_actions();
+	}
+
+	@Step
+	public void click_month() {
+		newVac.select_month();
+
+	}
+
+	// @Step
+	// public void click_concediuo() {
+	// newVac.click_concediufaraplata();
+	// }
+
+	@Step
+	public void click_month1() {
+		String monthName = "December";
+		newVac.selectMonthDate(monthName);
+
+	}
+
+	@Step
+	public void click_day() {
+		newVac.select_day();
+
+	}
+
+	@Step
+	public void selectTipConcediu(String concediu) {
+		newVac.selectRadioButton(concediu);
 	}
 }
