@@ -10,7 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.interactions.Actions;
 
 public class SummaryPage extends PageObject {
 
@@ -235,6 +235,11 @@ public class SummaryPage extends PageObject {
 		return null;
 	}
 
+	public void mouseOver(WebElement element) {
+		Actions mouseOver = new Actions(getDriver());
+		mouseOver.moveToElement(element).build().perform();
+	}
+
 	public WebElement getElementWithSpecifiedTextIfExistsInList(By by,
 			boolean ignoreCase, boolean equals, String... terms) {
 		getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
@@ -269,6 +274,7 @@ public class SummaryPage extends PageObject {
 		List<WebElement> elementsList = getVisibleElementsFromList(getDriver()
 				.findElements(by));
 		for (WebElement element : elementsList) {
+			mouseOver(element);
 			String currentElementName = element.getText().trim();
 			System.out.println("currentElementName " + currentElementName);
 			if (ignoreCase)
@@ -339,10 +345,12 @@ public class SummaryPage extends PageObject {
 				tableLabel,
 				By.cssSelector("div.lfr-panel-content > div.lfr-search-container > div:first-child table tr.results-row"),
 				terms);
-		searchedRow.findElement(By.cssSelector("td:last-child > a > span"))
+		searchedRow.findElement(By.cssSelector("td:last-child a > span"))
 				.click();
-		getElementWithSpecifiedTextFromList(
+		WebElement actionOption = getElementWithSpecifiedTextFromList(
 				By.cssSelector("div.lfr-component.lfr-menu-list > ul.lfr-menu-list-overflow > li"),
-				true, false, buttonLabel).click();
+				true, false, buttonLabel);
+		actionOption.sendKeys("");
+		actionOption.click();
 	}
 }
