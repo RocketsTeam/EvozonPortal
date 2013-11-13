@@ -26,4 +26,39 @@ public class Application {
     	public class RejectRequestsTest{}
     }
     
+    @Feature
+    public class AssignReq{
+    	
+    	public class AssignToTest{}
+    }
+    
+    @Feature
+    public class CancelAssignReq{
+    	
+    	public class CancelAssignToTest{}
+    }
+    
+    @Feature
+    public class UserAssignReq{
+    	
+    	public class AssignUserTest{}
+    }
+    
+    @Feature
+    public class CommAssignReq{
+    	
+    	public class CommAssignToTest{}
+    }
+    
+    
+    @Feature
+    public class CheckForCompletedRequests{
+     public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessage{}
+    
+    }
+    
+    @Feature
+    public class CheckWithdrawSubmission{
+     public class CheckIfYouCanWithdrawSubmission{}
+    }
 }

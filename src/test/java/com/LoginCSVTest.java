@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.EndUserSteps;
+import com.steps.VacationRequestsSteps;
 
 @Story(Application.Login.LoginCSVTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
@@ -48,6 +49,9 @@ public class LoginCSVTest {
 
 	@Steps
     public EndUserSteps endUser;
+	
+	@Steps
+    public VacationRequestsSteps vacReqSteps;
 
     @Test
     public void test_csv_login() {

@@ -5,8 +5,10 @@ import java.util.List;
 import net.thucydides.core.pages.PageObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 public class VacationRequestsPage extends PageObject {
@@ -32,8 +34,24 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(id = "workflowMyRolesTasksPanel")
 	private WebElement myRolesContainer;
 
-	@FindBy(css = ".taglib-icon lfr-delegate-click")
+	@FindBy(css = ".taglib-icon.lfr-delegate-click")
 	private WebElement assignto;
+	
+	@FindBy(css = ".aui-field-input-menu")
+	 private WebElement AssignUser;
+	
+	
+	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
+	private WebElement OK_button;
+	
+	@FindBy(css = "div.aui-dialog-ft button:last-child")
+	private WebElement cancel_button;
+	
+	//@FindBy(css=".aui-field-input")
+	 //private WebElement assignToSomeone;
+
+	@FindBy(css=".aui-field-input-menu")
+	 private WebElement assignToList;
 
 	@FindBy(css = ".taglib-icon lfr-delegate-click aui-focus")
 	private WebElement updateduedate;
@@ -78,6 +96,43 @@ public class VacationRequestsPage extends PageObject {
 		}
 
 	}
+	
+	public void click_action_button_my_roles(int index) {
+		  element(myRolesContainer).waitUntilVisible();
+		  List<WebElement> actionButtons = myRolesContainer.findElements(By.cssSelector(".taglib-text"));
+		  actionButtons.get(index).click();
+		 }
+	
+	public void selectAssignto(String person){
+		
+		element(assignto).waitUntilVisible();
+		assignto.click();
+		element(assignto).selectByVisibleText(person);
+	}
+	
+	public void click_AssignUser() {
+		  element(AssignUser).waitUntilVisible();
+		  element(AssignUser).click();
+		 }
+		
+	public void click_to_a_person(String person) {
+	
+	  
+	  element(AssignUser).waitUntilVisible();
+	  AssignUser.click();
+	  AssignUser.click();
+	  element(AssignUser).selectByVisibleText(person);
+	 }
+	
+	 public void click_OK_button(){
+		  element(OK_button).waitUntilVisible();
+		  element(OK_button).click();
+		 }
+	 
+	 public void click_cancel_button(){
+		  element(cancel_button).waitUntilVisible();
+		  element(cancel_button).click();
+		 }
 
 	public boolean check_vacationreq() {
 
@@ -149,6 +204,12 @@ public class VacationRequestsPage extends PageObject {
 
 	public void click_actions() {
 		actions.click();
+	}
+
+	public void refresh_page(){
+		
+		Actions actionObject = new Actions(getDriver());
+		actionObject.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
 	}
 
 }
