@@ -53,6 +53,9 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css=".aui-field-input-menu")
 	 private WebElement assignToList;
 
+	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_comment")
+	 private WebElement comment_section;
+	
 	@FindBy(css = ".taglib-icon lfr-delegate-click aui-focus")
 	private WebElement updateduedate;
 
