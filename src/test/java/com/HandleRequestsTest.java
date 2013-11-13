@@ -63,8 +63,8 @@ public class HandleRequestsTest {
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
 
-//		endUser.check_vacationre();
-//		endUser.click_vacationre();
+		// endUser.check_vacationre();
+		// endUser.click_vacationre();
 		// endUser.check_vacationre();
 		// endUser.click_vacationre();
 
@@ -79,7 +79,8 @@ public class HandleRequestsTest {
 		// endUser.getDriver().get("http://172.22.8.38:9090/web/qa-department/vacation?p_p_id=1_WAR_EvozonKaleooFormsportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_1_WAR_EvozonKaleooFormsportlet_tabs2=my-completed-requests");
 		// endUser.retrieveMyVacationCompletedRequests();
 		userStepsForVacation.clickOnActionOptionForSpecifiedVacation(
-				"Assigned to Me", "Assign to...", "update", "Admin test",
-				"6/11/13 4:57 PM", "6/11/2013 - 6/11/2013");
+				"Assigned to My Roles", "Assign to...", "review",
+				"test1 test1", "11/13/13 10:56 AM", "3/13/2014 - 3/13/2014");
+		
 	}
 }

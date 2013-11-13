@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 
 public class SummaryPage extends PageObject {
 
@@ -19,11 +20,11 @@ public class SummaryPage extends PageObject {
 
 	}
 
+	 @FindBy(css = ".aui-field-input.aui-field-input-select.aui-field-input-menu")
+	 private WebElement assignedToOthersTable;
+	
 	// @FindBy(css = ".lfr-panel-title")
-	// private WebElement assignedToMeLabel;
-	//
-	// @FindBy(css = ".lfr-panel-title")
-	// private WebElement assignedToMyRolesLabel;
+	// private WebElement assignedToMyRolesLabel;_1_WAR_EvozonKaleooFormsportlet_assigneeUserId
 	//
 	// @FindBy(css = ".lfr-panel-title")
 	// private WebElement assignedToOthersLabel;
