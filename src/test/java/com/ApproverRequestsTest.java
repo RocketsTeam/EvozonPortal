@@ -57,12 +57,69 @@ public class ApproverRequestsTest {
         endUser.submit();
         endUser.should_be_on_department_page();
         endUser.should_be_on_department_page1();
+        endUser.click_v();
         endUser.check_vacationre();
         endUser.click_vacationre();
-        endUser.check_actionsbutton();
-        endUser.click_actionsbutton();
+        endUser.check_actionsbutton1();
+        endUser.click_actionsbutton1();
+        endUser.check_approveoption();
+        endUser.click_approveoption();
+        
     }
+
+
+       @Test
+       public void test_csv_login2() {
+    endUser.is_the_home_page();
+    endUser.enter_user(getUser());
+    endUser.enter_password(getPass());
+    endUser.submit();
+    endUser.should_be_on_department_page();
+    endUser.should_be_on_department_page1();
+    endUser.click_v();
+    endUser.check_vacationre();
+    endUser.click_vacationre();
+    endUser.check_actionsbutton2();
+    endUser.click_actionsbutton2();
+    endUser.check_rejectoption();
+    endUser.click_rejectoption();
+    
 }
+       
+       
+     /*  @Test
+       public void test_csv_login3() {
+    endUser.is_the_home_page();
+    endUser.enter_user(getUser());
+    endUser.enter_password(getPass());
+    endUser.submit();
+    endUser.should_be_on_department_page();
+    endUser.should_be_on_department_page1();
+    endUser.click_v();
+    endUser.check_vacationre();
+    endUser.click_vacationre();
+    endUser.check_assigntopt();
+    endUser.click_assigntopt();
+    endUser.check_updateduedateopt();
+    endUser.click_updateduedateopt();
+}
+       @Test
+       public void test_csv_login4() {
+    endUser.is_the_home_page();
+    endUser.enter_user(getUser());
+    endUser.enter_password(getPass());
+    endUser.submit();
+    endUser.should_be_on_department_page();
+    endUser.should_be_on_department_page1();
+    endUser.click_v();
+    endUser.check_vacationre();
+    endUser.click_vacationre();
+    endUser.check_updateduedateopt();
+    endUser.click_updateduedateopt();
+} */
+       
+}
+
 
 
 

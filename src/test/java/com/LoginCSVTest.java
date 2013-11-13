@@ -54,6 +54,7 @@ public class LoginCSVTest {
 
     @Test
     public void test_csv_login() {
+
         submitNewVacationRequest.is_the_home_page();
         submitNewVacationRequest.enter_user(getUser());
         submitNewVacationRequest.enter_password(getPass());
@@ -71,9 +72,9 @@ public class LoginCSVTest {
         submitNewVacationRequest.sholud_appear_popup();
         
         
-        
     }
 }
+
 
 
 

@@ -30,14 +30,7 @@ public class VacationRequestsPageMihai extends PageObject {
 	@FindBy(css = ".aui-column aui-w75 aui-column-last")
 	private WebElement summaryTable;
 
-	@FindBy(css = ".lfr-panel lfr-collapsible lfr-panel-basic")
-	private WebElement assignedToMeTable;
 
-	@FindBy(css = ".lfr-panel lfr-collapsible lfr-panel-basic")
-	private WebElement assignedToMyRolesTable;
-
-	@FindBy(css = ".taglib-search-iterator")
-	private WebElement assignedToOthersTable;
 
 	@FindBy(css = ".aui-button-input")
 	private WebElement submitNewVacationRequest;
