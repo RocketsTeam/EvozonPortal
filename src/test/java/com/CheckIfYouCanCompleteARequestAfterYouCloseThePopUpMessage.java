@@ -17,10 +17,10 @@ import com.requirements.Application;
 import com.steps.EndUserSteps;
 import com.steps.SubmitNewVacationRequestSteps;
 
-@Story(Application.Login.LoginCSVTest.class)
+@Story(Application.CheckForCompletedRequests.CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessage.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginData.csv")
-public class LoginCSVTest {
+public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessage {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -64,13 +64,22 @@ public class LoginCSVTest {
         submitNewVacationRequest.check_new_request();
         submitNewVacationRequest.v_req();
         submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
-        submitNewVacationRequest.click_month("December");
-        submitNewVacationRequest.click_day("24");
-        submitNewVacationRequest.click_year("2013");
-        submitNewVacationRequest.click_monthEndDate("December");
-        submitNewVacationRequest.sholud_appear_popup();
+       // submitNewVacationRequest.click_month("December");
+       // submitNewVacationRequest.click_day("24");
+       // submitNewVacationRequest.click_year("2013");
+       // submitNewVacationRequest.click_monthEndDate("December");
+      //  submitNewVacationRequest.sholud_appear_popup();
+       // submitNewVacationRequest.close_pop_up();
         
         
+        submitNewVacationRequest.enterdomeniu("personale");
+        submitNewVacationRequest.click_saveButton();
+        submitNewVacationRequest.show_popup();
+        submitNewVacationRequest.close_pop_up();
+        submitNewVacationRequest.click_on_calendarButton();
+        submitNewVacationRequest.click_nextMonth();
+        submitNewVacationRequest.click_on_calendarButton();
+        submitNewVacationRequest.click_dayCalendar("3");
         
     }
 }
