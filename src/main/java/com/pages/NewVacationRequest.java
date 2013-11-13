@@ -14,9 +14,6 @@ public class NewVacationRequest extends PageObject {
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_addVacationRequest")
 	private WebElement newrequest;
 
-	// @FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_tsxs")
-	// private WebElement concediufaraplata;
-
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_dateStart-dateMonth")
 	private WebElement month;
 
@@ -68,6 +65,10 @@ public class NewVacationRequest extends PageObject {
 
 		return element(newrequest).isPresent();
 
+	}
+
+	public void select_month() {
+		month.click();
 	}
 
 	public void selectMonthDate(String monthName) {

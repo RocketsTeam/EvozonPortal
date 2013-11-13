@@ -17,15 +17,15 @@ import com.requirements.Application;
 import com.steps.EndUserSteps;
 import com.steps.VacationRequestsSteps;
 
-@Story(Application.RejectReq.RejectRequestsTest.class)
+@Story(Application.CommAssignReq.CommAssignToTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginIulia.csv")
-public class RejectRequestsTest {
+public class CommAssignToTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.38:9090")
+	@ManagedPages(defaultUrl ="http://172.22.8.38:9090")
 	public Pages pages;
 
 	String user, pass;
@@ -54,6 +54,8 @@ public class RejectRequestsTest {
 	public VacationRequestsSteps vacationrequestSteps;
 
 
+
+
 	@Test
 	public void test_csv_login2() {
 		endUser.is_the_home_page();
@@ -63,9 +65,20 @@ public class RejectRequestsTest {
 		endUser.should_be_on_department_page();
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
-		endUser.myRoleListElementAction("test1 test1", "Reject");
-		vacationrequestSteps.refresh_page();
+		endUser.check_actionsbutton2();
+		endUser.click_actionsbutton2();
+	    endUser.check_assigntopt();
+	    endUser.click_assigntopt();
+	    
+        
 
 	}
 
+
+
 }
+
+
+
+
+
