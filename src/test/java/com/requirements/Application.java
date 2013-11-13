@@ -20,4 +20,10 @@ public class Application {
     	public class ApproverRequestsTest{}
     }
     
+    @Feature
+    public class RejectReq{
+    	
+    	public class RejectRequestsTest{}
+    }
+    
 }

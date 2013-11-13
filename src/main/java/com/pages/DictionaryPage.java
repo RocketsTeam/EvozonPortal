@@ -23,8 +23,7 @@ public class DictionaryPage extends PageObject {
 	private WebElement submitButton;
 	
 	
-	/*@FindBy(name="go")
-	private WebElement lookupButton; */
+	
 	
 	public DictionaryPage(WebDriver driver) {
 		super(driver);
@@ -48,19 +47,6 @@ public class DictionaryPage extends PageObject {
 
 
 
-   /* public List<String> getDefinitions() {
-        WebElement definitionList = getDriver().findElement(By.tagName("ol"));
-        List<WebElement> results = definitionList.findElements(By.tagName("li"));
-        return convert(results, toStrings());
-    }
-
-    private Converter<WebElement, String> toStrings() {
-        return new Converter<WebElement, String>() {
-            public String convert(WebElement from) {
-                return from.getText();
-            }
-        };
-    }
-}    */
+  
 
 
