@@ -269,11 +269,11 @@ public class EndUserSteps extends ScenarioSteps {
 		vacationRequestsPage.click_actions();
 	}
 
-	@Step
-	public void click_month() {
-		newVac.select_month();
+	//@Step
+	//public void click_month() {
+		//newVac.select_month();
 
-	}
+	
 
 	// @Step
 	// public void click_concediuo() {
@@ -287,11 +287,12 @@ public class EndUserSteps extends ScenarioSteps {
 
 	}
 
-	@Step
-	public void click_day() {
-		newVac.select_day();
+	//@Step
+	//public void click_day() {
+		//newVac.select_day(); }
+	
 
-	}
+	
 
 	@Step
 	public void selectTipConcediu(String concediu) {
