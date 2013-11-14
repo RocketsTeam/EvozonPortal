@@ -17,10 +17,10 @@ import com.requirements.Application;
 import com.steps.EndUserSteps;
 import com.steps.VacationRequestsSteps;
 
-@Story(Application.CommAssignReq.CommAssignToTest.class)
+@Story(Application.CancelDateReq.CancelDueDateTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginIulia.csv")
-public class CommAssignToTest {
+public class CancelDueDateTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -67,12 +67,10 @@ public class CommAssignToTest {
 		endUser.click_v();
 		endUser.check_actionsbutton2();
 		endUser.click_actionsbutton2();
-	    endUser.check_assigntopt();
-	    endUser.click_assigntopt();
-	    vacationrequestSteps.select_a_person("Admin test");
-	    vacationrequestSteps.enter_comm("test");
-	    vacationrequestSteps.click_OK_button();
-        
+	    endUser.check_updateduedateopt();
+	    endUser.click_updateduedateopt();
+	    vacationrequestSteps.click_Cancelduedateopt();
+	    
 
 	}
 
