@@ -70,7 +70,11 @@ public class MonthDueDateTest {
 	    endUser.check_updateduedateopt();
 	    endUser.click_updateduedateopt();
 	    vacationrequestSteps.click_monthNameDueDate("March"); 
-	    
+	    vacationrequestSteps.click_dayNameDueDate("25");
+	    vacationrequestSteps.click_yearNameDueDate("2014");
+	    vacationrequestSteps.click_hourNameDueDate("8");
+	    vacationrequestSteps.click_minNameDueDate("15");
+	    vacationrequestSteps.click_AMPMNameDueDate("PM");
 
 	}
 

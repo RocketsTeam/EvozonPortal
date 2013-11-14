@@ -270,6 +270,11 @@ public class VacationRequestsSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	 public void click_AMPMNameDueDate(String AMPMNameDueDate) {   
+	  vacationRequestsPage.selectAMPMDueDate(AMPMNameDueDate);     
+	} 
+	
+	@Step
 	public void check_actionsbutton() {
 		vacationRequestsPage.check_actions();
 	}
