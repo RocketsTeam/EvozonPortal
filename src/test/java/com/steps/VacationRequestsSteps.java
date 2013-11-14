@@ -205,6 +205,11 @@ public class VacationRequestsSteps extends ScenarioSteps {
 	 }
 	
 	@Step
+	public void enter_comm(String keyword) {
+		vacationRequestsPage.enter_comm("test");
+	 }
+	
+	@Step
 	public void click_OK_button(){
 		vacationRequestsPage.click_OK_button();
 	}
@@ -223,7 +228,47 @@ public class VacationRequestsSteps extends ScenarioSteps {
 	public void click_updateduedateopt(){
 		ReqPage.click_updateduedate();
 	}
-
+	
+	@Step
+	public void click_OKduedateopt(){
+		ReqPage.click_OKDueDate();
+	}
+	
+	@Step
+	public void click_Cancelduedateopt(){
+		ReqPage.click_CancelDueDate();
+	}
+	
+	@Step
+	public void enter_commDueDate(String keyword) {
+		vacationRequestsPage.enter_commDueDate("testDueDate");
+	 }
+	 
+	@Step
+	 public void click_monthNameDueDate(String monthNameDueDate) { 
+	  vacationRequestsPage.selectMonthDueDate(monthNameDueDate);
+	}
+	
+	@Step
+	 public void click_dayNameDueDate(String dayNameDueDate) { 
+	  vacationRequestsPage.selectDayDueDate(dayNameDueDate);  
+	}
+	
+	@Step
+	 public void click_yearNameDueDate(String yearNameDueDate) {  
+	  vacationRequestsPage.selectYearDueDate(yearNameDueDate);  
+	}
+	
+	@Step
+	 public void click_hourNameDueDate(String hourNameDueDate) {   
+	  vacationRequestsPage.selectHourDueDate(hourNameDueDate);  
+	}
+	
+	@Step
+	 public void click_minNameDueDate(String minNameDueDate) {   
+	  vacationRequestsPage.selectMinDueDate(minNameDueDate);  
+	}
+	
 	@Step
 	public void check_actionsbutton() {
 		vacationRequestsPage.check_actions();

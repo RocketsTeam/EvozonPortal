@@ -62,6 +62,45 @@ public class Application {
 		public class CommAssignToTest {
 		}
 	}
+	
+	@Feature
+	public class DueDateReq {
+
+		public class UpdateDueDateTest {
+		}
+	}
+	
+	@Feature
+	public class OKDateReq {
+
+		public class OKDueDateTest {
+		}
+	}
+	
+	@Feature
+	public class CancelDateReq {
+
+		public class CancelDueDateTest {
+		}
+	}
+	
+	@Feature
+	public class CommDateReq {
+
+		public class CommDueDateTest {
+		}
+	}
+	
+	@Feature
+	public class MonthReq {
+
+		public class MonthDueDateTest {
+		}
+	}
+
+	
+
+
 
 	@Feature
 	public class CheckForCompletedRequests {
@@ -75,4 +114,6 @@ public class Application {
 		public class CheckIfYouCanWithdrawSubmission {
 		}
 	}
+	
+	
 }

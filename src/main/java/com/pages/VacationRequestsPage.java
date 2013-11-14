@@ -47,18 +47,44 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = "div.aui-dialog-ft button:last-child")
 	private WebElement cancel_button;
 	
-	//@FindBy(css=".aui-field-input")
-	 //private WebElement assignToSomeone;
+	
 
 	@FindBy(css=".aui-field-input-menu")
 	 private WebElement assignToList;
 
 	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_comment")
-	 private WebElement comment_section;
+	 private WebElement commentsection;
 	
-	@FindBy(css = ".taglib-icon lfr-delegate-click aui-focus")
+	@FindBy(css = "a[href*= updateWorkflowTask]")
 	private WebElement updateduedate;
+	
+	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first") 
+	private WebElement updateduedate_OKbutton;
+	
+	@FindBy(css = ".aui-dialog-ft .aui-toolbar-last") 
+	private WebElement updateduedate_Cancelbutton;
+	
+	@FindBy(css = ".aui-field-content .aui-field-input-text")   
+	private WebElement commentsectionDueDate;
 
+	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateMonth")   
+	private WebElement monthDueDate;
+	
+	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateDay")   
+	private WebElement dayDueDate;
+	
+	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateYear")   
+	private WebElement yearDueDate;
+	
+	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateHour")   
+	private WebElement hourDueDate;
+	
+	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateMinute")   
+	private WebElement minDueDate;
+	
+	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateAmPm")   
+	private WebElement AMPMDueDate;
+	
 	@FindBy(css = "ul.lfr-menu-list-overflow")
 	private WebElement actionsContainer;
 
@@ -191,6 +217,11 @@ public class VacationRequestsPage extends PageObject {
 		assignto.click();
 	}
 
+	public void enter_comm(String keyword) {
+		element(commentsection).waitUntilVisible();
+        element(commentsection).type(keyword);
+	}
+	
 	public boolean check_updateduedate() {
 
 		return element(updateduedate).isPresent();
@@ -198,6 +229,63 @@ public class VacationRequestsPage extends PageObject {
 
 	public void click_updateduedate() {
 		updateduedate.click();
+	}
+	
+	public void click_OKDueDate(){
+		  element(updateduedate_OKbutton).waitUntilVisible();
+		  element(updateduedate_OKbutton).click();
+		 }
+	
+	public void click_CancelDueDate(){
+		  element(updateduedate_Cancelbutton).waitUntilVisible();
+		  element(updateduedate_Cancelbutton).click();
+		 }
+	
+	public void enter_commDueDate(String keyword) {
+		element(commentsectionDueDate).waitUntilVisible();
+        element(commentsectionDueDate).type(keyword);
+	}
+		
+	public void selectMonthDueDate(String monthNameDueDate) {
+		  element(monthDueDate).waitUntilVisible();
+		  monthDueDate.click();
+		  monthDueDate.click();
+		  element(monthDueDate).selectByVisibleText(monthNameDueDate);
+	}
+	
+	public void selectDayDueDate(String dayNameDueDate) {
+		  element(dayDueDate).waitUntilVisible();
+		  dayDueDate.click();
+		  dayDueDate.click();
+		  element(dayDueDate).selectByVisibleText(dayNameDueDate);
+	}
+	
+	public void selectYearDueDate(String yearNameDueDate) {
+		  element(yearDueDate).waitUntilVisible();
+		  yearDueDate.click();
+		  yearDueDate.click();
+		  element(dayDueDate).selectByVisibleText(yearNameDueDate);
+	}
+	
+	public void selectHourDueDate(String hourNameDueDate) {
+		  element(hourDueDate).waitUntilVisible();
+		  hourDueDate.click();
+		  hourDueDate.click();
+		  element(hourDueDate).selectByVisibleText(hourNameDueDate);
+	}
+	
+	public void selectMinDueDate(String minNameDueDate) {
+		  element(minDueDate).waitUntilVisible();
+		  minDueDate.click();
+		  minDueDate.click();
+		  element(minDueDate).selectByVisibleText(minNameDueDate);
+	}
+	
+	public void selectAMPMDueDate(String AMPMNameDueDate) {
+		  element(AMPMDueDate).waitUntilVisible();
+		  AMPMDueDate.click();
+		  AMPMDueDate.click();
+		  element(AMPMDueDate).selectByVisibleText(AMPMNameDueDate);
 	}
 
 	public boolean check_actions() {
