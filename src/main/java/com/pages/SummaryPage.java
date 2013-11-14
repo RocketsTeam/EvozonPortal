@@ -20,23 +20,111 @@ public class SummaryPage extends PageObject {
 
 	}
 
-	 @FindBy(css = ".aui-field-input.aui-field-input-select.aui-field-input-menu")
-	 private WebElement assignedToOthersTable;
-	
-	// @FindBy(css = ".lfr-panel-title")
-	// private WebElement assignedToMyRolesLabel;_1_WAR_EvozonKaleooFormsportlet_assigneeUserId
-	//
-	// @FindBy(css = ".lfr-panel-title")
-	// private WebElement assignedToOthersLabel;
+	@FindBy(css = ".aui-field-input.aui-field-input-select.aui-field-input-menu")
+	private WebElement assignedToDropdownList;
 
-	// @FindBy(css = ".lfr-panel.lfr-collapsible.lfr-panel-basic")
-	// private WebElement assignedToMeTable;
-	//
-	// @FindBy(css = ".lfr-panel lfr-collapsible lfr-panel-basic")
-	// private WebElement assignedToMyRolesTable;
-	//
-	// @FindBy(css = ".taglib-search-iterator")
-	// private WebElement assignedToOthersTable;
+	@FindBy(css = ".portlet-msg-success")
+	private WebElement confirmmessagepanel;
+
+	@FindBy(id = "workflowMyRolesTasksPanel")
+	private WebElement myRolesContainer;
+	
+	@FindBy(id = "aui-buttonitem-label")
+	private WebElement ConfirmOKButton;
+
+	@FindBy(css = "ul.lfr-menu-list-overflow")
+	private WebElement actionsContainer;
+	
+	@FindBy(css = ".lfr-search-container>div.lfr-search-container")
+	private WebElement panels;
+	
+	/*public boolean checkIfLastRequestHandledAppearsInTherightsection(By by,
+			boolean ignoreCase, boolean equals, String... terms) {
+		getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+		List<WebElement> elementsList = getVisibleElementsFromList(getDriver()
+				.findElements(by));
+		for (WebElement element : elementsList) {
+			String currentElementName = element.getText().trim();
+			if (ignoreCase)
+				currentElementName = currentElementName.toLowerCase();
+			boolean matched = false;
+			if (terms.length == 1) {
+				if (ignoreCase)
+					matched = equals ? currentElementName.equals(terms[0]
+							.toLowerCase()) : currentElementName
+							.contains(terms[0].toLowerCase());
+				else
+					matched = equals ? currentElementName.equals(terms[0])
+							: currentElementName.contains(terms[0]);
+			} else
+				matched = checkIfTextContainsTerms(currentElementName,
+						ignoreCase, terms);
+			if (matched)
+				return true;
+		}
+		return false;
+	}
+	*/
+
+	public boolean checkForMessage() {
+		element(confirmmessagepanel).waitUntilVisible();
+		return element(confirmmessagepanel).isPresent();
+	}
+	
+	 public void click_Ok() {
+	    	ConfirmOKButton.click();
+	    }
+
+	// selecting oen person from Assign to.. dropdown list
+
+	/*public void selectAssignToPerson(String personName) {
+		element(radioButtonContainer).waitUntilVisible();
+
+		List<WebElement> radioButtonsList = radioButtonContainer
+				.findElements(By.cssSelector("span.aui-field-choice"));
+
+		theFor: for (WebElement elementNow : radioButtonsList) {
+			String currentText = elementNow.getText();
+			if (currentText.contains(nameRadio)) {
+				elementNow.findElement(By.tagName("input")).click();
+				break theFor;
+			}
+
+		}
+	}*/
+/*
+	public void getAllUsersFromAssignToDropdownList(String action) {
+		element(assignedToDropdownList).waitUntilVisible();
+		List<WebElement> itemsList = actionsContainer.findElements(By
+				.tagName("option"));
+		for (WebElement elementNow : itemsList) {
+			String identifier = elementNow.getText();
+
+			if (identifier.contains(action)) {
+				elementNow.click();
+				break;
+			}
+		}
+	}
+
+	public void markListEntry(String itemName, String action) {
+		element(myRolesContainer).waitUntilVisible();
+		List<WebElement> itemsList = myRolesContainer.findElements(By
+				.cssSelector("tr.results-row"));
+
+		theFor: for (WebElement elementNow : itemsList) {
+			String identifier = elementNow.findElement(
+					By.cssSelector("td:nth-child(2)")).getText();
+
+			if (identifier.contains(itemName)) {
+				elementNow.findElement(By.cssSelector("td:last-child a"))
+						.click();
+				selectAction(action);
+				break theFor;
+			}
+		}
+
+	}*/
 
 	public static boolean checkIfTextContainsTerms(String text,
 			boolean ignoreCase, String... strTerms) {
@@ -311,11 +399,13 @@ public class SummaryPage extends PageObject {
 		WebElement searchedRow = getElementWithSpecifiedTextIfExistsInListInsideElement(
 				tableContainer, listElements, true, false, terms);
 		boolean foundRow = false;
-		if (searchedRow ==null){
-			System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + tableContainer
-							.findElement(
-									By.cssSelector("div.taglib-search-iterator-page-iterator-bottom > div > div.search-pages > div.page-links > span.aui-paginator-current-page-report.aui-paginator-total:last-of-type"))
-							.getText());
+		if (searchedRow == null) {
+			System.out
+					.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! "
+							+ tableContainer
+									.findElement(
+											By.cssSelector("div.taglib-search-iterator-page-iterator-bottom > div > div.search-pages > div.page-links > span.aui-paginator-current-page-report.aui-paginator-total:last-of-type"))
+									.getText());
 			int noOfPages = getAllIntegerNumbersFromString(
 					tableContainer
 							.findElement(
@@ -333,7 +423,7 @@ public class SummaryPage extends PageObject {
 					foundRow = true;
 					break;
 				}
-				//sigur trebuie decemenentat?????
+
 				noOfPages--;
 			}
 		}
@@ -353,5 +443,7 @@ public class SummaryPage extends PageObject {
 				true, false, buttonLabel);
 		actionOption.sendKeys("");
 		actionOption.click();
+		
+		
 	}
 }

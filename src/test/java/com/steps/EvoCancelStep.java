@@ -1,20 +1,20 @@
 package com.steps;
 
-import org.junit.Assert;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import com.pages.ControlPanelPage;
 import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
+import com.pages.EvoCancelVacation;
 import com.pages.NewVacationRequest;
 import com.pages.SubmitVacationRequest;
 import com.pages.SummaryPage;
 import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
 
-public class UserStepsForVacation extends ScenarioSteps {
+public class EvoCancelStep extends ScenarioSteps {
 
 	DictionaryPage dictionaryPage;
 	DepartmentPage depPage;
@@ -24,29 +24,17 @@ public class UserStepsForVacation extends ScenarioSteps {
 	VacationRequestsPage vacationRequestsPage;
 	NewVacationRequest newVac;
 	SummaryPage summaryPage;
+	ControlPanelPage controlPanelPage;
+	EvoCancelVacation evoCancelVacation;
 
-	public UserStepsForVacation(Pages pages) {
+	public EvoCancelStep(Pages pages) {
 		super(pages);
 
 	}
-	
 
 	@Step
-	public void clickOnActionOptionForSpecifiedVacation(String tableLabel,
-			String buttonLabel, String... terms) {
-		summaryPage.clickOnActionOptionForSpecifiedVacation(tableLabel,
-				buttonLabel, terms);
-	}
-	
-	@Step
-	public void shouldShowConfirmingMessage() {
-		Assert.assertTrue("Should be a confirming message",
-				summaryPage.checkForMessage());
-	}
-	
-	@Step
-	public void clickConfirmingOK() {
-		summaryPage.click_Ok();
+	public void select_tip_concediu(String tipConcediu) {
+		evoCancelVacation.click_ddlTipConcediu(tipConcediu);
 	}
 
 }

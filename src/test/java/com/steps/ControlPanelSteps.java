@@ -1,11 +1,10 @@
 package com.steps;
 
-import org.junit.Assert;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import com.pages.ControlPanelPage;
 import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.NewVacationRequest;
@@ -14,7 +13,7 @@ import com.pages.SummaryPage;
 import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
 
-public class UserStepsForVacation extends ScenarioSteps {
+public class ControlPanelSteps extends ScenarioSteps {
 
 	DictionaryPage dictionaryPage;
 	DepartmentPage depPage;
@@ -24,29 +23,31 @@ public class UserStepsForVacation extends ScenarioSteps {
 	VacationRequestsPage vacationRequestsPage;
 	NewVacationRequest newVac;
 	SummaryPage summaryPage;
+	ControlPanelPage controlPanelPage;
+	
 
-	public UserStepsForVacation(Pages pages) {
+	public ControlPanelSteps(Pages pages) {
 		super(pages);
 
 	}
 	
 
+	
+	
 	@Step
-	public void clickOnActionOptionForSpecifiedVacation(String tableLabel,
-			String buttonLabel, String... terms) {
-		summaryPage.clickOnActionOptionForSpecifiedVacation(tableLabel,
-				buttonLabel, terms);
+	public void clickGoToButton() {
+		controlPanelPage.clickGoToButton();
+	}
+	
+	
+	@Step
+	public void clickControlpanelButton() {
+		controlPanelPage.clickControlPanelButton();
 	}
 	
 	@Step
-	public void shouldShowConfirmingMessage() {
-		Assert.assertTrue("Should be a confirming message",
-				summaryPage.checkForMessage());
-	}
-	
-	@Step
-	public void clickConfirmingOK() {
-		summaryPage.click_Ok();
+	public void clickEvoVacationLink() {
+		controlPanelPage.clickOnEvoCancelVacationLink();
 	}
 
 }

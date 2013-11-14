@@ -74,5 +74,12 @@ public class Application {
 		public class CheckIfYouCanWithdrawSubmission {
 		}
 	}
+	@Feature
+	public class ControlPanel {
+
+		public class ControlPanelTest {
+		}
+	}
+	
 
 }
