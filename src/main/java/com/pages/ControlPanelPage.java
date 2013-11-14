@@ -11,9 +11,14 @@ public class ControlPanelPage extends PageObject {
 
 	 @FindBy(id = "_160_portlet_evocancelvacation_WAR_EvozonCancelVacationportlet")
 	 private WebElement evoCancelVacationLink;
+	 
+	 @FindBy(id = "_160_portlet_evocontrolpanelvacationhistory_WAR_EvozonControlPanelVacationHistoryportlet")
+	 private WebElement evoVacationHistoryLink;
 
 	@FindBy(css = ".control-panel a")
 	public WebElement controlPanelButton;
+	
+	
 
 	@FindBy(css = "li.my-sites a.menu-button span")
 	private WebElement goToButton;
@@ -27,6 +32,13 @@ public class ControlPanelPage extends PageObject {
 		Actions actions = new Actions(getDriver());
 		actions.moveToElement(evoCancelVacationLink).click().build().perform();
 		evoCancelVacationLink.click();
+	}
+	
+	public void clickOnEvoVacationhistory() {
+		element(evoVacationHistoryLink).waitUntilVisible();
+		Actions actions = new Actions(getDriver());
+		actions.moveToElement(evoVacationHistoryLink).click().build().perform();
+		evoVacationHistoryLink.click();
 	}
 	
 

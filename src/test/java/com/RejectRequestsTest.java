@@ -15,10 +15,11 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.EndUserSteps;
+import com.steps.VacationRequestsSteps;
 
 @Story(Application.RejectReq.RejectRequestsTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/loginData.csv")
+@UseTestDataFrom("resources/loginIulia.csv")
 public class RejectRequestsTest {
 
 	@Managed(uniqueSession = true)
@@ -48,6 +49,10 @@ public class RejectRequestsTest {
 
 	@Steps
 	public EndUserSteps endUser;
+	
+	@Steps
+	public VacationRequestsSteps vacationrequestSteps;
+
 
 	@Test
 	public void test_csv_login2() {
@@ -58,9 +63,8 @@ public class RejectRequestsTest {
 		endUser.should_be_on_department_page();
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
-		
-		endUser.myRoleListElementAction("test1 test1", "Approve");
 		endUser.myRoleListElementAction("test1 test1", "Reject");
+		vacationrequestSteps.refresh_page();
 
 	}
 

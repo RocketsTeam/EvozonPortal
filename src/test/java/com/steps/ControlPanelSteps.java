@@ -49,5 +49,9 @@ public class ControlPanelSteps extends ScenarioSteps {
 	public void clickEvoVacationLink() {
 		controlPanelPage.clickOnEvoCancelVacationLink();
 	}
+	@Step
+	public void clickOnEvoCancelVacationHistory() {
+		controlPanelPage.clickOnEvoVacationhistory();
+	}
 
 }

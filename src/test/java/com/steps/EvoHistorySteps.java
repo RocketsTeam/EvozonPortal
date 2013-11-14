@@ -8,13 +8,14 @@ import com.pages.ControlPanelPage;
 import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.EvoCancelVacation;
+import com.pages.EvoVacationHistoryPage;
 import com.pages.NewVacationRequest;
 import com.pages.SubmitVacationRequest;
 import com.pages.SummaryPage;
 import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
 
-public class EvoCancelStep extends ScenarioSteps {
+public class EvoHistorySteps extends ScenarioSteps {
 
 	DictionaryPage dictionaryPage;
 	DepartmentPage depPage;
@@ -26,25 +27,26 @@ public class EvoCancelStep extends ScenarioSteps {
 	SummaryPage summaryPage;
 	ControlPanelPage controlPanelPage;
 	EvoCancelVacation evoCancelVacation;
-	
+	EvoVacationHistoryPage evovacationHistoryPage;
 
-	public EvoCancelStep(Pages pages) {
+	public EvoHistorySteps(Pages pages) {
 		super(pages);
 
 	}
 
 	@Step
-	public void select_tip_concediu(String tipConcediu) {
-		evoCancelVacation.click_ddlTipConcediu(tipConcediu);
-	}
-	@Step
-	public void verifySearchResultsContainsItem(String... terms) {
-		evoCancelVacation.verifySearchResults(terms);
+	public void enterSearchImput(String keyword) {
+		evovacationHistoryPage.enterSearchText(keyword);
 	}
 	
-	/*@Step
-	public void getStringFromDropdownList(String checkName) {
-		evoCancelVacation.getTheDropdownListItemsName(checkName);
-	}*/
+	@Step
+	public void verifySearchResultsContainsItem(String... terms) {
+		evovacationHistoryPage.verifySearchResultsContainsItem(terms);
+	}
+
+	@Step
+	public void submitSearch() {
+		evovacationHistoryPage.submitSearch();
+	}
 
 }

@@ -18,20 +18,19 @@ public class EndUserSteps extends ScenarioSteps {
 	DictionaryPage dictionaryPage;
 	DepartmentPage depPage;
 	SubmitVacationRequest VacPage;
-	NewVacationRequest NewVac;
+	NewVacationRequest newVac;
 	VacationRequestsPageMihai vacReqPageMihai;
 	VacationRequestsPage vacationRequestsPage;
-	NewVacationRequest newVac;
 
 	public EndUserSteps(Pages pages) {
 		super(pages);
 	}
 
 	@Step
-	public void myRoleListElementAction(String element, String action){
+	public void myRoleListElementAction(String element, String action) {
 		vacationRequestsPage.markListEntry(element, action);
 	}
-	
+
 	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
@@ -180,84 +179,85 @@ public class EndUserSteps extends ScenarioSteps {
 	}
 
 	@Step
-    public void check_new_request(){
-    	Assert.assertTrue("A new vacation request sholud appear", NewVac.check_new_request());
-    }
-    
-    @Step
-    public void click_concediuo(){
-    	VacPage.click_vacationrequest();
-    }
-    
-    @Step
-    public void check_vacationre(){
-    	vacationRequestsPage.check_vacationreq();
-    }
-    
-    @Step
-    public void click_vacationre(){
-    	vacationRequestsPage.click_vacationreq();
-    }
-    
-    @Step
-    public void check_actionsbutton1(){
-    	vacationRequestsPage.check_actions1();
-    }
-    
-    @Step
-    public void click_actionsbutton1(){
-    	vacationRequestsPage.click_actions1();
-    }
-    
-    @Step
-    public void check_approveoption(){
-    	vacationRequestsPage.check_approve();
-    }
-    
-    @Step
-    public void click_approveoption(){
-    	vacationRequestsPage.click_approve();
-    }
-    
-    @Step
-    public void check_actionsbutton2(){
-    	vacationRequestsPage.check_actions2();
-    }
-    
-    @Step
-    public void click_actionsbutton2(){
-    	vacationRequestsPage.click_actions2();
-    }
-    
-    @Step
-    public void check_rejectoption(){
-    	vacationRequestsPage.check_reject();
-    }
-    
-    @Step
-    public void click_rejectoption(){
-    	vacationRequestsPage.click_reject();
-    }
-    
-    @Step
-    public void check_assigntopt(){
-    	vacationRequestsPage.check_assignto();
-    }
-    
-    @Step
-    public void click_assigntopt(){
-    	vacationRequestsPage.click_assignto();
-    }
-    
-    @Step
-    public void check_updateduedateopt(){
-    	vacationRequestsPage.check_updateduedate();
-    }
-    
-    @Step
-    public void click_updateduedateopt(){
-    	vacationRequestsPage.click_updateduedate();
-    }
+	public void check_new_request() {
+		Assert.assertTrue("A new vacation request sholud appear",
+				newVac.check_new_request());
+	}
+
+	@Step
+	public void click_concediuo() {
+		VacPage.click_vacationrequest();
+	}
+
+	@Step
+	public void check_vacationre() {
+		vacationRequestsPage.check_vacationreq();
+	}
+
+	@Step
+	public void click_vacationre() {
+		vacationRequestsPage.click_vacationreq();
+	}
+
+	@Step
+	public void check_actionsbutton1() {
+		vacationRequestsPage.check_actions1();
+	}
+
+	@Step
+	public void click_actionsbutton1() {
+		vacationRequestsPage.click_actions1();
+	}
+
+	@Step
+	public void check_approveoption() {
+		vacationRequestsPage.check_approve();
+	}
+
+	@Step
+	public void click_approveoption() {
+		vacationRequestsPage.click_approve();
+	}
+
+	@Step
+	public void check_actionsbutton2() {
+		vacationRequestsPage.check_actions2();
+	}
+
+	@Step
+	public void click_actionsbutton2() {
+		vacationRequestsPage.click_actions2();
+	}
+
+	@Step
+	public void check_rejectoption() {
+		vacationRequestsPage.check_reject();
+	}
+
+	@Step
+	public void click_rejectoption() {
+		vacationRequestsPage.click_reject();
+	}
+
+	@Step
+	public void check_assigntopt() {
+		vacationRequestsPage.check_assignto();
+	}
+
+	@Step
+	public void click_assigntopt() {
+		vacationRequestsPage.click_assignto();
+	}
+
+	@Step
+	public void check_updateduedateopt() {
+		vacationRequestsPage.check_updateduedate();
+	}
+
+	@Step
+	public void click_updateduedateopt() {
+		vacationRequestsPage.click_updateduedate();
+	}
 
 	@Step
 	public void check_actionsbutton() {
@@ -269,11 +269,11 @@ public class EndUserSteps extends ScenarioSteps {
 		vacationRequestsPage.click_actions();
 	}
 
-	@Step
-	public void click_month() {
-		newVac.select_month();
+	//@Step
+	//public void click_month() {
+		//newVac.select_month();
 
-	}
+	
 
 	// @Step
 	// public void click_concediuo() {
@@ -287,11 +287,12 @@ public class EndUserSteps extends ScenarioSteps {
 
 	}
 
-	@Step
-	public void click_day() {
-		newVac.select_day();
+	//@Step
+	//public void click_day() {
+		//newVac.select_day(); }
+	
 
-	}
+	
 
 	@Step
 	public void selectTipConcediu(String concediu) {

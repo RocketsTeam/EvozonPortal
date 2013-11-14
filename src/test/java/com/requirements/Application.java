@@ -55,12 +55,13 @@ public class Application {
 		public class AssignUserTest {
 		}
 	}
-	
+
 	@Feature
-    public class CommAssignReq{
-     
-     public class CommAssignToTest{}
-    }
+	public class CommAssignReq {
+
+		public class CommAssignToTest {
+		}
+	}
 
 	@Feature
 	public class CheckForCompletedRequests {
@@ -74,6 +75,7 @@ public class Application {
 		public class CheckIfYouCanWithdrawSubmission {
 		}
 	}
+
 	@Feature
 	public class ControlPanel {
 
@@ -81,5 +83,18 @@ public class Application {
 		}
 	}
 	
+	@Feature
+	public class EvoCancel {
+
+		public class EvoCancelVacationTest {
+		}
+	}
+	
+	@Feature
+	public class EvoVacationHistory {
+
+		public class EvoVacationHistoryTest {
+		}
+	}
 
 }

@@ -15,17 +15,17 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.EndUserSteps;
-import com.steps.UserStepsForVacation;
+import com.steps.VacationRequestsSteps;
 
-@Story(Application.HandleRequests.HandleRequestsTest.class)
+@Story(Application.AssignReq.AssignToTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/DataHandleRequest.csv")
-public class HandleRequestsTest {
+@UseTestDataFrom("resources/loginIulia.csv")
+public class AssignToTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
-	@ManagedPages(defaultUrl = "http://172.22.8.38:9090")
+	@ManagedPages(defaultUrl ="http://172.22.8.38:9090")
 	public Pages pages;
 
 	String user, pass;
@@ -49,12 +49,15 @@ public class HandleRequestsTest {
 
 	@Steps
 	public EndUserSteps endUser;
-
+	
 	@Steps
-	public UserStepsForVacation userStepsForVacation;
+	public VacationRequestsSteps vacationrequestSteps;
+
+
+
 
 	@Test
-	public void test_csv_login() {
+	public void test_csv_login2() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
@@ -62,12 +65,20 @@ public class HandleRequestsTest {
 		endUser.should_be_on_department_page();
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
-		userStepsForVacation.clickOnActionOptionForSpecifiedVacation(
-				"Assigned to me", "Assign to...", "test1 test1",
-				"11/13/13 10:01 AM", "2/25/2014 - 2/25/2014");
-		endUser.waitABit(5000);
-		userStepsForVacation.clickConfirmingOK();
-		userStepsForVacation.shouldShowConfirmingMessage();
+		endUser.check_actionsbutton2();
+		endUser.click_actionsbutton2();
+	    endUser.check_assigntopt();
+	    endUser.click_assigntopt();
+	    vacationrequestSteps.click_OK_button();
+        
 
 	}
+
+
+
 }
+
+
+
+
+

@@ -14,13 +14,15 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.steps.ControlPanelSteps;
 import com.steps.EndUserSteps;
+import com.steps.EvoCancelStep;
 import com.steps.UserStepsForVacation;
 
-@Story(Application.HandleRequests.HandleRequestsTest.class)
+@Story(Application.EvoCancel.EvoCancelVacationTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/DataHandleRequest.csv")
-public class HandleRequestsTest {
+public class EvoCancelVacationTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -53,6 +55,12 @@ public class HandleRequestsTest {
 	@Steps
 	public UserStepsForVacation userStepsForVacation;
 
+	@Steps
+	public ControlPanelSteps controlPanelSteps;
+	
+	@Steps
+	public EvoCancelStep evoCancelStep;
+
 	@Test
 	public void test_csv_login() {
 		endUser.is_the_home_page();
@@ -60,14 +68,11 @@ public class HandleRequestsTest {
 		endUser.enter_password(getPass());
 		endUser.submit();
 		endUser.should_be_on_department_page();
-		endUser.should_be_on_department_page1();
-		endUser.click_v();
-		userStepsForVacation.clickOnActionOptionForSpecifiedVacation(
-				"Assigned to me", "Assign to...", "test1 test1",
-				"11/13/13 10:01 AM", "2/25/2014 - 2/25/2014");
-		endUser.waitABit(5000);
-		userStepsForVacation.clickConfirmingOK();
-		userStepsForVacation.shouldShowConfirmingMessage();
+		controlPanelSteps.clickGoToButton();
+		controlPanelSteps.clickControlpanelButton();
+		controlPanelSteps.clickEvoVacationLink();
+		evoCancelStep.select_tip_concediu("Concediu de odihna");
+		evoCancelStep.verifySearchResultsContainsItem("Concediu de odihna");
 
 	}
 }

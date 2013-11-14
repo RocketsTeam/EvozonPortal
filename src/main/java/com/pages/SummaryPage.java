@@ -29,7 +29,7 @@ public class SummaryPage extends PageObject {
 	@FindBy(id = "workflowMyRolesTasksPanel")
 	private WebElement myRolesContainer;
 	
-	@FindBy(id = "aui-buttonitem-label")
+	@FindBy(id = ".aui-buttonitem-label")
 	private WebElement ConfirmOKButton;
 
 	@FindBy(css = "ul.lfr-menu-list-overflow")
@@ -72,7 +72,10 @@ public class SummaryPage extends PageObject {
 	}
 	
 	 public void click_Ok() {
-	    	ConfirmOKButton.click();
+		 element(ConfirmOKButton).waitUntilVisible();
+			Actions actions = new Actions(getDriver());
+			actions.moveToElement(ConfirmOKButton).click().build().perform();
+			ConfirmOKButton.click();
 	    }
 
 	// selecting oen person from Assign to.. dropdown list
@@ -439,11 +442,13 @@ public class SummaryPage extends PageObject {
 		searchedRow.findElement(By.cssSelector("td:last-child a > span"))
 				.click();
 		WebElement actionOption = getElementWithSpecifiedTextFromList(
-				By.cssSelector("div.lfr-component.lfr-menu-list > ul.lfr-menu-list-overflow > li"),
+				By.cssSelector("div.lfr-component.lfr-menu-list > ul.lfr-menu-list-overflow > li > a"),
 				true, false, buttonLabel);
-		actionOption.sendKeys("");
+		System.out.println("################################################# " + actionOption.getText());
+//		actionOption.sendKeys("");
+//		mouseOver(actionOption);
 		actionOption.click();
-		
+//		$(actionOption).click();
 		
 	}
 }
