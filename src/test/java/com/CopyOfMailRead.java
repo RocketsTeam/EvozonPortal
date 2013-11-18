@@ -28,7 +28,7 @@ public static void main(String[] args) throws IOException {
           Session session;
           session = Session.getDefaultInstance(props, null);
           Store store = session.getStore("imaps");
-          store.connect("imap.gmail.com","QaDepartment123", "1234567Qa");
+          store.connect("imap.gmail.com","qadepartmentmanager", "Test123456");
 
           IMAPFolder folder = (IMAPFolder) store.getFolder("inbox");
           folder.open(Folder.READ_ONLY);
