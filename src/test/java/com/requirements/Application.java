@@ -121,6 +121,12 @@ public class Application {
 	
 	
 
+	@Feature
+	public class FolderFetchIMAP {
+		public class FolderFetchIMAPTest {
+		}
+
+	}
 
 
 	@Feature
