@@ -23,7 +23,7 @@ import com.sun.mail.imap.IMAPFolder;
 public class CheckEmailSteps {
 	
 @Step
-	public void setLogin(String mailtype, String username, String password,String subjectVar, String fromVar) throws MessagingException,
+	public void setLogin( String username, String password,String... terms) throws MessagingException,
 			IOException {
 		IMAPFolder folder = null;
 		Store store = null;
@@ -61,15 +61,15 @@ public class CheckEmailSteps {
 				Message msg = messages[i];
 				String subject = msg.getSubject().toString();
 				
-				String subjecteTempl=subjectVar;
+				//String subjecteTempl=subjectVar;
 				String from= msg.getFrom()[0].toString();
-				String fromTempl=fromVar;
+				//String fromTempl=fromVar;
 				String date = msg.getReceivedDate().toString();
 				
 				
-				 //String text=subject+from+date;
+				 String text=subject+from+date;
 				
-				if (checkIfTextContainsTerms(fromTempl,false,"EvoPortal")){
+				if (checkIfTextContainsTerms(text,true,terms)){
 					
 					System.out
 					.println("*****************************************************************************");
