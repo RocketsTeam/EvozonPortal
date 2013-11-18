@@ -156,4 +156,12 @@ public class Application {
 		public class EvoVacationHistoryTest {
 		}
 	}
-}
+	
+	@Feature
+	public class CheckEm2{
+		public class  CheckEmail2{
+		}
+		
+		}
+	}
+

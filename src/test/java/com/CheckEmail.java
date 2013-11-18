@@ -18,7 +18,7 @@ import javax.mail.Store;
 
 import com.sun.mail.imap.IMAPFolder;
 
-public class EmailTest {
+public class CheckEmail {
 
 	public static void main(String[] args) throws MessagingException,
 			IOException {
@@ -38,7 +38,7 @@ public class EmailTest {
 
 			store = session.getStore("imaps");
 
-			store.connect("imap.googlemail.com", "Qadefaultuser", "1234567890Qa");
+			store.connect("imap.googlemail.com", "qadefaultuser", "1234567890Qa");
 
 			// folder = (IMAPFolder) store.getFolder("[Gmail]/Spam"); // This
 			// doesn't work for other email account
@@ -57,12 +57,13 @@ public class EmailTest {
 				
 				Message msg = messages[i];
 				subject = msg.getSubject().toString();
-				from = msg.getFrom().toString();
+				from = msg.getFrom()[0].toString();
 				date=msg.getReceivedDate().toString();
 				
 				
 				 String text=subject+from+date;
-				if (checkIfTextContainsTerms(text,false,"Approved")){
+				
+				if (checkIfTextContainsTerms(from,false,"EvoPortal")){
 					
 					System.out
 					.println("*****************************************************************************");
