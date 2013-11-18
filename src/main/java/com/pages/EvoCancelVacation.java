@@ -28,7 +28,6 @@ public class EvoCancelVacation extends PageObject {
 		element(ddlTipConcediu).click();
 
 		element(concediuListContainer).waitUntilVisible();
-
 		List<WebElement> checkList = concediuListContainer.findElements(By
 				.cssSelector("li span.aui-field-content"));
 
@@ -38,28 +37,35 @@ public class EvoCancelVacation extends PageObject {
 			if (currentTerm.contains(checkName)) {
 				elementNow.findElement(By.cssSelector("input:last-child"))
 						.click();
-				break;
+				 break;
 			}
 		}
 	}
 
-/*	public String getTheDropdownListItemsName(String checkName) {
+	/*public static boolean checkIfTextContainsTerms(String text,
+			boolean ignoreCase, String... strTerms) {
+		text = removeNewLinesMultipleSpacesAndTabs(text);
+		if (ignoreCase)
+			text = text.toLowerCase();
+		for (String term : strTerms) {
+			if (ignoreCase)
+				term = term.toLowerCase();
+			if (!text.contains(term))
+				return false;
+		}
+		return true;
+	}
 
-		List<WebElement> checkList = concediuListContainer.findElements(By
-				.cssSelector("li span.aui-field-content"));
-		 for (WebElement elementNow : checkList) {
-			String currentTerm = elementNow.getText();
-			//System.out.println("Current term: " + currentTerm);
-			if (currentTerm.contains(checkName)) {
-				elementNow.findElement(By.cssSelector("input:last-child"));
-				return currentTerm;
-				
-		
-			}
-		 }
-		
-		return "";
+	public static String removeNewLinesMultipleSpacesAndTabs(String body) {
+		body = body.replaceAll("[\0\t\n\r]", " ");
+		body = body.replaceAll("&nbsp;", " ");
+		while (body.indexOf("  ") != -1) {
+			body = body.replaceAll("  ", " ");
+		}
+		return body;
 	}*/
+
+	
 
 	public void verifySearchResults(String... terms) {
 		String noOfPagesContainer = getDriver()
@@ -89,6 +95,7 @@ public class EvoCancelVacation extends PageObject {
 						.findElement(
 								By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
 						.click();
+				waitABit(2000);
 			}
 		}
 	}

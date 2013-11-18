@@ -72,7 +72,9 @@ public class EvoCancelVacationTest {
 		controlPanelSteps.clickControlpanelButton();
 		controlPanelSteps.clickEvoVacationLink();
 		evoCancelStep.select_tip_concediu("Concediu de odihna");
+		endUser.waitABit(1000);
 		evoCancelStep.verifySearchResultsContainsItem("Concediu de odihna");
+		endUser.waitABit(1000);
 
 	}
 }

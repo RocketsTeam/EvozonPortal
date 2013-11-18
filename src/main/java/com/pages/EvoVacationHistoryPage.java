@@ -68,6 +68,7 @@ public class EvoVacationHistoryPage extends PageObject {
 								By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
 								String.format("(%d of %d)", i + 2,
 										noOfPages)));
+				waitABit(2000);
 			}
 		}
 	}

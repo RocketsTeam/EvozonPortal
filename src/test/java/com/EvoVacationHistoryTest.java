@@ -78,6 +78,7 @@ public class EvoVacationHistoryTest {
 		evoHistorySteps.enterSearchImput("QADep");
 		evoHistorySteps.submitSearch();
 		evoHistorySteps.verifySearchResultsContainsItem("QADep");
+		endUser.waitABit(5000);
 		
 	}
 }
