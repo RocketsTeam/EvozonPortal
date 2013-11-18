@@ -17,10 +17,10 @@ import com.requirements.Application;
 import com.steps.EndUserSteps;
 import com.steps.SubmitNewVacationRequestSteps;
 
-@Story(Application.CheckWithdrawSubmission.CheckIfYouCanWithdrawSubmission.class)
+@Story(Application.CheckForCompletedRequests.CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessage.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginDataNina.csv")
-public class CheckIfYouCanWithdrawSubmission {
+public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -61,9 +61,25 @@ public class CheckIfYouCanWithdrawSubmission {
         submitNewVacationRequest.should_be_on_department_page();
         submitNewVacationRequest.should_be_on_department_page1();
         submitNewVacationRequest.click_v();
-        //.click_vacationre();
+        submitNewVacationRequest.check_new_request();
+        submitNewVacationRequest.v_req();
+        submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
+       // submitNewVacationRequest.click_month("December");
+       // submitNewVacationRequest.click_day("24");
+       // submitNewVacationRequest.click_year("2013");
+       // submitNewVacationRequest.click_monthEndDate("December");
+      //  submitNewVacationRequest.sholud_appear_popup();
+       // submitNewVacationRequest.close_pop_up();
         
         
+        submitNewVacationRequest.enterdomeniu("personale");
+        submitNewVacationRequest.click_saveButton();
+        submitNewVacationRequest.show_popup();
+        submitNewVacationRequest.close_pop_up();
+        submitNewVacationRequest.click_on_calendarButton();
+        submitNewVacationRequest.click_nextMonth();
+        submitNewVacationRequest.click_on_calendarButton();
+        submitNewVacationRequest.click_dayCalendar("3");
         
     }
 }
