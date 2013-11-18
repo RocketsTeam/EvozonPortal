@@ -177,8 +177,8 @@ public class Application {
 	}
 	
 	@Feature
-	public class CheckEm2{
-		public class  CheckEmail2{
+	public class CheckEm{
+		public class  CheckEmail{
 		}
 		
 		}
