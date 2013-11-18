@@ -20,7 +20,7 @@ import com.steps.VacationRequestsSteps;
 
 @Story(Application.Login.LoginCSVTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/loginData.csv")
+@UseTestDataFrom("resources/loginDataNina.csv")
 public class LoginCSVTest {
 
 	@Managed(uniqueSession = true)

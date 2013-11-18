@@ -19,7 +19,7 @@ import com.steps.SubmitNewVacationRequestSteps;
 
 @Story(Application.CheckWithdrawSubmission.CheckIfYouCanWithdrawSubmission.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/loginData.csv")
+@UseTestDataFrom("resources/loginDataNina.csv")
 public class CheckIfYouCanWithdrawSubmission {
 
     @Managed(uniqueSession = true)

@@ -19,7 +19,7 @@ import com.steps.SubmitNewVacationRequestSteps;
 
 @Story(Application.CheckForCompletedRequests.CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessage.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/loginData.csv")
+@UseTestDataFrom("resources/loginDataNina.csv")
 public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessage {
 
     @Managed(uniqueSession = true)
