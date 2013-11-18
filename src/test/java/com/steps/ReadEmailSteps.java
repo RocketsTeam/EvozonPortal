@@ -1,4 +1,4 @@
-package com;
+package com.steps;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,26 +16,25 @@ import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 
-import net.thucydides.core.annotations.Story;
-import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.pages.Pages;
+import net.thucydides.core.steps.ScenarioSteps;
 
-import org.junit.runner.RunWith;
-
-import com.requirements.Application;
 import com.sun.mail.imap.IMAPFolder;
 
+public class ReadEmailSteps  extends ScenarioSteps {
 
+	public ReadEmailSteps(Pages pages) {
+		super(pages);
+	}
 
-@Story(Application.ReadEmailT.ReadEmail.class)
-@RunWith(ThucydidesParameterizedRunner.class)
-public class ReadEmail {
-
-	public static void main(String[] args) throws MessagingException,
+	@Step
+	public void setLog(String mailType , String username, String password, String fromPar ,String subjPar) throws MessagingException,
 			IOException {
 		IMAPFolder folder = null;
 		Store store = null;
-		String subject = null;
-		String from;
+		//String subject = null;
+		//String from;
 		String date;
 		
 		
@@ -48,7 +47,7 @@ public class ReadEmail {
 
 			store = session.getStore("imaps");
 
-			store.connect("imap.googlemail.com", "qadepartmentmanager", "Test123456");
+			store.connect(mailType, username, password);
 
 			// folder = (IMAPFolder) store.getFolder("[Gmail]/Spam"); // This
 			// doesn't work for other email account
@@ -65,13 +64,14 @@ public class ReadEmail {
 			System.out.println();
 			for (int i = 0; i < messages.length; i++) {
 				
+				
 				Message msg = messages[i];
-				subject = msg.getSubject().toString();
-				from = msg.getFrom().toString();
-				date=msg.getReceivedDate().toString();
+				String from=messages[i].getFrom()[0].toString();
+				  String fromTemp=fromPar;
+				  String subj=messages[i].getSubject().toString();
+				  String subjTemplate=subjPar;
 				
-				
-				 String text=subject+from+date;
+				 String text=subj+fromTemp;
 				if (checkIfTextContainsTerms(text,false,"submitted","have")){
 					
 					System.out
@@ -81,7 +81,7 @@ public class ReadEmail {
 					System.out.println("This is it!!! MATCH !!!");
 					
 					
-					System.out.println("Subject: " + subject);
+					System.out.println("Subject: " + subj);
 					System.out.println("From: " + msg.getFrom()[0]);
 					System.out.println("To: " + msg.getAllRecipients()[0]);
 					System.out.println("Date: " + msg.getReceivedDate());
