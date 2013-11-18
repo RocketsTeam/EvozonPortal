@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 public class VacationRequestsPage extends PageObject {
 
@@ -34,12 +35,14 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(id = "workflowMyRolesTasksPanel")
 	private WebElement myRolesContainer;
 
+	@FindBy(id = "workflowOthersTasksPanel")
+	private WebElement assignedOthers;
+
 	@FindBy(css = ".taglib-icon.lfr-delegate-click")
 	private WebElement assignto;
 	
 	@FindBy(css = ".aui-field-input-menu")
 	 private WebElement AssignUser;
-	
 	
 	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
 	private WebElement OK_button;
@@ -47,8 +50,6 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = "div.aui-dialog-ft button:last-child")
 	private WebElement cancel_button;
 	
-	
-
 	@FindBy(css=".aui-field-input-menu")
 	 private WebElement assignToList;
 
@@ -67,26 +68,42 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = ".aui-field-content .aui-field-input-text")   
 	private WebElement commentsectionDueDate;
 
-	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateMonth")   
+	
+	@FindBy(how = How.CSS, using = "div[aria-hidden=\"false\"] #_1_WAR_EvozonKaleooFormsportlet_dueDateMonth")
 	private WebElement monthDueDate;
 	
-	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateDay")   
+	@FindBy(css = ".aui-datepicker-day")
 	private WebElement dayDueDate;
 	
-	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateYear")   
+	@FindBy(css = ".aui-datepicker-year")
 	private WebElement yearDueDate;
 	
-	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateHour")   
+	
+	@FindBy(css = ".aui-dialog-focused select[name*=Hour]")
 	private WebElement hourDueDate;
 	
-	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateMinute")   
+	@FindBy(css = ".aui-dialog-focused")
+	private WebElement dialogFocused;
+	
+	
+
+	
+	@FindBy(css = ".aui-dialog-focused select[name*=Minute]")
 	private WebElement minDueDate;
 	
-	@FindBy(css = "._1_WAR_EvozonKaleooFormsportlet_dueDateAmPm")   
+	
+	@FindBy(css = ".aui-dialog-focused select[name*=AmPm]")
 	private WebElement AMPMDueDate;
 	
 	@FindBy(css = "ul.lfr-menu-list-overflow")
 	private WebElement actionsContainer;
+
+	@FindBy(css = ".taglib-icon.lfr-delegate-click.aui-focus")
+	private WebElement assignToMe;
+	
+	@FindBy(css = "span.aui-field-content > span.aui-field-element  > textarea.aui-field-input.aui-field-input-text")
+	private WebElement commAssignToMe;
+
 
 	public VacationRequestsPage(WebDriver driver) {
 		super(driver);
@@ -128,7 +145,8 @@ public class VacationRequestsPage extends PageObject {
 	
 	public void click_action_button_my_roles(int index) {
 		  element(myRolesContainer).waitUntilVisible();
-		  List<WebElement> actionButtons = myRolesContainer.findElements(By.cssSelector(".taglib-text"));
+		List<WebElement> actionButtons = myRolesContainer.findElements(By
+				.cssSelector(".taglib-text"));
 		  actionButtons.get(index).click();
 		 }
 	
@@ -146,7 +164,6 @@ public class VacationRequestsPage extends PageObject {
 		
 	public void click_to_a_person(String person) {
 	
-	  
 	  element(AssignUser).waitUntilVisible();
 	  AssignUser.click();
 	  AssignUser.click();
@@ -264,7 +281,7 @@ public class VacationRequestsPage extends PageObject {
 		  element(yearDueDate).waitUntilVisible();
 		  yearDueDate.click();
 		  yearDueDate.click();
-		  element(dayDueDate).selectByVisibleText(yearNameDueDate);
+		element(yearDueDate).selectByVisibleText(yearNameDueDate);
 	}
 	
 	public void selectHourDueDate(String hourNameDueDate) {
@@ -301,6 +318,22 @@ public class VacationRequestsPage extends PageObject {
 		
 		Actions actionObject = new Actions(getDriver());
 		actionObject.keyDown(Keys.CONTROL).sendKeys(Keys.F5).perform();
+	}
+
+	public void click_action_button_from_assignedOthers(int index) {
+		  element(assignedOthers).waitUntilVisible();
+		  List<WebElement> actionButtons = assignedOthers.findElements(By.cssSelector("strong a"));
+		  actionButtons.get(index).click();
+		 }
+	
+	public void click_AssignToMe() {
+		element(assignToMe).waitUntilVisible();
+		element(assignToMe).click();
+	}
+	
+	public void enter_commAssignToMe(String keyword) {
+		element(commAssignToMe).waitUntilVisible();
+		element(commAssignToMe).type(keyword);
 	}
 
 }

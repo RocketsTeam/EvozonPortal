@@ -284,11 +284,26 @@ public class VacationRequestsSteps extends ScenarioSteps {
 		vacationRequestsPage.click_actions();
 	}
 
+	@Step
 	public void refresh_page() {
 		vacationRequestsPage.refresh_page();
 		
 	}
 	
+	@Step
+	public void click_actionsbuttonOthers(int index) {
+		vacationRequestsPage.click_action_button_from_assignedOthers(index);
+	}
+	
+	@Step
+	public void click_AssignToMeSection() {
+		vacationRequestsPage.click_AssignToMe();
+	}
+	
+	@Step
+	public void enter_commAssignToMe(String keyword) {
+		vacationRequestsPage.enter_commAssignToMe("test Assign to me");
+	 }
     
 	
    

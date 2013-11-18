@@ -98,6 +98,27 @@ public class Application {
 		}
 	}
 
+	@Feature
+	public class OthersReq {
+
+		public class AssignedOthersTest {
+		}
+	}
+	
+	@Feature
+	public class CancelOthersReq {
+
+		public class CancelAssignedOthersTest {
+		}
+	}
+	
+	@Feature
+	public class ReadEmailReq {
+
+		public class ReadEmailTest {
+		}
+	}
+	
 	
 
 
