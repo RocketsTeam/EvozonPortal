@@ -142,6 +142,13 @@ public class Application {
 		}
 
 	}
+	
+	@Feature
+	public class CopyOfFolderFetchIMAP {
+		public class CopyOfFolderFetchIMAPTest {
+		}
+
+	}
 
 
 	@Feature

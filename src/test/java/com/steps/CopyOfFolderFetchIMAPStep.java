@@ -22,22 +22,25 @@ import org.junit.Assert;
 
 import com.sun.mail.imap.IMAPFolder;
 
-public class FolderFetchIMAPStep extends ScenarioSteps {
+public class CopyOfFolderFetchIMAPStep extends ScenarioSteps {
 
-	public FolderFetchIMAPStep(Pages pages) {
+	public CopyOfFolderFetchIMAPStep(Pages pages) {
 		super(pages);
 
 	}
 
 	@Step
 	public void CheckIfEmailContainsTerms(String user, String password,
-			String... terms) throws MessagingException, IOException {
+			boolean checkInText, boolean checkInSubject, boolean checkInFrom,
+			boolean checkInDate, boolean checkInBody, String... terms)
+			throws MessagingException, IOException {
 
 		IMAPFolder folder = null;
 		Store store = null;
 		String subject = null;
-		String from;
-		String date;
+		String from = null;
+		String date = null;
+		// String text;
 
 		try {
 			Properties props = System.getProperties();
@@ -68,25 +71,39 @@ public class FolderFetchIMAPStep extends ScenarioSteps {
 					body = (String) content;
 
 				}
+				if (checkInSubject) {
 
-				String text = subject + from + date + body;
+					foundTerms = checkIfTextContainsTerms(subject, true, terms);
+					if (foundTerms) {
+						System.out.println("Subject: " + subject);
+						break;
+					}
+				} else if (checkInFrom) {
 
-				foundTerms = checkIfTextContainsTerms(text, true, terms);
-		
-				if (foundTerms) {
-
-					System.out
-							.println("*****************************************************************************");
-					System.out.println("MESSAGE " + (i + 1) + ":");
-
-					System.out.println("This is it!!! MATCH !!!");
-
-					System.out.println("Subject: " + subject);
-					System.out.println("From: " + msg.getFrom()[0]);
-					System.out.println("To: " + msg.getAllRecipients()[0]);
-					System.out.println("Date: " + msg.getReceivedDate());
-					System.out.println("Body: "+body);
-					break;
+					foundTerms = checkIfTextContainsTerms(from, true, terms);
+					System.out.println("From: " + from);
+					if (foundTerms) {
+						break;
+					}
+				} else if (checkInDate) {
+					foundTerms = checkIfTextContainsTerms(date, true, terms);
+					if (foundTerms) {
+						System.out.println("Date: " + date);
+						break;
+					}
+				} else if (checkInBody) {
+					foundTerms = checkIfTextContainsTerms(body, true, terms);
+					if (foundTerms) {
+						System.out.println("Body: " + body);
+						break;
+					}
+				} else if (checkInText) {
+					String text = subject + from + date + body;
+					foundTerms = checkIfTextContainsTerms(text, true, terms);
+					if (foundTerms) {
+						System.out.println("All text is: " + text);
+						break;
+					}
 				}
 
 				String contentType = msg.getContentType();
@@ -145,7 +162,7 @@ public class FolderFetchIMAPStep extends ScenarioSteps {
 
 	public static boolean checkIfTextContainsTerms(String text,
 			boolean ignoreCase, String... strTerms) {
-		//text = removeNewLinesMultipleSpacesAndTabs(text);
+		text = removeNewLinesMultipleSpacesAndTabs(text);
 		if (ignoreCase)
 			text = text.toLowerCase();
 		for (String term : strTerms) {
@@ -157,13 +174,13 @@ public class FolderFetchIMAPStep extends ScenarioSteps {
 		return true;
 	}
 
-//	public static String removeNewLinesMultipleSpacesAndTabs(String body) {
-//		body = body.replaceAll("[\0\t\n\r]", " ");
-//		body = body.replaceAll("&nbsp;", " ");
-//		while (body.indexOf("  ") != -1) {
-//			body = body.replaceAll("  ", " ");
-//		}
-//		return body;
-//	}
+	public static String removeNewLinesMultipleSpacesAndTabs(String body) {
+		body = body.replaceAll("[\0\t\n\r]", " ");
+		body = body.replaceAll("&nbsp;", " ");
+		while (body.indexOf("  ") != -1) {
+			body = body.replaceAll("  ", " ");
+		}
+		return body;
+	}
 
 }
