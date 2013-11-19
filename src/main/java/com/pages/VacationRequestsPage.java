@@ -86,6 +86,7 @@ public class VacationRequestsPage extends PageObject {
 	private WebElement dialogFocused;
 	
 	
+	
 
 	
 	@FindBy(css = ".aui-dialog-focused select[name*=Minute]")
@@ -335,5 +336,7 @@ public class VacationRequestsPage extends PageObject {
 		element(commAssignToMe).waitUntilVisible();
 		element(commAssignToMe).type(keyword);
 	}
+	
+	
 
 }
