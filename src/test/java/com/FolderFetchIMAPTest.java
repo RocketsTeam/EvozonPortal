@@ -29,7 +29,7 @@ public class FolderFetchIMAPTest {
 
 	@Test
 	public void testIfEmailContainsTerms() throws MessagingException, IOException {
-		folderFetchIMAPStep.CheckIfEmailContainsTerms("QaDEpartment123","1234567Qa","submitted","evoportal team","16/01/2014","17/01/2014");
+		folderFetchIMAPStep.CheckIfEmailContainsTerms("QaDEpartment123","1234567Qa","submitted","evoportal team","25/12/2013");
 		
 	}
 }
