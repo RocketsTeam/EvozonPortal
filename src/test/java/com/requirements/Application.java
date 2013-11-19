@@ -119,6 +119,19 @@ public class Application {
 		}
 	}
 	
+	@Feature
+	public class ReadEmailT {
+
+		public class ReadEmail {
+		}
+	}
+	
+	@Feature
+	public class ReadEmailT2 {
+
+		public class ReadEmail2 {
+		}
+	}
 	
 
 	@Feature

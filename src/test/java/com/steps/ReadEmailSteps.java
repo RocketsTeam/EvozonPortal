@@ -1,4 +1,4 @@
-package com;
+package com.steps;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,45 +16,38 @@ import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 
-import net.thucydides.core.annotations.Story;
-import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
+import org.junit.Assert;
 
-import org.junit.runner.RunWith;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.pages.Pages;
+import net.thucydides.core.steps.ScenarioSteps;
 
-import com.requirements.Application;
 import com.sun.mail.imap.IMAPFolder;
 
+public class ReadEmailSteps  extends ScenarioSteps {
 
+	public ReadEmailSteps(Pages pages) {
+		super(pages);
+	}
 
-@Story(Application.ReadEmailT.ReadEmail.class)
-@RunWith(ThucydidesParameterizedRunner.class)
-public class ReadEmail {
+	@Step
+	public void checkDetailsOfEmail(String user, String password,
+			String... terms) throws MessagingException, IOException {
 
-	public static void main(String[] args) throws MessagingException,
-			IOException {
 		IMAPFolder folder = null;
 		Store store = null;
 		String subject = null;
 		String from;
 		String date;
-		
-		
-	
+
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
-
 			Session session = Session.getDefaultInstance(props, null);
-
 			store = session.getStore("imaps");
+			store.connect("imap.googlemail.com", user, password);
 
-			store.connect("imap.googlemail.com", "qadepartmentmanager", "Test123456");
-
-			// folder = (IMAPFolder) store.getFolder("[Gmail]/Spam"); // This
-			// doesn't work for other email account
-			folder = (IMAPFolder) store.getFolder("inbox");// This works for
-															// both email
-															// account
+			folder = (IMAPFolder) store.getFolder("inbox");
 
 			if (!folder.isOpen())
 				folder.open(Folder.READ_WRITE);
@@ -63,49 +56,46 @@ public class ReadEmail {
 			System.out.println("No of Unread Messages : "
 					+ folder.getUnreadMessageCount());
 			System.out.println();
+			boolean foundTerms = false;
 			for (int i = 0; i < messages.length; i++) {
-				
+
 				Message msg = messages[i];
 				subject = msg.getSubject().toString();
 				from = msg.getFrom().toString();
-				date=msg.getReceivedDate().toString();
-				
-				
-				 String text=subject+from+date;
-				if (checkIfTextContainsTerms(text,false,"submitted","have")){
-					
+				date = msg.getReceivedDate().toString();
+				Object content = msg.getContent();
+				String body = "";
+				if (content instanceof String) {
+					body = (String) content;
+
+				}
+
+				String text = subject + from + date + body;
+
+				foundTerms = checkDetailsOfEmail(text, true, terms);
+
+				if (checkDetailsOfEmail(text, true, terms)) {
+
 					System.out
-					.println("*****************************************************************************");
+							.println("*****************************************************************************");
 					System.out.println("MESSAGE " + (i + 1) + ":");
-					
+
 					System.out.println("This is it!!! MATCH !!!");
-					
-					
+
 					System.out.println("Subject: " + subject);
 					System.out.println("From: " + msg.getFrom()[0]);
 					System.out.println("To: " + msg.getAllRecipients()[0]);
 					System.out.println("Date: " + msg.getReceivedDate());
-					Object content = msg.getContent();
-					if (content instanceof String) {
-						String	body = (String) content;
-					System.out.println("Body: "+body);	
-						
-					}
-					
-					
+					System.out.println("Body: "+body);
 				}
-
-				// new code
 
 				String contentType = msg.getContentType();
 
 				if (contentType.contains("text/plain")
 						|| contentType.contains("text/html")) {
-					// plain text or HTML only email
 
 				} else if (contentType.contains("multipart")) {
 
-					// email contains attachments
 					Multipart multiPart = (Multipart) msg.getContent();
 					int numberOfParts = multiPart.getCount();
 					for (int partCount = 0; partCount < numberOfParts; partCount++) {
@@ -113,17 +103,17 @@ public class ReadEmail {
 						if (Part.ATTACHMENT.equalsIgnoreCase(part
 								.getDisposition())) {
 
-							// part is attachment
-							// store attachment to disk
 							storeAttachment(part);
 
 						}
 					}
 
 				}
-				// new code
 
 			}
+			Assert.assertTrue(
+					"No email containing the searched terms was found!",
+					foundTerms);
 		} finally {
 			if (folder != null && folder.isOpen()) {
 				folder.close(true);
@@ -135,7 +125,6 @@ public class ReadEmail {
 
 	}
 
-	// new code
 	private static void storeAttachment(BodyPart part)
 			throws MessagingException, IOException {
 		String destFilePath = "D:/Attachment/" + part.getFileName();
@@ -154,7 +143,7 @@ public class ReadEmail {
 		output.close();
 	}
 
-	public static boolean checkIfTextContainsTerms(String text,
+	public static boolean checkDetailsOfEmail(String text,
 			boolean ignoreCase, String... strTerms) {
 		text = removeNewLinesMultipleSpacesAndTabs(text);
 		if (ignoreCase)
@@ -176,5 +165,5 @@ public class ReadEmail {
 		}
 		return body;
 	}
-	// new code
+
 }
