@@ -133,6 +133,8 @@ public class Application {
 		}
 	}
 	
+	
+	
 
 	@Feature
 	public class FolderFetchIMAP {
@@ -182,4 +184,12 @@ public class Application {
 		public class EvoVacationHistoryTest {
 		}
 	}
-}
+	
+	@Feature
+	public class CheckEm{
+		public class  CheckEmail{
+		}
+		
+		}
+	}
+

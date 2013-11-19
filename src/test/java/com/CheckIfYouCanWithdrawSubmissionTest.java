@@ -14,10 +14,11 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Application.CheckWithdrawSubmission.CheckIfYouCanWithdrawSubmission;
 import com.steps.EndUserSteps;
 import com.steps.SubmitNewVacationRequestSteps;
 
-@Story(Application.CheckWithdrawSubmission.CheckIfYouCanWithdrawSubmission.class)
+@Story(CheckIfYouCanWithdrawSubmission.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginDataNina.csv")
 public class CheckIfYouCanWithdrawSubmissionTest {
