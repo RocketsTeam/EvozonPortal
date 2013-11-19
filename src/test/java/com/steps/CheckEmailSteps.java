@@ -1,4 +1,4 @@
-package com;
+package com.steps;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -16,17 +16,20 @@ import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 
+import net.thucydides.core.annotations.Step;
+
 import com.sun.mail.imap.IMAPFolder;
 
-public class EmailTest {
-
-	public static void main(String[] args) throws MessagingException,
+public class CheckEmailSteps {
+	
+@Step
+	public void setLogin( String username, String password,String... terms) throws MessagingException,
 			IOException {
 		IMAPFolder folder = null;
 		Store store = null;
-		String subject = null;
-		String from;
-		String date;
+		//String subject = null;
+		
+		
 		
 		
 	
@@ -38,7 +41,7 @@ public class EmailTest {
 
 			store = session.getStore("imaps");
 
-			store.connect("imap.googlemail.com", "Qadefaultuser", "1234567890Qa");
+			store.connect("imap.googlemail.com", "qadefaultuser", "1234567890Qa");
 
 			// folder = (IMAPFolder) store.getFolder("[Gmail]/Spam"); // This
 			// doesn't work for other email account
@@ -56,13 +59,17 @@ public class EmailTest {
 			for (int i = 0; i < messages.length; i++) {
 				
 				Message msg = messages[i];
-				subject = msg.getSubject().toString();
-				from = msg.getFrom().toString();
-				date=msg.getReceivedDate().toString();
+				String subject = msg.getSubject().toString();
+				
+				//String subjecteTempl=subjectVar;
+				String from= msg.getFrom()[0].toString();
+				//String fromTempl=fromVar;
+				String date = msg.getReceivedDate().toString();
 				
 				
 				 String text=subject+from+date;
-				if (checkIfTextContainsTerms(text,false,"Approved")){
+				
+				if (checkIfTextContainsTerms(text,true,terms)){
 					
 					System.out
 					.println("*****************************************************************************");
@@ -71,7 +78,7 @@ public class EmailTest {
 					System.out.println("This is it!!! MATCH !!!");
 					
 					
-					System.out.println("Subject: " + subject);
+					System.out.println("Subject: " + msg.getSubject());
 					System.out.println("From: " + msg.getFrom()[0]);
 					System.out.println("To: " + msg.getAllRecipients()[0]);
 					System.out.println("Date: " + msg.getReceivedDate());
@@ -166,5 +173,6 @@ public class EmailTest {
 		}
 		return body;
 	}
-	// new code
 }
+
+	// new code
