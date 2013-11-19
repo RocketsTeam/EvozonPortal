@@ -46,6 +46,7 @@ public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
+	
 
 
 	
@@ -55,7 +56,8 @@ public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
     @Test
     public void test_csv_login() {
         submitNewVacationRequest.is_the_home_page();
-        submitNewVacationRequest.enter_user(getUser());
+       submitNewVacationRequest.enter_user(getUser());
+        
         submitNewVacationRequest.enter_password(getPass());
         submitNewVacationRequest.submit();
         submitNewVacationRequest.should_be_on_department_page();
@@ -64,22 +66,23 @@ public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
         submitNewVacationRequest.check_new_request();
         submitNewVacationRequest.v_req();
         submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
-       // submitNewVacationRequest.click_month("December");
-       // submitNewVacationRequest.click_day("24");
-       // submitNewVacationRequest.click_year("2013");
-       // submitNewVacationRequest.click_monthEndDate("December");
-      //  submitNewVacationRequest.sholud_appear_popup();
-       // submitNewVacationRequest.close_pop_up();
+        submitNewVacationRequest.click_month("December");
+       submitNewVacationRequest.click_day("24");
+       submitNewVacationRequest.click_year("2013");
+        submitNewVacationRequest.click_monthEndDate("December");
+        submitNewVacationRequest.sholud_appear_popup();
+        submitNewVacationRequest.close_pop_up();
         
         
         submitNewVacationRequest.enterdomeniu("personale");
         submitNewVacationRequest.click_saveButton();
-        submitNewVacationRequest.show_popup();
-        submitNewVacationRequest.close_pop_up();
-        submitNewVacationRequest.click_on_calendarButton();
-        submitNewVacationRequest.click_nextMonth();
-        submitNewVacationRequest.click_on_calendarButton();
-        submitNewVacationRequest.click_dayCalendar("3");
+        submitNewVacationRequest.sholud_appear_popup();
+        //submitNewVacationRequest.show_popup();
+       // submitNewVacationRequest.close_pop_up();
+      //  submitNewVacationRequest.click_on_calendarButton();
+       // submitNewVacationRequest.click_nextMonth();
+       // submitNewVacationRequest.click_on_calendarButton();
+       // submitNewVacationRequest.click_dayCalendar("3");
         
     }
 }
