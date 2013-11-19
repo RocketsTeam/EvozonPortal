@@ -36,7 +36,7 @@ public class ReadEmail2Test {
 	@Test
 	 public void ReadEmail() throws MessagingException, IOException {
 	  
-	  ReadEmail.setLog("imap.googlemail.com", "qadepartmentmanager", "Test123456", "Approved", "EvoPortal");
+	  ReadEmail.checkDetailsOfEmail("qadepartmentmanager", "Test123456", "submitted", "evoportal team","19/11/2013","19/11/2013");
 	 }
 	
 	}
