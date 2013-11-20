@@ -187,7 +187,7 @@ public class Application {
 	
 	@Feature
 	public class CheckEm{
-		public class  CheckEmail{
+		public class  CheckEmailTest{
 		}
 		
 		}
