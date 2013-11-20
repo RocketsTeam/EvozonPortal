@@ -198,5 +198,11 @@ public class Application {
 		}
 		
 		}
+	@Feature
+	public class RejectReqAndCheckEmail{
+		public class RejectRequestsAndCheckEmailTest{
 	}
+	}
+}
+
 
