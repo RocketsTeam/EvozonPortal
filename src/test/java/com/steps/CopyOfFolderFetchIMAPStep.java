@@ -40,8 +40,7 @@ public class CopyOfFolderFetchIMAPStep extends ScenarioSteps {
 		String subject = null;
 		String from = null;
 		String date = null;
-		// String text;
-
+		
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
@@ -76,24 +75,36 @@ public class CopyOfFolderFetchIMAPStep extends ScenarioSteps {
 					foundTerms = checkIfTextContainsTerms(subject, true, terms);
 					if (foundTerms) {
 						System.out.println("Subject: " + subject);
+						System.out.println("From: " + from);
+						System.out.println("Date: " + date);
+						System.out.println("Body: " + body);
 						break;
 					}
 				} else if (checkInFrom) {
 
 					foundTerms = checkIfTextContainsTerms(from, true, terms);
+					System.out.println("Subject: " + subject);
 					System.out.println("From: " + from);
+					System.out.println("Date: " + date);
+					System.out.println("Body: " + body);
 					if (foundTerms) {
 						break;
 					}
 				} else if (checkInDate) {
 					foundTerms = checkIfTextContainsTerms(date, true, terms);
 					if (foundTerms) {
+						System.out.println("Subject: " + subject);
+						System.out.println("From: " + from);
 						System.out.println("Date: " + date);
+						System.out.println("Body: " + body);
 						break;
 					}
 				} else if (checkInBody) {
 					foundTerms = checkIfTextContainsTerms(body, true, terms);
 					if (foundTerms) {
+						System.out.println("Subject: " + subject);
+						System.out.println("From: " + from);
+						System.out.println("Date: " + date);
 						System.out.println("Body: " + body);
 						break;
 					}

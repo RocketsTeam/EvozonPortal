@@ -29,7 +29,7 @@ public class SummaryPage extends PageObject {
 	@FindBy(id = "workflowMyRolesTasksPanel")
 	private WebElement myRolesContainer;
 	
-	@FindBy(id = ".aui-buttonitem-label")
+	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
 	private WebElement ConfirmOKButton;
 
 	@FindBy(css = "ul.lfr-menu-list-overflow")
@@ -73,8 +73,8 @@ public class SummaryPage extends PageObject {
 	
 	 public void click_Ok() {
 		 element(ConfirmOKButton).waitUntilVisible();
-			Actions actions = new Actions(getDriver());
-			actions.moveToElement(ConfirmOKButton).click().build().perform();
+			//Actions actions = new Actions(getDriver());
+			//actions.moveToElement(ConfirmOKButton).click().build().perform();
 			ConfirmOKButton.click();
 	    }
 
