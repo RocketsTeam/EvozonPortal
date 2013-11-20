@@ -132,6 +132,11 @@ public class CheckEmailSteps {
 
 	}
 
+	private boolean checkIfTextEqualsTo(String text, boolean b, String[] terms) {
+	// TODO Auto-generated method stub
+	return false;
+}
+
 	// new code
 	private static void storeAttachment(BodyPart part)
 			throws MessagingException, IOException {

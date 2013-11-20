@@ -30,7 +30,7 @@ public class CheckEmail {
 
 	@Test
 	public void  testEmail() throws MessagingException, IOException {
-		CheckEmail.setLogin("qadefaultuser", "1234567890Qa", "EvoPortal","approved");
+		CheckEmail.setLogin("qadefaultuser", "1234567890Qa", "EvoPortal","Approved");
 		
 	}
 }
