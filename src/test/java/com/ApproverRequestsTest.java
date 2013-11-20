@@ -65,7 +65,10 @@ public class ApproverRequestsTest {
 		endUser.should_be_on_department_page();
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
-		endUser.myRoleListElementAction("test1 test1", "Approve");
+		vacationrequestSteps.assert_VacationRequestsActionBtn_should_be_visible();
+		vacationrequestSteps.click_VacationRequestsActionBtn();
+		vacationrequestSteps.click_ApproveBtn();
+		vacationrequestSteps.check_message();
 		vacationrequestSteps.refresh_page();
 
 

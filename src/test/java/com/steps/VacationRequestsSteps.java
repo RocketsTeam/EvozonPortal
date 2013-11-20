@@ -15,6 +15,7 @@ import com.pages.SubmitVacationRequest;
 import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
 
+@SuppressWarnings("serial")
 public class VacationRequestsSteps extends ScenarioSteps {
 
 	DictionaryPage dictionaryPage;
@@ -31,11 +32,7 @@ public class VacationRequestsSteps extends ScenarioSteps {
 		super(pages);
 	}
 
-	@Step
-	public void myRoleListElementAction(String element, String action){
-		ReqPage.markListEntry(element, action);
-	}
-
+	
 	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
@@ -119,7 +116,28 @@ public class VacationRequestsSteps extends ScenarioSteps {
 		VacPage.click_vacationrequest();
 	}
 
+	@Step
+	  public void assert_VacationRequestsActionBtn_should_be_visible() {
+		vacationRequestsPage.assert_VacationRequestsActionBtn_should_be_visible();
+	  }
+
+	 @Step
+	 public void click_VacationRequestsActionBtn() {
+		 vacationRequestsPage.click_VacationRequestsActionBtn();
+	 }
+
+	 @Step
+	 public void click_ApproveBtn() {
+		 vacationRequestsPage.click_ApproveBtn();
+	 }
+	 
+	 @Step
+	 public void click_RejectBtn() {
+		 vacationRequestsPage.click_RejectBtn();
+	 }
+
 	
+
 	
 
 	
@@ -144,16 +162,7 @@ public class VacationRequestsSteps extends ScenarioSteps {
 		ReqPage.click_vacationreq();
 	}
 
-	@Step
-	public void check_actionsbutton1(){
-		ReqPage.check_actions1();
-	}
-
-	@Step
-	public void click_actionsbutton1(){
-		ReqPage.click_actions1();
-	}
-
+	
 	@Step
 	public void check_approveoption(){
 		ReqPage.check_approve();
@@ -304,6 +313,13 @@ public class VacationRequestsSteps extends ScenarioSteps {
 	public void enter_commAssignToMe(String keyword) {
 		vacationRequestsPage.enter_commAssignToMe("test Assign to me");
 	 }
+	
+	@Step
+	public void check_message() {
+		Assert.assertTrue("Your request completed succesfully",
+			vacationRequestsPage.check_messageSuccesfully());
+
+	}
 	
 	
     

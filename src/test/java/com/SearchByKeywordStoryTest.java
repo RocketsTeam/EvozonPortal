@@ -29,7 +29,7 @@ public class SearchByKeywordStoryTest {
     @Steps
     public EndUserSteps endUser;
 
-    @Issue("#WIKI-1")
+    
     @Test
     public void test_login() {
         endUser.is_the_home_page();

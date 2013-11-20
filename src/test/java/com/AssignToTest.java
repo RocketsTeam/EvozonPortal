@@ -70,6 +70,8 @@ public class AssignToTest {
 	    endUser.check_assigntopt();
 	    endUser.click_assigntopt();
 	    vacationrequestSteps.click_OK_button();
+	    vacationrequestSteps.check_message();
+		vacationrequestSteps.refresh_page();
         
 
 	}

@@ -133,6 +133,13 @@ public class Application {
 		}
 	}
 	
+	@Feature
+	public class SubmitVacationReq{
+
+		public class SumbitNewVacationTest {
+		}
+	}
+	
 	
 	
 
@@ -187,9 +194,15 @@ public class Application {
 	
 	@Feature
 	public class CheckEm{
-		public class  CheckEmail{
+		public class  CheckEmailTest{
 		}
 		
 		}
+	@Feature
+	public class RejectReqAndCheckEmail{
+		public class RejectRequestsAndCheckEmailTest{
 	}
+	}
+}
+
 
