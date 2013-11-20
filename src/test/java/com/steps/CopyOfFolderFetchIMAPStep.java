@@ -40,8 +40,7 @@ public class CopyOfFolderFetchIMAPStep extends ScenarioSteps {
 		String subject = null;
 		String from = null;
 		String date = null;
-		// String text;
-
+		
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
