@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 
 import net.thucydides.core.pages.PageObject;
 
@@ -16,11 +17,12 @@ import static ch.lambdaj.Lambda.convert;
 
 public class SubmitVacationRequest extends PageObject {
 
-    /* @FindBy(name="search")
-	private WebElement searchTerms;*/
+   
 	
 	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_addVacationRequest")
 	private WebElement vacationrequest;
+	
+	
 	
 	
 
@@ -37,7 +39,8 @@ public class SubmitVacationRequest extends PageObject {
 	 public void click_vacationrequest() {
 	    	vacationrequest.click();
 	    }
-
+	 
+	
 	
 	}
 
