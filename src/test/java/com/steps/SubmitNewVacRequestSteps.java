@@ -129,6 +129,12 @@ public class SubmitNewVacRequestSteps extends ScenarioSteps {
 		submitPage.selectYearSubmit(yearEndName);  
 	}
 
+	@Step
+	public void check_message() {
+		Assert.assertTrue("Your request completed succesfully",
+			submitPage.check_messageSuccesfully());
+
+	}
 
 	
 		

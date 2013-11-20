@@ -27,7 +27,7 @@ public class SubmitVacRequestPage extends PageObject {
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_dateStart-dateDay")
 	private WebElement daySubmit;
 	
-	@FindBy(id = "._1_WAR_EvozonKaleooFormsportlet_dateStart-dateYear")
+	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_dateStart-dateYear")
 	private WebElement yearSubmit;
 	
 	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_dateEnd-dateMonth")
@@ -39,6 +39,8 @@ public class SubmitVacRequestPage extends PageObject {
 	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_dateEnd-dateYear")
 	private WebElement yearSubmitEnd;
 	
+	@FindBy(css=".portlet-msg-success")
+	private WebElement MessageSuccesfull;
 
 	
 	public SubmitVacRequestPage(WebDriver driver) {
@@ -95,6 +97,12 @@ public class SubmitVacRequestPage extends PageObject {
 		  yearSubmitEnd.click();
 		  element(yearSubmitEnd).selectByVisibleText(yearEndName);
 	}
+	 
+	 public boolean check_messageSuccesfully() {
+
+			return element(MessageSuccesfull).isPresent();
+		}
+		
 	
 
 	
