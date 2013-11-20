@@ -25,8 +25,19 @@ public class CopyOfFolderFetchIMAPTest {
 	@Test
 	public void testIfEmailContainsTerms() throws MessagingException,
 			IOException {
-       	//copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms(user, password, checkInText, checkInSubject, checkInFrom, checkInDate, checkInBody, terms);
-		copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms( "QaDepartment123" , "1234567Qa" , false , false , false , false , true , "dear" );
-	
+		// copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms(user, password,
+		// checkInText, checkInSubject, checkInFrom, checkInDate, checkInBody,
+		// terms);
+		copyOfFolderFetchIMAPStep
+				.CheckIfEmailContainsTerms(
+						"QaDepartment123",
+						"1234567Qa",
+						false,
+						false,
+						false,
+						false,
+						true,
+						"Dear QADep Manager, <br/> <br/>A Vacation Request was submitted by <strong>QADep Manager</strong>. <br/>The Vacation interval is: <strong>16/01/2014</strong> - <strong>17/01/2014</strong>.<br/> <br/> Sincerely, <br /> EvoPortal Team");
+
 	}
 }
