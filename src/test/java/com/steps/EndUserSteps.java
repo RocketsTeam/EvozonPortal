@@ -26,11 +26,7 @@ public class EndUserSteps extends ScenarioSteps {
 		super(pages);
 	}
 
-	@Step
-	public void myRoleListElementAction(String element, String action) {
-		vacationRequestsPage.markListEntry(element, action);
-	}
-
+	
 	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
@@ -89,8 +85,7 @@ public class EndUserSteps extends ScenarioSteps {
 
 	@Step
 	public void should_be_Summary_link() {
-		// Assert.assertTrue("Should be a Vacation Request",
-		// vacReqPageMihai.check_for_summary_link());
+		
 	}
 
 	@Step
@@ -99,46 +94,21 @@ public class EndUserSteps extends ScenarioSteps {
 				vacReqPageMihai.check_for_processes_link());
 	}
 
-	/**
-	 * @Step public void should_go_to_summary_section() { //
-	 *       vacReqPageMihai.click_on_summary(); }
-	 */
+	
 
 	@Step
 	public void go_to_processes_section() {
 		vacReqPageMihai.click_on_processes();
 	}
 
-	/*
-	 * @Step public void should_be_a_Vacation_Request_link() { //
-	 * Assert.assertTrue("Should be a Vacation Request", //
-	 * vacReqPageMihai.check_vacationrequest()); }
-	 */
+	
 
 	@Step
 	public void go_to_vacation_reguest() {
-		// vacReqPageMihai.click_vacationrequest();
+		
 	}
 
-	/*
-	 * @Step public void check_new_request() {
-	 * Assert.assertTrue("A new vacation request sholud appear",
-	 * NewVac.check_new_request()); }
-	 */
-
-	/*
-	 * @Step public void click_concediuo() { VacPage.click_vacationrequest(); }
-	 */
-
-	// @Step
-	// public void check_vacationre() {
-	// ReqPage.check_vacationreq();
-	// }
-
-	// @Step
-	// public void click_vacationre() {
-	// ReqPage.click_vacationreq();
-	// }
+	
 
 	@Step
 	public void click_v() {
@@ -201,12 +171,12 @@ public class EndUserSteps extends ScenarioSteps {
 
 	@Step
 	public void check_actionsbutton1() {
-		vacationRequestsPage.check_actions1();
+		vacationRequestsPage.check_actions2();
 	}
 
 	@Step
 	public void click_actionsbutton1() {
-		vacationRequestsPage.click_actions1();
+		vacationRequestsPage.click_actions2();
 	}
 
 	@Step
@@ -269,16 +239,7 @@ public class EndUserSteps extends ScenarioSteps {
 		vacationRequestsPage.click_actions();
 	}
 
-	//@Step
-	//public void click_month() {
-		//newVac.select_month();
-
 	
-
-	// @Step
-	// public void click_concediuo() {
-	// newVac.click_concediufaraplata();
-	// }
 
 	@Step
 	public void click_month1() {
@@ -287,11 +248,7 @@ public class EndUserSteps extends ScenarioSteps {
 
 	}
 
-	//@Step
-	//public void click_day() {
-		//newVac.select_day(); }
 	
-
 	
 
 	@Step

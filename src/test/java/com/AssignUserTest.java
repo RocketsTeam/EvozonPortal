@@ -57,7 +57,7 @@ public class AssignUserTest {
 
 
 	@Test
-	public void test_csv_login2() {
+	public void test_csv_login() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
@@ -70,6 +70,8 @@ public class AssignUserTest {
 	    endUser.check_assigntopt();
 	    endUser.click_assigntopt();
 	    vacationrequestSteps.select_a_person("Admin test");
+	    vacationrequestSteps.check_message();
+		vacationrequestSteps.refresh_page();
 	    
 
 	}

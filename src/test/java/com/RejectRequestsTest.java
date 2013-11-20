@@ -55,7 +55,7 @@ public class RejectRequestsTest {
 
 
 	@Test
-	public void test_csv_login2() {
+	public void test_csv_login() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
@@ -63,8 +63,14 @@ public class RejectRequestsTest {
 		endUser.should_be_on_department_page();
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
-		endUser.myRoleListElementAction("test1 test1", "Reject");
+		vacationrequestSteps.assert_VacationRequestsActionBtn_should_be_visible();
+		vacationrequestSteps.click_VacationRequestsActionBtn();
+		vacationrequestSteps.click_RejectBtn();
+		vacationrequestSteps.check_message();
 		vacationrequestSteps.refresh_page();
+		
+		
+		
 
 	}
 

@@ -133,6 +133,13 @@ public class Application {
 		}
 	}
 	
+	@Feature
+	public class SubmitVacationReq{
+
+		public class SumbitNewVacationTest {
+		}
+	}
+	
 	
 	
 
