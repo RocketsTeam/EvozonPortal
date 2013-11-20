@@ -17,20 +17,16 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = "a[href*=inbox]")
 	private WebElement vacationrequests;
 
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_1_menuButton")
-	private WebElement actions;
-
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_1_2_menuButton")
-	private WebElement actions1;
+	
 
 	@FindBy(css = ".aui-focus")
-	private WebElement approve;
+	private WebElement approveBtn;
 
 	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_1_1_menuButton")
 	private WebElement actions2;
 
 	@FindBy(css = ".taglib-icon")
-	private WebElement reject;
+	private WebElement rejectBtn;
 
 	@FindBy(id = "workflowMyRolesTasksPanel")
 	private WebElement myRolesContainer;
@@ -104,53 +100,39 @@ public class VacationRequestsPage extends PageObject {
 	
 	@FindBy(css = "span.aui-field-content > span.aui-field-element  > textarea.aui-field-input.aui-field-input-text")
 	private WebElement commAssignToMe;
+	
+	@FindBy(css = ".portlet-msg-success")
+	private WebElement messageSuccesfull;
+	
 
 
 	public VacationRequestsPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public void markListEntry(String itemName, String action) {
-		element(myRolesContainer).waitUntilVisible();
-		List<WebElement> itemsList = myRolesContainer.findElements(By
-				.cssSelector("tr.results-row"));
-
-		theFor: for (WebElement elementNow : itemsList) {
-			String identifier = elementNow.findElement(
-					By.cssSelector("td:nth-child(2)")).getText();
-
-			if (identifier.contains(itemName)) {
-				elementNow.findElement(By.cssSelector("td:last-child a"))
-						.click();
-				selectAction(action);
-				break theFor;
-			}
-		}
-
-	}
-
-	private void selectAction(String action) {
-		element(actionsContainer).waitUntilVisible();
-		List<WebElement> itemsList = actionsContainer.findElements(By
-				.tagName("a"));
-		for (WebElement elementNow : itemsList) {
-			String identifier = elementNow.getText();
-
-			if (identifier.contains(action)) {
-				elementNow.click();
-				break;
-			}
-		}
-
-	}
 	
-	public void click_action_button_my_roles(int index) {
-		  element(myRolesContainer).waitUntilVisible();
-		List<WebElement> actionButtons = myRolesContainer.findElements(By
-				.cssSelector(".taglib-text"));
-		  actionButtons.get(index).click();
+	
+	 public void assert_VacationRequestsActionBtn_should_be_visible() {
+	        element(actions2).shouldBeVisible();
+	  }
+	
+	 public void click_VacationRequestsActionBtn() {
+		   element(actions2).waitUntilVisible();
+		   element(actions2).click(); 
 		 }
-	
+		 
+
+		 public void click_ApproveBtn() {
+		  element(approveBtn).waitUntilVisible();
+		  element(approveBtn).click();
+		 }
+		 
+		 public void click_RejectBtn() {
+			  element(rejectBtn).waitUntilVisible();
+			  element(rejectBtn).click();
+			 }
+
+		 
 	public void selectAssignto(String person){
 		
 		element(assignto).waitUntilVisible();
@@ -190,14 +172,7 @@ public class VacationRequestsPage extends PageObject {
 		vacationrequests.click();
 	}
 
-	public boolean check_actions1() {
-
-		return element(actions1).isPresent();
-	}
-
-	public void click_actions1() {
-		actions1.click();
-	}
+	
 
 	public boolean check_actions2() {
 
@@ -206,24 +181,24 @@ public class VacationRequestsPage extends PageObject {
 
 	public void click_actions2() {
 		actions2.click();
-	}
+	} 
 
 	public boolean check_approve() {
 
-		return element(approve).isPresent();
+		return element(approveBtn).isPresent();
 	}
 
 	public void click_approve() {
-		approve.click();
-	}
+		approveBtn.click();
+	} 
 
 	public boolean check_reject() {
 
-		return element(reject).isPresent();
+		return element(rejectBtn).isPresent();
 	}
 
 	public void click_reject() {
-		reject.click();
+		rejectBtn.click();
 	}
 
 	public boolean check_assignto() {
@@ -308,11 +283,11 @@ public class VacationRequestsPage extends PageObject {
 
 	public boolean check_actions() {
 
-		return element(actions).isPresent();
+		return element(actions2).isPresent();
 	}
 
 	public void click_actions() {
-		actions.click();
+		actions2.click();
 	}
 
 	public void refresh_page(){
@@ -337,6 +312,10 @@ public class VacationRequestsPage extends PageObject {
 		element(commAssignToMe).type(keyword);
 	}
 	
+	public boolean check_messageSuccesfully() {
+
+		return element(messageSuccesfull).isPresent();
+	}
 	
 
 }
