@@ -17,8 +17,6 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = "a[href*=inbox]")
 	private WebElement vacationrequests;
 
-	
-
 	@FindBy(css = ".aui-focus")
 	private WebElement approveBtn;
 
@@ -81,9 +79,6 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = ".aui-dialog-focused")
 	private WebElement dialogFocused;
 	
-	
-	
-
 	
 	@FindBy(css = ".aui-dialog-focused select[name*=Minute]")
 	private WebElement minDueDate;
