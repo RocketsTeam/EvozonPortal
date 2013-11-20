@@ -12,24 +12,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.requirements.Application;
-import com.requirements.Application.FolderFetchIMAP;
 import com.steps.FolderFetchIMAPStep;
-
 
 @Story(Application.FolderFetchIMAP.FolderFetchIMAPTest.class)
 @RunWith(ThucydidesRunner.class)
-
 public class FolderFetchIMAPTest {
 
-
-
-	
 	@Steps
 	public FolderFetchIMAPStep folderFetchIMAPStep;
 
 	@Test
-	public void testIfEmailContainsTerms() throws MessagingException, IOException {
-		folderFetchIMAPStep.CheckIfEmailContainsTerms("QaDEpartment123","1234567Qa","submitted","evoportal team","25/12/2013");
-		
+	public void testIfEmailContainsTerms() throws MessagingException,
+			IOException {
+		folderFetchIMAPStep.CheckIfEmailContainsTerms("QaDEpartment123",
+				"1234567Qa","team");
+
 	}
 }
