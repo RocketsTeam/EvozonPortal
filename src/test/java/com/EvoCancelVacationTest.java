@@ -62,7 +62,7 @@ public class EvoCancelVacationTest {
 	public EvoCancelStep evoCancelStep;
 
 	@Test
-	public void test_csv_login() {
+	public void evoCancelVacationTest() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
@@ -71,9 +71,9 @@ public class EvoCancelVacationTest {
 		controlPanelSteps.clickGoToButton();
 		controlPanelSteps.clickControlpanelButton();
 		controlPanelSteps.clickEvoVacationLink();
-		evoCancelStep.select_tip_concediu("Concediu de odihna");
+		evoCancelStep.select_tip_concediu("Concediu special");
 		endUser.waitABit(1000);
-		evoCancelStep.verifySearchResultsContainsItem("Concediu de odihna");
+		evoCancelStep.verifySearchResultsContainsItem("Concediu special");
 		endUser.waitABit(1000);
 
 	}
