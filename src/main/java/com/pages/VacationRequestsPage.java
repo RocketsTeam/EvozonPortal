@@ -95,8 +95,8 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = ".portlet-msg-success")
 	private WebElement messageSuccesfull;
 
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_1_menuButton")
-	private WebElement actionsAssignedToMe;
+	@FindBy(css="div.lfr-panel-content > div.lfr-search-container > div:first-child table tr.results-row")
+	private WebElement actionsAssignedToMeSection;
 	
 	@FindBy(css =".taglib-icon lfr-delegate-click aui-focus")
 	private WebElement resubmitBtn;
@@ -309,12 +309,12 @@ public class VacationRequestsPage extends PageObject {
 	}
 
 	public void assert_ActionsAssignedToMeBtn() {
-		element(actionsAssignedToMe).shouldBeVisible();
+		element(actionsAssignedToMeSection).shouldBeVisible();
 	}
 
 	public void click_ActionsAssignedToMeBtn() {
-		element(actionsAssignedToMe).waitUntilVisible();
-		element(actionsAssignedToMe).click();
+		element(actionsAssignedToMeSection).waitUntilVisible();
+		element(actionsAssignedToMeSection).click();
 	}
 
 	public void click_ResubmitBtn() {

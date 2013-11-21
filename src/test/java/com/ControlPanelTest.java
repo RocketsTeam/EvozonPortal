@@ -62,7 +62,7 @@ public class ControlPanelTest {
 	public EvoCancelStep evoCancelStep;
 
 	@Test
-	public void test_csv_login() {
+	public void selectATipConcediuFromTheDropdownList() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
