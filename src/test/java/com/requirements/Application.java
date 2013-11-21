@@ -204,11 +204,15 @@ public class Application {
 	}
 	}
 	
+
+	
 	@Feature
 	public class CheckForApproved{
-		public class CheckForApprovedInMyVacationCompletedRequestsTest{
+	public class CheckIfApprovedInMyCompletedRequestsTest{
+		
+	}
 	}
 }
-}
+
 
 
