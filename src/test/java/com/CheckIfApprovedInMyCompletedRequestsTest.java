@@ -14,14 +14,14 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
-import com.requirements.Application.CheckWithdrawSubmission.CheckIfYouCanWithdrawSubmission;
 import com.steps.EndUserSteps;
 import com.steps.SubmitNewVacationRequestSteps;
+import com.steps.VacationRequestsSteps;
 
-@Story(CheckIfYouCanWithdrawSubmission.class)
+@Story(Application.CheckForApproved.CheckIfApprovedInMyCompletedRequestsTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginDataNina.csv")
-public class CheckIfYouCanWithdrawSubmissionTest {
+public class CheckIfApprovedInMyCompletedRequestsTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -50,9 +50,16 @@ public class CheckIfYouCanWithdrawSubmissionTest {
 
 	@Steps
 	public SubmitNewVacationRequestSteps submitNewVacationRequest;
+	@Steps
+	public EndUserSteps endUser;
+	@Steps
+	public VacationRequestsSteps vacReqSteps;
+	
+
 
 	@Test
 	public void test_csv_login() {
+
 		submitNewVacationRequest.is_the_home_page();
 		submitNewVacationRequest.enter_user(getUser());
 		submitNewVacationRequest.enter_password(getPass());
@@ -60,7 +67,9 @@ public class CheckIfYouCanWithdrawSubmissionTest {
 		submitNewVacationRequest.should_be_on_department_page();
 		submitNewVacationRequest.should_be_on_department_page1();
 		submitNewVacationRequest.click_v();
-		// .click_vacationre();
-
-	}
+		submitNewVacationRequest.Click_MyVacationCompletedLink();
+		submitNewVacationRequest.verifySearchResultsContainsItem("Approved");
+		
 }
+}
+

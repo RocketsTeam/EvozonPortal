@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 
 import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
+
+import com.pages.MyVacationCompletedRequestsPage;
 import com.pages.NewVacationRequest;
 import com.pages.SubmitVacationRequest;
 import com.pages.VacationRequestsPage;
@@ -35,7 +37,8 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 	NewVacationRequest newVac;
 	VacationRequestsPageMihai vacReqPage;
 	VacationRequestsPage ReqPage;
-
+	MyVacationCompletedRequestsPage myVacationCompletedRequestPage;
+	
 	public SubmitNewVacationRequestSteps(Pages pages) {
 		super(pages);
 	}
@@ -164,5 +167,17 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 	public void click_dayCalendar(String dayC) {
 		newVac.selectdayCalendar(dayC);
 	}
-
+	
+	@Step
+	public void Click_MyVacationCompletedLink(){
+		myVacationCompletedRequestPage.click_MyVacationCompletedLink();
+	
+	}
+	
+	@Step
+	 public void verifySearchResultsContainsItem(String... terms) {
+	  myVacationCompletedRequestPage.verifySearchResults(terms);
+	 }
 }
+
+

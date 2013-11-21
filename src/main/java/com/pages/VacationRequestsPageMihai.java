@@ -30,8 +30,6 @@ public class VacationRequestsPageMihai extends PageObject {
 	@FindBy(css = ".aui-column aui-w75 aui-column-last")
 	private WebElement summaryTable;
 
-
-
 	@FindBy(css = ".aui-button-input")
 	private WebElement submitNewVacationRequest;
 

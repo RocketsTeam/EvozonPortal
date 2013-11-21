@@ -26,7 +26,6 @@ public class EvoCancelStep extends ScenarioSteps {
 	SummaryPage summaryPage;
 	ControlPanelPage controlPanelPage;
 	EvoCancelVacation evoCancelVacation;
-	
 
 	public EvoCancelStep(Pages pages) {
 		super(pages);
@@ -37,14 +36,10 @@ public class EvoCancelStep extends ScenarioSteps {
 	public void select_tip_concediu(String tipConcediu) {
 		evoCancelVacation.click_ddlTipConcediu(tipConcediu);
 	}
+
 	@Step
 	public void verifySearchResultsContainsItem(String... terms) {
 		evoCancelVacation.verifySearchResults(terms);
 	}
-	
-	/*@Step
-	public void getStringFromDropdownList(String checkName) {
-		evoCancelVacation.getTheDropdownListItemsName(checkName);
-	}*/
 
 }
