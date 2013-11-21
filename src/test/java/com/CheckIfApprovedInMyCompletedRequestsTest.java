@@ -54,11 +54,9 @@ public class CheckIfApprovedInMyCompletedRequestsTest {
 	public EndUserSteps endUser;
 	@Steps
 	public VacationRequestsSteps vacReqSteps;
-	
-
 
 	@Test
-	public void test_csv_login() {
+	public void checkIfApprovedInMyCompletedRequestsTest() {
 
 		submitNewVacationRequest.is_the_home_page();
 		submitNewVacationRequest.enter_user(getUser());
@@ -69,7 +67,6 @@ public class CheckIfApprovedInMyCompletedRequestsTest {
 		submitNewVacationRequest.click_v();
 		submitNewVacationRequest.Click_MyVacationCompletedLink();
 		submitNewVacationRequest.verifySearchResultsContainsItem("Approved");
-		
-}
-}
 
+	}
+}
