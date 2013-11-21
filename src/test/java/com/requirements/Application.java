@@ -203,6 +203,12 @@ public class Application {
 		public class RejectRequestsAndCheckEmailTest{
 	}
 	}
+	
+	@Feature
+	public class CheckForApproved{
+		public class CheckForApprovedInMyVacationCompletedRequestsTest{
+	}
+}
 }
 
 
