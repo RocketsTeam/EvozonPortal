@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class EvoCancelVacation extends PageObject {
 
@@ -37,35 +38,24 @@ public class EvoCancelVacation extends PageObject {
 			if (currentTerm.contains(checkName)) {
 				elementNow.findElement(By.cssSelector("input:last-child"))
 						.click();
-				 break;
+				break;
 			}
 		}
 	}
 
-	/*public static boolean checkIfTextContainsTerms(String text,
-			boolean ignoreCase, String... strTerms) {
-		text = removeNewLinesMultipleSpacesAndTabs(text);
-		if (ignoreCase)
-			text = text.toLowerCase();
-		for (String term : strTerms) {
-			if (ignoreCase)
-				term = term.toLowerCase();
-			if (!text.contains(term))
-				return false;
-		}
-		return true;
-	}
-
-	public static String removeNewLinesMultipleSpacesAndTabs(String body) {
-		body = body.replaceAll("[\0\t\n\r]", " ");
-		body = body.replaceAll("&nbsp;", " ");
-		while (body.indexOf("  ") != -1) {
-			body = body.replaceAll("  ", " ");
-		}
-		return body;
-	}*/
-
-	
+	/*
+	 * public static boolean checkIfTextContainsTerms(String text, boolean
+	 * ignoreCase, String... strTerms) { text =
+	 * removeNewLinesMultipleSpacesAndTabs(text); if (ignoreCase) text =
+	 * text.toLowerCase(); for (String term : strTerms) { if (ignoreCase) term =
+	 * term.toLowerCase(); if (!text.contains(term)) return false; } return
+	 * true; }
+	 * 
+	 * public static String removeNewLinesMultipleSpacesAndTabs(String body) {
+	 * body = body.replaceAll("[\0\t\n\r]", " "); body =
+	 * body.replaceAll("&nbsp;", " "); while (body.indexOf("  ") != -1) { body =
+	 * body.replaceAll("  ", " "); } return body; }
+	 */
 
 	public void verifySearchResults(String... terms) {
 		String noOfPagesContainer = getDriver()
@@ -96,6 +86,10 @@ public class EvoCancelVacation extends PageObject {
 								By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
 						.click();
 				waitABit(2000);
+				// waitFor(ExpectedConditions
+				// .textToBePresentInElement(
+				// By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
+				// String.format("(%d of %d)", i + 2, noOfPages)));
 			}
 		}
 	}

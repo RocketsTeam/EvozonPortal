@@ -50,7 +50,7 @@ public class HandleRequestsTest {
 		endUser.should_be_on_department_page1();
 		endUser.click_v();
 		userStepsForVacation.clickOnActionOptionForSpecifiedVacation(
-				"Assigned to me", "Approve", "test1");
+				"Assigned to me", "Approve", "");
 		endUser.waitABit(5000);
 		userStepsForVacation.clickConfirmingOK();
 		userStepsForVacation.shouldShowConfirmingMessage();

@@ -25,36 +25,37 @@ public class NewVacationRequest extends PageObject {
 
 	@FindBy(css = "fieldset.aui-fieldset")
 	private WebElement radioButtonContainer;
-
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_dateStart-dateYear")
+	
+	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_dateStart-dateYear")
 	private WebElement year;
-
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_dateEnd-dateMonth")
+	
+	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_dateEnd-dateMonth")
 	private WebElement MonthSelectEnddate;
-
-	@FindBy(css = ".popupMessageBox")
+	
+	@FindBy(css=".popupMessageBox")
 	private WebElement popupMessage;
-
-	@FindBy(css = ".popupClose")
+	
+	@FindBy(css=".popupClose")
 	private WebElement closepopup;
-
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_domeniul_text")
+	
+	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_domeniul_text")
 	private WebElement inputDomeniu;
-
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_saveButton")
+	
+	@FindBy(id="_1_WAR_EvozonKaleooFormsportlet_saveButton")
 	private WebElement saveButton;
-
-	@FindBy(css = ".popupMessageBox")
+	
+	@FindBy(css=".popupMessageBox")
 	private WebElement showpopup;
-
-	@FindBy(id = "buttonTest")
+	
+	@FindBy(id="buttonTest")
 	private WebElement calendarButton;
-
-	@FindBy(css = "a[href*=next]")
+	
+	@FindBy(css="a[href*=next]")
 	private WebElement nextMonth;
-
-	@FindBy(css = ".yui3-widget-bd")
+	
+	@FindBy(css=".yui3-widget-bd")
 	private WebElement dayCalendar;
+	
 
 	public NewVacationRequest(WebDriver driver) {
 		super(driver);
@@ -82,58 +83,66 @@ public class NewVacationRequest extends PageObject {
 		day.click();
 		element(day).selectByVisibleText(dayNumber);
 	}
-
-	public void select_year(String yearNumber) {
+	
+	
+	public void select_year(String yearNumber){
 		year.click();
 		year.click();
 		element(year).selectByVisibleText(yearNumber);
 	}
 
+	
 	public void selectMonthEnd(String monthNameEnd) {
 		element(MonthSelectEnddate).waitUntilVisible();
 		MonthSelectEnddate.click();
 		MonthSelectEnddate.click();
 		element(MonthSelectEnddate).selectByVisibleText(monthNameEnd);
 	}
-
+	
 	public boolean check_popupMessage() {
 		return element(popupMessage).isPresent();
 	}
-
-	public void close_popUp() {
+	
+	public void close_popUp(){
 		closepopup.click();
 	}
-
-	public void enter_domeniu(String key) {
-		element(inputDomeniu).waitUntilVisible();
-		element(inputDomeniu).type(key);
+	
+	public void enter_domeniu(String key){
+			element(inputDomeniu).waitUntilVisible();
+	        element(inputDomeniu).type(key);
 	}
+	
 
-	public void click_save() {
+	public void click_save(){
 		saveButton.click();
 	}
-
-	public boolean check_secondpopup() {
-		return element(popupMessage).isPresent();
+	
+	public boolean check_secondpopup(){
+			return element(popupMessage).isPresent();
 	}
-
+	
+	
 	public void click_calendarButton() {
 		calendarButton.click();
 	}
-
-	public void select_nextMonth() {
+	
+	
+	public void select_nextMonth(){
 		element(nextMonth).waitUntilVisible();
 		nextMonth.click();
-
+	
 	}
-
+	
 	public void selectdayCalendar(String dayC) {
 		element(dayCalendar).waitUntilVisible();
 		dayCalendar.click();
 		dayCalendar.click();
 		element(dayCalendar).selectByVisibleText(dayC);
 	}
-
+	
+	
+	
+	
 	public void selectRadioButton(String nameRadio) {
 		element(radioButtonContainer).waitUntilVisible();
 
@@ -150,5 +159,4 @@ public class NewVacationRequest extends PageObject {
 		}
 
 	}
-
 }
