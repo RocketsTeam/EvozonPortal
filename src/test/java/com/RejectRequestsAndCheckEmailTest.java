@@ -78,7 +78,7 @@ public class RejectRequestsAndCheckEmailTest {
 		endUser.waitABit(5000);
 		userStepsForVacation.clickConfirmingOK();
 		userStepsForVacation.shouldShowConfirmingMessage();
-		copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms("QaDepartment123", "1234567Qa", false, false, false, false, true, "dear","evoportal team");
+		copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms("QaDepartment123@gmail", "1234567Qa", false, false, false, false, true, "dear","evoportal team");
 	}
 	
 }

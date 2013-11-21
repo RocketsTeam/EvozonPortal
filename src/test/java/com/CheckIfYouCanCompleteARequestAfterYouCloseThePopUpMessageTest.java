@@ -51,7 +51,7 @@ public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
 	public SubmitNewVacationRequestSteps submitNewVacationRequest;
 
 	@Test
-	public void test_csv_login() {
+	public void checkIfYouCanCompleteARequestAfterYouCloseThePopUpMessage() {
 		submitNewVacationRequest.is_the_home_page();
 		submitNewVacationRequest.enter_user(getUser());
 
