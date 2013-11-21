@@ -59,7 +59,7 @@ public class SubmitNewVacationTest {
 
 
     @Test
-    public void test_csv_login() {
+    public void test_csv_login2() {
         submitNewVacationRequest.is_the_home_page();
         submitNewVacationRequest.enter_user(getUser());
         submitNewVacationRequest.enter_password(getPass());

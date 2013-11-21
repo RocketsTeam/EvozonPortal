@@ -57,7 +57,7 @@ public class CommDueDateTest {
 
 
 	@Test
-	public void test_csv_login() {
+	public void test_csv_login2() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
