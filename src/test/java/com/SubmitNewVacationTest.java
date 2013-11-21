@@ -70,11 +70,11 @@ public class SubmitNewVacationTest {
         submitNewVacationRequest.check_new_request();
         submitNewVacationRequest.v_req();
         submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
-        submitVacationRequest.click_monthStartName("June");
-        submitVacationRequest.click_dayStartName("9");
+        submitVacationRequest.click_monthStartName("August");
+        submitVacationRequest.click_dayStartName("20");
         submitVacationRequest.click_yearStartName("2014");
-        submitVacationRequest.click_monthEndName("June");
-        submitVacationRequest.click_dayEndName("9");
+        submitVacationRequest.click_monthEndName("August");
+        submitVacationRequest.click_dayEndName("20");
         submitVacationRequest.click_yearEndName("2014");
         submitNewVacationRequest.enterdomeniu("personale");
         submitNewVacationRequest.click_saveButton();
