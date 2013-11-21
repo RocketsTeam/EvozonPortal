@@ -26,7 +26,6 @@ public class EndUserSteps extends ScenarioSteps {
 		super(pages);
 	}
 
-	
 	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
@@ -85,7 +84,7 @@ public class EndUserSteps extends ScenarioSteps {
 
 	@Step
 	public void should_be_Summary_link() {
-		
+
 	}
 
 	@Step
@@ -94,21 +93,15 @@ public class EndUserSteps extends ScenarioSteps {
 				vacReqPageMihai.check_for_processes_link());
 	}
 
-	
-
 	@Step
 	public void go_to_processes_section() {
 		vacReqPageMihai.click_on_processes();
 	}
 
-	
-
 	@Step
 	public void go_to_vacation_reguest() {
-		
-	}
 
-	
+	}
 
 	@Step
 	public void click_v() {
@@ -239,17 +232,12 @@ public class EndUserSteps extends ScenarioSteps {
 		vacationRequestsPage.click_actions();
 	}
 
-	
-
 	@Step
 	public void click_month1() {
 		String monthName = "December";
 		newVac.selectMonthDate(monthName);
 
 	}
-
-	
-	
 
 	@Step
 	public void selectTipConcediu(String concediu) {

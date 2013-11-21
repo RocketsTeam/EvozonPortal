@@ -24,16 +24,16 @@ import com.steps.SubmitNewVacationRequestSteps;
 @UseTestDataFrom("resources/loginIulia.csv")
 public class SubmitNewVacationTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl ="http://172.22.8.38:9090")
-    public Pages pages;
-    
-    String user, pass;
-    
-    @Qualifier
-    public String getUser() {
+	@ManagedPages(defaultUrl = "http://172.22.8.38:9090")
+	public Pages pages;
+
+	String user, pass;
+
+	@Qualifier
+	public String getUser() {
 		return user;
 	}
 
@@ -49,15 +49,14 @@ public class SubmitNewVacationTest {
 		this.pass = pass;
 	}
 
-
-	
 	@Steps
 	public SubmitNewVacationRequestSteps submitNewVacationRequest;
-	
+
 	@Steps
 	public SubmitNewVacRequestSteps submitVacationRequest;
 
 
+	
     @Test
     public void test_csv_login() {
         submitNewVacationRequest.is_the_home_page();
@@ -81,9 +80,5 @@ public class SubmitNewVacationTest {
         submitVacationRequest.check_message();
         
     }
+
 }
-
-
-
-
-    

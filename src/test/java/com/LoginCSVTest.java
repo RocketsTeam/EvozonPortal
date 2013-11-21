@@ -67,7 +67,8 @@ public class LoginCSVTest {
 		submitNewVacationRequest.click_v();
 		submitNewVacationRequest.check_new_request();
 		submitNewVacationRequest.v_req();
-		submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
+		submitNewVacationRequest
+				.selectTipConcediu("Concediu fara plata * (Required)");
 		submitNewVacationRequest.click_month("December");
 		submitNewVacationRequest.click_day("24");
 		submitNewVacationRequest.click_year("2013");
