@@ -71,9 +71,9 @@ public class EvoCancelVacationTest {
 		controlPanelSteps.clickGoToButton();
 		controlPanelSteps.clickControlpanelButton();
 		controlPanelSteps.clickEvoVacationLink();
-		evoCancelStep.select_tip_concediu("Concediu special");
+		evoCancelStep.select_tip_concediu("Concediu fara plata");
 		endUser.waitABit(1000);
-		evoCancelStep.verifySearchResultsContainsItem("Concediu special");
+		evoCancelStep.verifySearchResultsContainsItem("Concediu fara plata");
 		endUser.waitABit(1000);
 
 	}

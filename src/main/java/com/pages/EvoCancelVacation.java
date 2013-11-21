@@ -1,5 +1,7 @@
 package com.pages;
 
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.util.List;
 
 import net.thucydides.core.pages.PageObject;
@@ -8,6 +10,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -20,12 +23,9 @@ public class EvoCancelVacation extends PageObject {
 
 	@FindBy(css = "ul.concediu-ul")
 	private WebElement concediuListContainer;
-	
 
 	@FindBy(css = ".portlet-msg-info")
 	private WebElement messageInfo;
-	
-	
 
 	public EvoCancelVacation(WebDriver driver) {
 		super(driver);
@@ -44,41 +44,56 @@ public class EvoCancelVacation extends PageObject {
 			String currentTerm = elementNow.getText();
 			System.out.println("Current term: " + currentTerm);
 			if (currentTerm.contains(checkName)) {
-				elementNow.findElement(By.cssSelector("input:last-child"))
-						.click();
+				WebElement checkBox = elementNow.findElement(By
+						.cssSelector("input:last-child"));
+				checkBox.click();
+				try {
+					Robot robot = new Robot();
+					robot.mouseMove(200, 200);
+				} catch (AWTException e) {
+					
+				}
+				waitABit(2000);
 				break;
 			}
 		}
 	}
 
-	/*
-	 * public static boolean checkIfTextContainsTerms(String text, boolean
-	 * ignoreCase, String... strTerms) { text =
-	 * removeNewLinesMultipleSpacesAndTabs(text); if (ignoreCase) text =
-	 * text.toLowerCase(); for (String term : strTerms) { if (ignoreCase) term =
-	 * term.toLowerCase(); if (!text.contains(term)) return false; } return
-	 * true; }
-	 * 
-	 * public static String removeNewLinesMultipleSpacesAndTabs(String body) {
-	 * body = body.replaceAll("[\0\t\n\r]", " "); body =
-	 * body.replaceAll("&nbsp;", " "); while (body.indexOf("  ") != -1) { body =
-	 * body.replaceAll("  ", " "); } return body; }
-	 */
+	public void waitForOneOfTheTermsToAppear(By by, int waitSeconds,
+			String... terms) {
+		boolean foundTerm = false;
+		int count = 0;
+		while (!foundTerm && count < waitSeconds * 10) {
+			count++;
+			waitABit(100);
+			WebElement container = getDriver().findElement(by);
+			String content = container.getText();
+			for (String term : terms) {
+				if (content.contains(term)) {
+					foundTerm = true;
+					break;
+				}
+			}
+		}
+		Assert.assertTrue(
+				String.format(
+						"None of the given terms was found in the element after %d seconds!",
+						waitSeconds), foundTerm);
+	}
 
 	public void verifySearchResults(String... terms) {
 		String noOfPagesContainer = getDriver()
 				.findElement(
 						By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
 				.getText().trim();
-		
-		String message = getDriver()
-				.findElement(
-						By.cssSelector(".portlet-msg-info"))
-				.getText().trim();
-		System.out.println(message);
 		int noOfPages = SummaryPage.getAllIntegerNumbersFromString(
 				noOfPagesContainer).get(1);
-		for (int i = 0; i < noOfPages; i++) {
+		System.out.println("noOfPages " + noOfPages);
+		for (int i = 1; i <= noOfPages; i++) {
+			waitABit(2000);
+			waitForOneOfTheTermsToAppear(
+					By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
+					10, String.format("(%d of %d)", i, noOfPages));
 			List<WebElement> searchResults = getDriver()
 					.findElements(
 							By.cssSelector("table.taglib-search-iterator tr.results-row"));
@@ -94,19 +109,13 @@ public class EvoCancelVacation extends PageObject {
 					}
 				}
 			}
-			if (i < noOfPages - 1) {
+			if (i < noOfPages) {
 				getDriver()
 						.findElement(
 								By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
 						.click();
-				waitABit(2000);
-				// waitFor(ExpectedConditions
-				// .textToBePresentInElement(
-				// By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
-				// String.format("(%d of %d)", i + 2, noOfPages)));
 			}
 		}
 	}
-	
-	
+
 }
