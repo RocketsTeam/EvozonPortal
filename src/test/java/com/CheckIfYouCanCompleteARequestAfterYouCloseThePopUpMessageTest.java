@@ -22,16 +22,16 @@ import com.steps.SubmitNewVacationRequestSteps;
 @UseTestDataFrom("resources/loginDataNina.csv")
 public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl ="http://172.22.8.38:9090")
-    public Pages pages;
-    
-    String user, pass;
-    
-    @Qualifier
-    public String getUser() {
+	@ManagedPages(defaultUrl = "http://172.22.8.38:9090")
+	public Pages pages;
+
+	String user, pass;
+
+	@Qualifier
+	public String getUser() {
 		return user;
 	}
 
@@ -46,48 +46,34 @@ public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-	
 
-
-	
 	@Steps
 	public SubmitNewVacationRequestSteps submitNewVacationRequest;
 
-    @Test
-    public void test_csv_login() {
-        submitNewVacationRequest.is_the_home_page();
-       submitNewVacationRequest.enter_user(getUser());
-        
-        submitNewVacationRequest.enter_password(getPass());
-        submitNewVacationRequest.submit();
-        submitNewVacationRequest.should_be_on_department_page();
-        submitNewVacationRequest.should_be_on_department_page1();
-        submitNewVacationRequest.click_v();
-        submitNewVacationRequest.check_new_request();
-        submitNewVacationRequest.v_req();
-        submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
-        submitNewVacationRequest.click_month("December");
-       submitNewVacationRequest.click_day("24");
-       submitNewVacationRequest.click_year("2013");
-        submitNewVacationRequest.click_monthEndDate("December");
-        submitNewVacationRequest.sholud_appear_popup();
-        submitNewVacationRequest.close_pop_up();
-        
-        
-        submitNewVacationRequest.enterdomeniu("personale");
-        submitNewVacationRequest.click_saveButton();
-        submitNewVacationRequest.sholud_appear_popup();
-        //submitNewVacationRequest.show_popup();
-       // submitNewVacationRequest.close_pop_up();
-      //  submitNewVacationRequest.click_on_calendarButton();
-       // submitNewVacationRequest.click_nextMonth();
-       // submitNewVacationRequest.click_on_calendarButton();
-       // submitNewVacationRequest.click_dayCalendar("3");
-        
-    }
+	@Test
+	public void test_csv_login() {
+		submitNewVacationRequest.is_the_home_page();
+		submitNewVacationRequest.enter_user(getUser());
+
+		submitNewVacationRequest.enter_password(getPass());
+		submitNewVacationRequest.submit();
+		submitNewVacationRequest.should_be_on_department_page();
+		submitNewVacationRequest.should_be_on_department_page1();
+		submitNewVacationRequest.click_v();
+		submitNewVacationRequest.check_new_request();
+		submitNewVacationRequest.v_req();
+		submitNewVacationRequest
+				.selectTipConcediu("Concediu fara plata * (Required)");
+		submitNewVacationRequest.click_month("December");
+		submitNewVacationRequest.click_day("24");
+		submitNewVacationRequest.click_year("2013");
+		submitNewVacationRequest.click_monthEndDate("December");
+		submitNewVacationRequest.sholud_appear_popup();
+		submitNewVacationRequest.close_pop_up();
+
+		submitNewVacationRequest.enterdomeniu("personale");
+		submitNewVacationRequest.click_saveButton();
+		submitNewVacationRequest.sholud_appear_popup();
+
+	}
 }
-
-
-
-
-    

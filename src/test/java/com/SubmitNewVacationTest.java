@@ -13,25 +13,27 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.pages.SubmitVacRequestPage;
 import com.requirements.Application;
 import com.steps.EndUserSteps;
+import com.steps.SubmitNewVacRequestSteps;
 import com.steps.SubmitNewVacationRequestSteps;
 
-@Story(Application.SubmitVacationReq.SumbitNewVacationTest.class)
+@Story(Application.SubmitVacationReq.SubmitNewVacationTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/loginIulia.csv")
-public class SumbitNewVacationTest {
+public class SubmitNewVacationTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl ="http://172.22.8.38:9090")
-    public Pages pages;
-    
-    String user, pass;
-    
-    @Qualifier
-    public String getUser() {
+	@ManagedPages(defaultUrl = "http://172.22.8.38:9090")
+	public Pages pages;
+
+	String user, pass;
+
+	@Qualifier
+	public String getUser() {
 		return user;
 	}
 
@@ -47,11 +49,14 @@ public class SumbitNewVacationTest {
 		this.pass = pass;
 	}
 
-
-	
 	@Steps
 	public SubmitNewVacationRequestSteps submitNewVacationRequest;
 
+	@Steps
+	public SubmitNewVacRequestSteps submitVacationRequest;
+
+
+	
     @Test
     public void test_csv_login() {
         submitNewVacationRequest.is_the_home_page();
@@ -64,19 +69,16 @@ public class SumbitNewVacationTest {
         submitNewVacationRequest.check_new_request();
         submitNewVacationRequest.v_req();
         submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
+        submitVacationRequest.click_monthStartName("August");
+        submitVacationRequest.click_dayStartName("20");
+        submitVacationRequest.click_yearStartName("2014");
+        submitVacationRequest.click_monthEndName("August");
+        submitVacationRequest.click_dayEndName("20");
+        submitVacationRequest.click_yearEndName("2014");
         submitNewVacationRequest.enterdomeniu("personale");
         submitNewVacationRequest.click_saveButton();
-        submitNewVacationRequest.show_popup();
-        submitNewVacationRequest.close_pop_up();
-        submitNewVacationRequest.click_on_calendarButton();
-        submitNewVacationRequest.click_nextMonth();
-        submitNewVacationRequest.click_on_calendarButton();
-        submitNewVacationRequest.click_dayCalendar("3");
+        submitVacationRequest.check_message();
         
     }
+
 }
-
-
-
-
-    

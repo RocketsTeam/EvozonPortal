@@ -1,6 +1,5 @@
 package com.pages;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import net.thucydides.core.pages.PageObject;
@@ -44,6 +43,20 @@ public class EvoCancelVacation extends PageObject {
 		}
 	}
 
+	/*
+	 * public static boolean checkIfTextContainsTerms(String text, boolean
+	 * ignoreCase, String... strTerms) { text =
+	 * removeNewLinesMultipleSpacesAndTabs(text); if (ignoreCase) text =
+	 * text.toLowerCase(); for (String term : strTerms) { if (ignoreCase) term =
+	 * term.toLowerCase(); if (!text.contains(term)) return false; } return
+	 * true; }
+	 * 
+	 * public static String removeNewLinesMultipleSpacesAndTabs(String body) {
+	 * body = body.replaceAll("[\0\t\n\r]", " "); body =
+	 * body.replaceAll("&nbsp;", " "); while (body.indexOf("  ") != -1) { body =
+	 * body.replaceAll("  ", " "); } return body; }
+	 */
+
 	public void verifySearchResults(String... terms) {
 		String noOfPagesContainer = getDriver()
 				.findElement(
@@ -55,7 +68,6 @@ public class EvoCancelVacation extends PageObject {
 			List<WebElement> searchResults = getDriver()
 					.findElements(
 							By.cssSelector("table.taglib-search-iterator tr.results-row"));
-
 			for (WebElement searchResult : searchResults) {
 				if ($(searchResult).isCurrentlyVisible()) {
 					for (String term : terms) {
@@ -73,13 +85,12 @@ public class EvoCancelVacation extends PageObject {
 						.findElement(
 								By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
 						.click();
-				waitFor(ExpectedConditions
-						.textToBePresentInElement(
-								By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
-								String.format("(%d of %d)", i + 2, noOfPages)));
 				waitABit(2000);
+				// waitFor(ExpectedConditions
+				// .textToBePresentInElement(
+				// By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"),
+				// String.format("(%d of %d)", i + 2, noOfPages)));
 			}
 		}
 	}
-
 }

@@ -20,14 +20,8 @@ public class SummaryPage extends PageObject {
 
 	}
 
-	@FindBy(css = ".aui-field-input.aui-field-input-select.aui-field-input-menu")
-	private WebElement assignedToDropdownList;
-
 	@FindBy(css = ".portlet-msg-success")
 	private WebElement confirmmessagepanel;
-
-	@FindBy(id = "workflowMyRolesTasksPanel")
-	private WebElement myRolesContainer;
 
 	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
 	private WebElement ConfirmOKButton;
@@ -368,6 +362,5 @@ public class SummaryPage extends PageObject {
 				+ actionOption.getText());
 
 		actionOption.click();
-
 	}
 }

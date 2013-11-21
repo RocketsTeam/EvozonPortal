@@ -11,6 +11,7 @@ import org.openqa.selenium.support.FindBy;
 import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.NewVacationRequest;
+import com.pages.SubmitVacRequestPage;
 import com.pages.SubmitVacationRequest;
 import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
@@ -24,7 +25,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import com.pages.VacationRequestsPage;
 import com.pages.VacationRequestsPageMihai;
 
-public class SubmitNewVacationRequestSteps extends ScenarioSteps {
+public class SubmitNewVacRequestSteps extends ScenarioSteps {
 
 	DictionaryPage dictionaryPage;
 	DepartmentPage depPage;
@@ -35,8 +36,9 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 	NewVacationRequest newVac;
 	VacationRequestsPageMihai vacReqPage;
 	VacationRequestsPage ReqPage;
+	SubmitVacRequestPage submitPage;
 
-	public SubmitNewVacationRequestSteps(Pages pages) {
+	public SubmitNewVacRequestSteps(Pages pages) {
 		super(pages);
 	}
 
@@ -96,73 +98,40 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void click_month(String monthName) {
-		newVac.selectMonthDate(monthName);
+	public void click_monthStartName(String monthName) {
+		submitPage.selectMonthSubmit(monthName);
 	}
 
 	@Step
-	public void selectTipConcediu(String concediu) {
-		newVac.selectRadioButton(concediu);
+	public void click_dayStartName(String dayName) {
+		submitPage.selectDaySubmit(dayName);
 	}
 
 	@Step
-	public void click_day(String day) {
-		newVac.select_day(day);
-
+	public void click_yearStartName(String yearName) {
+		submitPage.selectYearSubmit(yearName);
 	}
 
 	@Step
-	public void click_year(String year) {
-		newVac.select_year(year);
+	public void click_monthEndName(String monthEndName) {
+		submitPage.selectMonthSubmit(monthEndName);
 	}
 
 	@Step
-	public void click_monthEndDate(String monthNameEnd) {
-		newVac.selectMonthEnd(monthNameEnd);
-
+	public void click_dayEndName(String dayEndName) {
+		submitPage.selectDaySubmit(dayEndName);
 	}
 
 	@Step
-	public void sholud_appear_popup() {
-		Assert.assertTrue("A pop up message sholud appear",
-				newVac.check_popupMessage());
+	public void click_yearEndName(String yearEndName) {
+		submitPage.selectYearSubmit(yearEndName);
 	}
 
 	@Step
-	public void close_pop_up() {
-		newVac.close_popUp();
-	}
+	public void check_message() {
+		Assert.assertTrue("Your request completed succesfully",
+				submitPage.check_messageSuccesfully());
 
-	@Step
-	public void enterdomeniu(String key) {
-		newVac.enter_domeniu(key);
-	}
-
-	@Step
-	public void click_saveButton() {
-		newVac.click_save();
-	}
-
-	@Step
-	public void show_popup() {
-		Assert.assertTrue("A pop up message sholud appear",
-				newVac.check_secondpopup());
-
-	}
-
-	@Step
-	public void click_on_calendarButton() {
-		newVac.click_calendarButton();
-	}
-
-	@Step
-	public void click_nextMonth() {
-		newVac.select_nextMonth();
-	}
-
-	@Step
-	public void click_dayCalendar(String dayC) {
-		newVac.selectdayCalendar(dayC);
 	}
 
 }

@@ -159,6 +159,4 @@ public class NewVacationRequest extends PageObject {
 		}
 
 	}
-	
-
 }
