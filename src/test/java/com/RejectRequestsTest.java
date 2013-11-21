@@ -55,7 +55,7 @@ public class RejectRequestsTest {
 
 
 	@Test
-	public void test_csv_login2() {
+	public void test_csv_login() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
