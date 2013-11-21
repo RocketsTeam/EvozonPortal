@@ -50,11 +50,8 @@ public class ReadEmail {
 
 			store.connect("imap.googlemail.com", "qadepartmentmanager", "Test123456");
 
-			// folder = (IMAPFolder) store.getFolder("[Gmail]/Spam"); // This
-			// doesn't work for other email account
-			folder = (IMAPFolder) store.getFolder("inbox");// This works for
-															// both email
-															// account
+			
+			folder = (IMAPFolder) store.getFolder("inbox");
 
 			if (!folder.isOpen())
 				folder.open(Folder.READ_WRITE);
@@ -95,17 +92,17 @@ public class ReadEmail {
 					
 				}
 
-				// new code
+				
 
 				String contentType = msg.getContentType();
 
 				if (contentType.contains("text/plain")
 						|| contentType.contains("text/html")) {
-					// plain text or HTML only email
+					
 
 				} else if (contentType.contains("multipart")) {
 
-					// email contains attachments
+					
 					Multipart multiPart = (Multipart) msg.getContent();
 					int numberOfParts = multiPart.getCount();
 					for (int partCount = 0; partCount < numberOfParts; partCount++) {
@@ -113,15 +110,14 @@ public class ReadEmail {
 						if (Part.ATTACHMENT.equalsIgnoreCase(part
 								.getDisposition())) {
 
-							// part is attachment
-							// store attachment to disk
+							
 							storeAttachment(part);
 
 						}
 					}
 
 				}
-				// new code
+				
 
 			}
 		} finally {
@@ -135,7 +131,7 @@ public class ReadEmail {
 
 	}
 
-	// new code
+	
 	private static void storeAttachment(BodyPart part)
 			throws MessagingException, IOException {
 		String destFilePath = "D:/Attachment/" + part.getFileName();
@@ -176,5 +172,5 @@ public class ReadEmail {
 		}
 		return body;
 	}
-	// new code
+	
 }

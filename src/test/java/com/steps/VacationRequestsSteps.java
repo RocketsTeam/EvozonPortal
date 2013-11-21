@@ -8,6 +8,7 @@ import net.thucydides.core.steps.ScenarioSteps;
 
 import org.junit.Assert;
 
+import com.pages.AssignedToMePage;
 import com.pages.DepartmentPage;
 import com.pages.DictionaryPage;
 import com.pages.NewVacationRequest;
@@ -27,6 +28,7 @@ public class VacationRequestsSteps extends ScenarioSteps {
 	NewVacationRequest newVac;
 	VacationRequestsPageMihai vacReqPage;
 	VacationRequestsPage ReqPage;
+	AssignedToMePage  sectionAssignedToMePage;
 
 	public VacationRequestsSteps(Pages pages) {
 		super(pages);
@@ -323,18 +325,24 @@ public class VacationRequestsSteps extends ScenarioSteps {
 	
 	@Step
 	  public void assert_ActionsAssignedToMeBtn() {
-		vacationRequestsPage.assert_ActionsAssignedToMeBtn();
+		sectionAssignedToMePage.assert_ActionsAssignedToMeBtn();
 	  }
 
 	 @Step
 	 public void click_ActionsAssignedToMeBtn() {
-		 vacationRequestsPage.click_VacationRequestsActionBtn();
+		 sectionAssignedToMePage.click_ActionsAssignedToMeBtn();
 	 }
 
 	 @Step
 	 public void click_ResubmitBtn() {
-		 vacationRequestsPage.click_ResubmitBtn();
+		 sectionAssignedToMePage.click_ResubmitBtn();
 	 }
+	 
+	 @Step
+		public void enter_comment(String keyword) {
+			sectionAssignedToMePage.enter_comment("test comment");
+		 }
+	 
 	
     
 	

@@ -56,7 +56,7 @@ public class LoginCSVTest {
 	public VacationRequestsSteps vacReqSteps;
 
 	@Test
-	public void test_csv_login() {
+	public void loginTest() {
 
 		submitNewVacationRequest.is_the_home_page();
 		submitNewVacationRequest.enter_user(getUser());

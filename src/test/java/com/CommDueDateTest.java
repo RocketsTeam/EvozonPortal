@@ -40,7 +40,7 @@ public class CommDueDateTest {
 
 
 	@Test
-	public void test_csv_login() {
+	public void test_CommentDueDate() {
 		endUser.is_the_home_page();
 		endUser.enter_user("iulia.drinda@evozon.com");
 		endUser.enter_password("123");

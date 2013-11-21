@@ -8,6 +8,7 @@ import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
+import net.thucydides.junit.runners.ThucydidesRunner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,8 +21,8 @@ import com.steps.SubmitNewVacRequestSteps;
 import com.steps.SubmitNewVacationRequestSteps;
 
 @Story(Application.SubmitVacationReq.SubmitNewVacationTest.class)
-@RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/loginIulia.csv")
+@RunWith(ThucydidesRunner.class)
+
 public class SubmitNewVacationTest {
 
 	@Managed(uniqueSession = true)
@@ -30,25 +31,7 @@ public class SubmitNewVacationTest {
 	@ManagedPages(defaultUrl = "http://172.22.8.38:9090")
 	public Pages pages;
 
-	String user, pass;
-
-	@Qualifier
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
+	
 	@Steps
 	public SubmitNewVacationRequestSteps submitNewVacationRequest;
 
@@ -58,10 +41,10 @@ public class SubmitNewVacationTest {
 
 	
     @Test
-    public void test_csv_login() {
+    public void test_SubmitNewRequestVacation() {
         submitNewVacationRequest.is_the_home_page();
-        submitNewVacationRequest.enter_user(getUser());
-        submitNewVacationRequest.enter_password(getPass());
+        submitNewVacationRequest.enter_user("iulia.drinda@evozon.com");
+        submitNewVacationRequest.enter_password("123");
         submitNewVacationRequest.submit();
         submitNewVacationRequest.should_be_on_department_page();
         submitNewVacationRequest.should_be_on_department_page1();

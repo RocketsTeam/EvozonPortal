@@ -95,11 +95,7 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = ".portlet-msg-success")
 	private WebElement messageSuccesfull;
 
-	@FindBy(id = "_1_WAR_EvozonKaleooFormsportlet_workflowTasksSearchContainer_1_menuButton")
-	private WebElement actionsAssignedToMe;
 	
-	@FindBy(css =".taglib-icon lfr-delegate-click aui-focus")
-	private WebElement resubmitBtn;
 
 	
 	public VacationRequestsPage(WebDriver driver) {
@@ -308,18 +304,5 @@ public class VacationRequestsPage extends PageObject {
 		return element(messageSuccesfull).isPresent();
 	}
 
-	public void assert_ActionsAssignedToMeBtn() {
-		element(actionsAssignedToMe).shouldBeVisible();
-	}
-
-	public void click_ActionsAssignedToMeBtn() {
-		element(actionsAssignedToMe).waitUntilVisible();
-		element(actionsAssignedToMe).click();
-	}
-
-	public void click_ResubmitBtn() {
-		element(resubmitBtn).waitUntilVisible();
-		element(resubmitBtn).click();
-	}
-
+	
 }
