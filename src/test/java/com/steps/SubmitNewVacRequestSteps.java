@@ -37,13 +37,11 @@ public class SubmitNewVacRequestSteps extends ScenarioSteps {
 	VacationRequestsPageMihai vacReqPage;
 	VacationRequestsPage ReqPage;
 	SubmitVacRequestPage submitPage;
-	
 
 	public SubmitNewVacRequestSteps(Pages pages) {
 		super(pages);
 	}
 
-	
 	@Step
 	public void submit() {
 		dictionaryPage.click_submit();
@@ -51,8 +49,9 @@ public class SubmitNewVacRequestSteps extends ScenarioSteps {
 
 	@Step
 	public void is_the_home_page() {
-		dictionaryPage.open(); }
-	
+		dictionaryPage.open();
+	}
+
 	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
@@ -62,20 +61,20 @@ public class SubmitNewVacRequestSteps extends ScenarioSteps {
 	public void enter_password(String keyword) {
 		dictionaryPage.enter_password(keyword);
 	}
-	
+
 	@Step
 	public void should_be_on_department_page() {
 		Assert.assertTrue("Should be on department page",
 				depPage.check_signout_link());
 	}
-	
+
 	@Step
 	public void should_be_on_department_page1() {
 		Assert.assertTrue("vacation sholud appear on department page",
 				depPage.check_vacation());
 
 	}
-	
+
 	public void click_v() {
 		depPage.click_vacation();
 	}
@@ -86,58 +85,53 @@ public class SubmitNewVacRequestSteps extends ScenarioSteps {
 				VacPage.check_vacationrequest());
 
 	}
-	
+
 	@Step
 	public void v_req() {
 		VacPage.click_vacationrequest();
 	}
-	
-	
+
 	@Step
 	public void check_new_request() {
 		Assert.assertTrue("A new vacation request sholud appear",
 				NewVac.check_new_request());
 	}
-		
+
 	@Step
-	 public void click_monthStartName(String monthName) { 
+	public void click_monthStartName(String monthName) {
 		submitPage.selectMonthSubmit(monthName);
 	}
-	
+
 	@Step
-	 public void click_dayStartName(String dayName) { 
-		submitPage.selectDaySubmit(dayName);  
+	public void click_dayStartName(String dayName) {
+		submitPage.selectDaySubmit(dayName);
 	}
-	
+
 	@Step
-	 public void click_yearStartName(String yearName) {  
-		submitPage.selectYearSubmit(yearName);  
+	public void click_yearStartName(String yearName) {
+		submitPage.selectYearSubmit(yearName);
 	}
-	
+
 	@Step
-	 public void click_monthEndName(String monthEndName) { 
+	public void click_monthEndName(String monthEndName) {
 		submitPage.selectMonthSubmit(monthEndName);
 	}
-	
+
 	@Step
-	 public void click_dayEndName(String dayEndName) { 
-		submitPage.selectDaySubmit(dayEndName);  
+	public void click_dayEndName(String dayEndName) {
+		submitPage.selectDaySubmit(dayEndName);
 	}
-	
+
 	@Step
-	 public void click_yearEndName(String yearEndName) {  
-		submitPage.selectYearSubmit(yearEndName);  
+	public void click_yearEndName(String yearEndName) {
+		submitPage.selectYearSubmit(yearEndName);
 	}
 
 	@Step
 	public void check_message() {
 		Assert.assertTrue("Your request completed succesfully",
-			submitPage.check_messageSuccesfully());
+				submitPage.check_messageSuccesfully());
 
 	}
 
-	
-		
 }
-
-

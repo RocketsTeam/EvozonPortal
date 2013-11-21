@@ -24,20 +24,10 @@ public class CheckEmailTest {
 	@Test
 	public void testIfEmailContainsTerms() throws MessagingException,
 			IOException {
-		// copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms(user, password,
-		// checkInText, checkInSubject, checkInFrom, checkInDate, checkInBody,
-		// terms);
-		copyOfFolderFetchIMAPStep
-				.CheckIfEmailContainsTerms(
-				"qadefaultuser@gmail.com",
-					"1234567890Qa",
-					false,
-					false,
-					false,
-					false,
-					true,
-						"Dear u1 u1Last");
-		//copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms("qadefaultuser@gmail.com", "1234567890Qa",false, false, false, true, false, "Fri Nov 15 12:17:05 EET 2013");
+
+		copyOfFolderFetchIMAPStep.CheckIfEmailContainsTerms(
+				"qadefaultuser@gmail.com", "1234567890Qa", false, false, false,
+				false, true, "Dear u1 u1Last");
 
 	}
 }

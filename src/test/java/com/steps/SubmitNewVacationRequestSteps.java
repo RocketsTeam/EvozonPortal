@@ -35,13 +35,11 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 	NewVacationRequest newVac;
 	VacationRequestsPageMihai vacReqPage;
 	VacationRequestsPage ReqPage;
-	
 
 	public SubmitNewVacationRequestSteps(Pages pages) {
 		super(pages);
 	}
 
-	
 	@Step
 	public void submit() {
 		dictionaryPage.click_submit();
@@ -49,8 +47,9 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 
 	@Step
 	public void is_the_home_page() {
-		dictionaryPage.open(); }
-	
+		dictionaryPage.open();
+	}
+
 	@Step
 	public void enter_user(String keyword) {
 		dictionaryPage.enter_user(keyword);
@@ -60,20 +59,20 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 	public void enter_password(String keyword) {
 		dictionaryPage.enter_password(keyword);
 	}
-	
+
 	@Step
 	public void should_be_on_department_page() {
 		Assert.assertTrue("Should be on department page",
 				depPage.check_signout_link());
 	}
-	
+
 	@Step
 	public void should_be_on_department_page1() {
 		Assert.assertTrue("vacation sholud appear on department page",
 				depPage.check_vacation());
 
 	}
-	
+
 	public void click_v() {
 		depPage.click_vacation();
 	}
@@ -84,102 +83,86 @@ public class SubmitNewVacationRequestSteps extends ScenarioSteps {
 				VacPage.check_vacationrequest());
 
 	}
-	
+
 	@Step
 	public void v_req() {
 		VacPage.click_vacationrequest();
 	}
-	
-	
+
 	@Step
 	public void check_new_request() {
 		Assert.assertTrue("A new vacation request sholud appear",
 				NewVac.check_new_request());
 	}
-		
+
 	@Step
 	public void click_month(String monthName) {
 		newVac.selectMonthDate(monthName);
 	}
-	
-		
+
 	@Step
 	public void selectTipConcediu(String concediu) {
 		newVac.selectRadioButton(concediu);
 	}
-	
 
 	@Step
 	public void click_day(String day) {
 		newVac.select_day(day);
 
 	}
-	
-	
+
 	@Step
-	public void click_year(String year){
+	public void click_year(String year) {
 		newVac.select_year(year);
 	}
 
 	@Step
 	public void click_monthEndDate(String monthNameEnd) {
 		newVac.selectMonthEnd(monthNameEnd);
-		
+
 	}
-	
+
 	@Step
 	public void sholud_appear_popup() {
 		Assert.assertTrue("A pop up message sholud appear",
-	 newVac.check_popupMessage());
+				newVac.check_popupMessage());
 	}
-	
-	
+
 	@Step
-	public void close_pop_up(){
-	newVac.close_popUp();
+	public void close_pop_up() {
+		newVac.close_popUp();
 	}
-	
-	
+
 	@Step
-	public void enterdomeniu(String key){
-	newVac.enter_domeniu(key);
+	public void enterdomeniu(String key) {
+		newVac.enter_domeniu(key);
 	}
-	
-	
+
 	@Step
-	public void click_saveButton(){
-	newVac.click_save();
+	public void click_saveButton() {
+		newVac.click_save();
 	}
-	
-	
+
 	@Step
-	public void show_popup(){
+	public void show_popup() {
 		Assert.assertTrue("A pop up message sholud appear",
-					newVac.check_secondpopup());
-		
-	
-}
-	
-	@Step
-	public void click_on_calendarButton(){
-	newVac.click_calendarButton();
-	}
-	
-	
-	@Step
-	public void click_nextMonth(){
-	newVac.select_nextMonth();
-	}
-	
-	
-	@Step
-	public void click_dayCalendar(String dayC){
-	newVac.selectdayCalendar(dayC);
-	}
-	
-	
-	
-		
-}
+				newVac.check_secondpopup());
 
+	}
 
+	@Step
+	public void click_on_calendarButton() {
+		newVac.click_calendarButton();
+	}
+
+	@Step
+	public void click_nextMonth() {
+		newVac.select_nextMonth();
+	}
+
+	@Step
+	public void click_dayCalendar(String dayC) {
+		newVac.selectdayCalendar(dayC);
+	}
+
+}
