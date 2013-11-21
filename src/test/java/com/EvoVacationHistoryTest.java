@@ -66,7 +66,7 @@ public class EvoVacationHistoryTest {
 	public EvoHistorySteps evoHistorySteps;
 
 	@Test
-	public void test_csv_login() {
+	public void evoVacationHistoryTest() {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());

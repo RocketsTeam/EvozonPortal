@@ -41,7 +41,7 @@ public class HandleRequestsTest {
 	public CopyOfFolderFetchIMAPStep copyOfFolderFetchIMAPStep;
 
 	@Test
-	public void test_csv_login() throws MessagingException, IOException {
+	public void fromLoginToVerifyEmailTest() throws MessagingException, IOException {
 		endUser.is_the_home_page();
 		endUser.enter_user("QaDepartment123@gmail.com");
 		endUser.enter_password("1234");

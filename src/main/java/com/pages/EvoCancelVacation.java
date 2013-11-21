@@ -11,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import com.opera.core.systems.scope.protos.ScopeProtos.MessageInfo;
+
 public class EvoCancelVacation extends PageObject {
 
 	@FindBy(css = ".concediu-label")
@@ -18,6 +20,12 @@ public class EvoCancelVacation extends PageObject {
 
 	@FindBy(css = "ul.concediu-ul")
 	private WebElement concediuListContainer;
+	
+
+	@FindBy(css = ".portlet-msg-info")
+	private WebElement messageInfo;
+	
+	
 
 	public EvoCancelVacation(WebDriver driver) {
 		super(driver);
@@ -62,6 +70,12 @@ public class EvoCancelVacation extends PageObject {
 				.findElement(
 						By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
 				.getText().trim();
+		
+		String message = getDriver()
+				.findElement(
+						By.cssSelector(".portlet-msg-info"))
+				.getText().trim();
+		System.out.println(message);
 		int noOfPages = SummaryPage.getAllIntegerNumbersFromString(
 				noOfPagesContainer).get(1);
 		for (int i = 0; i < noOfPages; i++) {
@@ -93,4 +107,6 @@ public class EvoCancelVacation extends PageObject {
 			}
 		}
 	}
+	
+	
 }
