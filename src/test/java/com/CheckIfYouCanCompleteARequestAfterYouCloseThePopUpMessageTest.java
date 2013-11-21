@@ -67,8 +67,8 @@ public class CheckIfYouCanCompleteARequestAfterYouCloseThePopUpMessageTest {
         submitNewVacationRequest.v_req();
         submitNewVacationRequest.selectTipConcediu("Concediu fara plata * (Required)");
         submitNewVacationRequest.click_month("December");
-       submitNewVacationRequest.click_day("24");
-       submitNewVacationRequest.click_year("2013");
+        submitNewVacationRequest.click_day("24");
+        submitNewVacationRequest.click_year("2013");
         submitNewVacationRequest.click_monthEndDate("December");
         submitNewVacationRequest.sholud_appear_popup();
         submitNewVacationRequest.close_pop_up();
