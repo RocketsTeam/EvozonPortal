@@ -321,6 +321,20 @@ public class VacationRequestsSteps extends ScenarioSteps {
 
 	}
 	
+	@Step
+	  public void assert_ActionsAssignedToMeBtn() {
+		vacationRequestsPage.assert_ActionsAssignedToMeBtn();
+	  }
+
+	 @Step
+	 public void click_ActionsAssignedToMeBtn() {
+		 vacationRequestsPage.click_VacationRequestsActionBtn();
+	 }
+
+	 @Step
+	 public void click_ResubmitBtn() {
+		 vacationRequestsPage.click_ResubmitBtn();
+	 }
 	
     
 	

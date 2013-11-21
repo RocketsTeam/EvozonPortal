@@ -140,6 +140,12 @@ public class Application {
 		}
 	}
 	
+	@Feature
+	public class ResubmitReq{
+
+		public class ResubmitRequestsTest {
+		}
+	}
 	
 	
 
