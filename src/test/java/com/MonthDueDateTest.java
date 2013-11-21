@@ -8,6 +8,7 @@ import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.annotations.Qualifier;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
+import net.thucydides.junit.runners.ThucydidesRunner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,8 +19,8 @@ import com.steps.EndUserSteps;
 import com.steps.VacationRequestsSteps;
 
 @Story(Application.MonthReq.MonthDueDateTest.class)
-@RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/loginIulia.csv")
+@RunWith(ThucydidesRunner.class)
+
 public class MonthDueDateTest {
 
 	@Managed(uniqueSession = true)
@@ -28,24 +29,7 @@ public class MonthDueDateTest {
 	@ManagedPages(defaultUrl ="http://172.22.8.38:9090")
 	public Pages pages;
 
-	String user, pass;
-
-	@Qualifier
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
+	
 
 	@Steps
 	public EndUserSteps endUser;
@@ -57,10 +41,10 @@ public class MonthDueDateTest {
 
 
 	@Test
-	public void test_csv_login() {
+	public void test_MonthDueDate() {
 		endUser.is_the_home_page();
-		endUser.enter_user(getUser());
-		endUser.enter_password(getPass());
+		endUser.enter_user("iulia.drinda@evozon.com");
+		endUser.enter_password("123");
 		endUser.submit();
 		endUser.should_be_on_department_page();
 		endUser.should_be_on_department_page1();
@@ -69,7 +53,7 @@ public class MonthDueDateTest {
 		endUser.click_actionsbutton2();
 	    endUser.check_updateduedateopt();
 	    endUser.click_updateduedateopt();
-	    //vacationrequestSteps.enter_commDueDate("test comment");
+	    vacationrequestSteps.enter_commDueDate("test comment");
 	    vacationrequestSteps.click_monthNameDueDate("March"); 
 	    vacationrequestSteps.click_dayNameDueDate("25");
 	    vacationrequestSteps.click_yearNameDueDate("2014");
