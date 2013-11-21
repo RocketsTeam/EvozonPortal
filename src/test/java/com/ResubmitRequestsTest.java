@@ -36,7 +36,8 @@ public class ResubmitRequestsTest {
 	@Steps
 	public VacationRequestsSteps vacationrequestSteps;
 
-
+	@Steps
+	public VacationRequestsSteps sectionAssignedToMeSteps;
 
 
 	@Test
@@ -51,8 +52,10 @@ public class ResubmitRequestsTest {
 		vacationrequestSteps.assert_ActionsAssignedToMeBtn();
 		vacationrequestSteps.click_ActionsAssignedToMeBtn();
 		vacationrequestSteps.click_ResubmitBtn();
-		//vacationrequestSteps.check_message();
-		//vacationrequestSteps.refresh_page();
+		sectionAssignedToMeSteps.enter_comment("test comment");
+		sectionAssignedToMeSteps.click_OK_button();
+		vacationrequestSteps.check_message();
+		vacationrequestSteps.refresh_page();
 
 
 	}

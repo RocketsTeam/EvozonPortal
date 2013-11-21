@@ -95,11 +95,7 @@ public class VacationRequestsPage extends PageObject {
 	@FindBy(css = ".portlet-msg-success")
 	private WebElement messageSuccesfull;
 
-	@FindBy(css="div.lfr-panel-content > div.lfr-search-container > div:first-child table tr.results-row")
-	private WebElement actionsAssignedToMeSection;
 	
-	@FindBy(css =".taglib-icon lfr-delegate-click aui-focus")
-	private WebElement resubmitBtn;
 
 	
 	public VacationRequestsPage(WebDriver driver) {
@@ -308,18 +304,5 @@ public class VacationRequestsPage extends PageObject {
 		return element(messageSuccesfull).isPresent();
 	}
 
-	public void assert_ActionsAssignedToMeBtn() {
-		element(actionsAssignedToMeSection).shouldBeVisible();
-	}
-
-	public void click_ActionsAssignedToMeBtn() {
-		element(actionsAssignedToMeSection).waitUntilVisible();
-		element(actionsAssignedToMeSection).click();
-	}
-
-	public void click_ResubmitBtn() {
-		element(resubmitBtn).waitUntilVisible();
-		element(resubmitBtn).click();
-	}
-
+	
 }
