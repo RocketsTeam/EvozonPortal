@@ -27,9 +27,7 @@ public class FolderFetchIMAP {
 		String subject = null;
 		String from;
 		String date;
-		
-		
-	
+
 		try {
 			Properties props = System.getProperties();
 			props.setProperty("mail.store.protocol", "imaps");
@@ -40,11 +38,7 @@ public class FolderFetchIMAP {
 
 			store.connect("imap.googlemail.com", "QaDepartment123", "1234567Qa");
 
-			// folder = (IMAPFolder) store.getFolder("[Gmail]/Spam"); // This
-			// doesn't work for other email account
-			folder = (IMAPFolder) store.getFolder("inbox");// This works for
-															// both email
-															// account
+			folder = (IMAPFolder) store.getFolder("inbox");
 
 			if (!folder.isOpen())
 				folder.open(Folder.READ_WRITE);
@@ -54,35 +48,32 @@ public class FolderFetchIMAP {
 					+ folder.getUnreadMessageCount());
 			System.out.println();
 			for (int i = 0; i < messages.length; i++) {
-				
+
 				Message msg = messages[i];
 				subject = msg.getSubject().toString();
 				from = msg.getFrom().toString();
-				date=msg.getReceivedDate().toString();
-				
-				
-				 String text=subject+from+date;
-				if (checkIfTextContainsTerms(text,false,"approved")){
-					
+				date = msg.getReceivedDate().toString();
+
+				String text = subject + from + date;
+				if (checkIfTextContainsTerms(text, false, "approved")) {
+
 					System.out
-					.println("*****************************************************************************");
+							.println("*****************************************************************************");
 					System.out.println("MESSAGE " + (i + 1) + ":");
-					
+
 					System.out.println("This is it!!! MATCH !!!");
-					
-					
+
 					System.out.println("Subject: " + subject);
 					System.out.println("From: " + msg.getFrom()[0]);
 					System.out.println("To: " + msg.getAllRecipients()[0]);
 					System.out.println("Date: " + msg.getReceivedDate());
 					Object content = msg.getContent();
 					if (content instanceof String) {
-						String	body = (String) content;
-					System.out.println("Body: "+body);	
-						
+						String body = (String) content;
+						System.out.println("Body: " + body);
+
 					}
-					
-					
+
 				}
 
 				// new code
@@ -111,7 +102,6 @@ public class FolderFetchIMAP {
 					}
 
 				}
-				// new code
 
 			}
 		} finally {
@@ -125,7 +115,6 @@ public class FolderFetchIMAP {
 
 	}
 
-	// new code
 	private static void storeAttachment(BodyPart part)
 			throws MessagingException, IOException {
 		String destFilePath = "D:/Attachment/" + part.getFileName();
@@ -166,5 +155,5 @@ public class FolderFetchIMAP {
 		}
 		return body;
 	}
-	// new code
+
 }

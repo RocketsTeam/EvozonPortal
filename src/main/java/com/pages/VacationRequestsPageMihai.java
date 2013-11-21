@@ -30,8 +30,6 @@ public class VacationRequestsPageMihai extends PageObject {
 	@FindBy(css = ".aui-column aui-w75 aui-column-last")
 	private WebElement summaryTable;
 
-
-
 	@FindBy(css = ".aui-button-input")
 	private WebElement submitNewVacationRequest;
 
@@ -106,10 +104,10 @@ public class VacationRequestsPageMihai extends PageObject {
 
 	public boolean check_for_processes_link() {
 
-		// System.out.println("Is visible: " +
-		// element(processesButton).isPresent());
-		// return element(processesButton).isPresent();
-		return true;
+		System.out.println("Is visible: "
+				+ element(processesButton).isPresent());
+		return element(processesButton).isPresent();
+
 	}
 
 }

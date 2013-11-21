@@ -28,106 +28,26 @@ public class SummaryPage extends PageObject {
 
 	@FindBy(id = "workflowMyRolesTasksPanel")
 	private WebElement myRolesContainer;
-	
+
 	@FindBy(css = ".aui-dialog-ft .aui-toolbar-first")
 	private WebElement ConfirmOKButton;
 
 	@FindBy(css = "ul.lfr-menu-list-overflow")
 	private WebElement actionsContainer;
-	
+
 	@FindBy(css = ".lfr-search-container>div.lfr-search-container")
 	private WebElement panels;
-	
-	/*public boolean checkIfLastRequestHandledAppearsInTherightsection(By by,
-			boolean ignoreCase, boolean equals, String... terms) {
-		getDriver().manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-		List<WebElement> elementsList = getVisibleElementsFromList(getDriver()
-				.findElements(by));
-		for (WebElement element : elementsList) {
-			String currentElementName = element.getText().trim();
-			if (ignoreCase)
-				currentElementName = currentElementName.toLowerCase();
-			boolean matched = false;
-			if (terms.length == 1) {
-				if (ignoreCase)
-					matched = equals ? currentElementName.equals(terms[0]
-							.toLowerCase()) : currentElementName
-							.contains(terms[0].toLowerCase());
-				else
-					matched = equals ? currentElementName.equals(terms[0])
-							: currentElementName.contains(terms[0]);
-			} else
-				matched = checkIfTextContainsTerms(currentElementName,
-						ignoreCase, terms);
-			if (matched)
-				return true;
-		}
-		return false;
-	}
-	*/
 
 	public boolean checkForMessage() {
 		element(confirmmessagepanel).waitUntilVisible();
 		return element(confirmmessagepanel).isPresent();
 	}
-	
-	 public void click_Ok() {
-		 element(ConfirmOKButton).waitUntilVisible();
-			//Actions actions = new Actions(getDriver());
-			//actions.moveToElement(ConfirmOKButton).click().build().perform();
-			ConfirmOKButton.click();
-	    }
 
-	// selecting oen person from Assign to.. dropdown list
+	public void click_Ok() {
+		element(ConfirmOKButton).waitUntilVisible();
 
-	/*public void selectAssignToPerson(String personName) {
-		element(radioButtonContainer).waitUntilVisible();
-
-		List<WebElement> radioButtonsList = radioButtonContainer
-				.findElements(By.cssSelector("span.aui-field-choice"));
-
-		theFor: for (WebElement elementNow : radioButtonsList) {
-			String currentText = elementNow.getText();
-			if (currentText.contains(nameRadio)) {
-				elementNow.findElement(By.tagName("input")).click();
-				break theFor;
-			}
-
-		}
-	}*/
-/*
-	public void getAllUsersFromAssignToDropdownList(String action) {
-		element(assignedToDropdownList).waitUntilVisible();
-		List<WebElement> itemsList = actionsContainer.findElements(By
-				.tagName("option"));
-		for (WebElement elementNow : itemsList) {
-			String identifier = elementNow.getText();
-
-			if (identifier.contains(action)) {
-				elementNow.click();
-				break;
-			}
-		}
+		ConfirmOKButton.click();
 	}
-
-	public void markListEntry(String itemName, String action) {
-		element(myRolesContainer).waitUntilVisible();
-		List<WebElement> itemsList = myRolesContainer.findElements(By
-				.cssSelector("tr.results-row"));
-
-		theFor: for (WebElement elementNow : itemsList) {
-			String identifier = elementNow.findElement(
-					By.cssSelector("td:nth-child(2)")).getText();
-
-			if (identifier.contains(itemName)) {
-				elementNow.findElement(By.cssSelector("td:last-child a"))
-						.click();
-				selectAction(action);
-				break theFor;
-			}
-		}
-
-	}*/
 
 	public static boolean checkIfTextContainsTerms(String text,
 			boolean ignoreCase, String... strTerms) {
@@ -174,7 +94,7 @@ public class SummaryPage extends PageObject {
 						.implicitlyWait(30, TimeUnit.SECONDS);
 				break;
 			} catch (Exception e) {
-				// no need to do anything
+
 			}
 		Assert.assertTrue("The searched element was not found after "
 				+ waitSeconds + " seconds!", element != null);
@@ -444,11 +364,10 @@ public class SummaryPage extends PageObject {
 		WebElement actionOption = getElementWithSpecifiedTextFromList(
 				By.cssSelector("div.lfr-component.lfr-menu-list > ul.lfr-menu-list-overflow > li > a"),
 				true, false, buttonLabel);
-		System.out.println("################################################# " + actionOption.getText());
-//		actionOption.sendKeys("");
-//		mouseOver(actionOption);
+		System.out.println("################################################# "
+				+ actionOption.getText());
+
 		actionOption.click();
-//		$(actionOption).click();
-		
+
 	}
 }
