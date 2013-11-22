@@ -46,6 +46,10 @@ public class EvoCancelStep extends ScenarioSteps {
 	public void verifySearchResultsContainsItems(String... terms) {
 		evoCancelVacation.verifySearchResults(terms);
 	}
+	@Step
+	public void verifyDateResults(String... terms) {
+		evoCancelVacation.verifyDateResults(terms);
+	}
 	
 	@Step
 	public void click_monthStartName(String monthName) {
