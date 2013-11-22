@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Date;
+
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -17,7 +19,9 @@ import com.requirements.Application;
 import com.steps.ControlPanelSteps;
 import com.steps.EndUserSteps;
 import com.steps.EvoCancelStep;
+import com.steps.SubmitNewVacRequestSteps;
 import com.steps.UserStepsForVacation;
+import com.tools.DateUtils;
 
 @Story(Application.EvoCancel.EvoCancelVacationTest.class)
 @RunWith(ThucydidesParameterizedRunner.class)
@@ -60,6 +64,9 @@ public class EvoCancelVacationTest {
 	
 	@Steps
 	public EvoCancelStep evoCancelStep;
+	
+	@Steps
+	public SubmitNewVacRequestSteps submitVacationRequest;
 
 	@Test
 	public void evoCancelVacationTest() {
@@ -71,10 +78,16 @@ public class EvoCancelVacationTest {
 		controlPanelSteps.clickGoToButton();
 		controlPanelSteps.clickControlpanelButton();
 		controlPanelSteps.clickEvoVacationLink();
-		evoCancelStep.select_tip_concediu("Concediu fara plata");
-		endUser.waitABit(1000);
-		evoCancelStep.verifySearchResultsContainsItem("Concediu fara plata");
-		endUser.waitABit(1000);
+		evoCancelStep.selectTheCheckBox();
+		evoCancelStep.click_monthStartName("May");
+		evoCancelStep.click_dayStartName("20");
+		evoCancelStep.click_yearStartName("2013");
+		evoCancelStep.click_monthEndName("May");
+		evoCancelStep.click_dayEndName("20");
+		evoCancelStep.click_yearEndName("2013");
+		evoCancelStep.select_tip_concediu("Concediu de odihna");
+		evoCancelStep.verifySearchResultsContainsItems("Concediu de odihna");
+		
 
 	}
 }
