@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.opera.core.systems.scope.protos.ScopeProtos.MessageInfo;
 
-public class EvoCancelVacation extends PageObject{
+public class EvoCancelVacation extends PageObject {
 
 	@FindBy(css = ".concediu-label")
 	private WebElement ddlTipConcediu;
@@ -138,7 +138,7 @@ public class EvoCancelVacation extends PageObject{
 		}
 	}
 
-	public  void verifySearchResults(String... terms) {
+	public void verifySearchResults(String... terms) {
 		String noOfPagesContainer = getDriver()
 				.findElement(
 						By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
@@ -172,8 +172,8 @@ public class EvoCancelVacation extends PageObject{
 			}
 		}
 	}
-	
-	public void verifyDateResults(String... terms) {
+
+	public void verifyStartDateResults(String term) throws ParseException {
 		String noOfPagesContainer = getDriver()
 				.findElement(
 						By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
@@ -186,17 +186,24 @@ public class EvoCancelVacation extends PageObject{
 
 			List<WebElement> searchResults = getDriver()
 					.findElements(
-							By.cssSelector("_evocancelvacation_WAR_EvozonCancelVacationportlet_ocerSearchContainer_col-start-date_row-1fgfgfg"));
+							By.cssSelector("table.taglib-search-iterator tr.results-row td.col-2"));
+
 			for (WebElement searchResult : searchResults) {
+
 				if ($(searchResult).isCurrentlyVisible()) {
-					for (String term : terms) {
-						if (!searchResult.getText().toLowerCase()
-								.contains(term.toLowerCase())) {
-							Assert.fail(String
-									.format("The '%s' search result item does not contain '%s'!",
-											searchResult.getText(), term));
-						}
+					DateFormat formatter;
+					formatter = new SimpleDateFormat("dd MMMM yyyy");
+					Date termDate = formatter.parse(term);
+					System.out.println(searchResult.getText());
+					Date searchResultDate = formatter.parse(searchResult
+							.getText().toString());
+					if (!((searchResultDate.compareTo(termDate) > 0 || searchResultDate
+							.compareTo(termDate) == 0))) {
+						Assert.fail(String.format(
+								"The '%s' is an earlier date than '%s'!",
+								searchResult.getText(), term));
 					}
+
 				}
 			}
 			if (i < noOfPages) {
@@ -206,6 +213,50 @@ public class EvoCancelVacation extends PageObject{
 						.click();
 			}
 		}
+
+	}
+	
+	public void verifyEndDateResults(String term) throws ParseException {
+		String noOfPagesContainer = getDriver()
+				.findElement(
+						By.cssSelector("div.page-links > span.aui-paginator-current-page-report.aui-paginator-total"))
+				.getText().trim();
+		int noOfPages = SummaryPage.getAllIntegerNumbersFromString(
+				noOfPagesContainer).get(1);
+		System.out.println("noOfPages " + noOfPages);
+		for (int i = 1; i <= noOfPages; i++) {
+			waitABit(2000);
+
+			List<WebElement> searchResults = getDriver()
+					.findElements(
+							By.cssSelector("table.taglib-search-iterator tr.results-row td.col-3"));
+
+			for (WebElement searchResult : searchResults) {
+
+				if ($(searchResult).isCurrentlyVisible()) {
+					DateFormat formatter;
+					formatter = new SimpleDateFormat("dd MMMM yyyy");
+					Date termDate = formatter.parse(term);
+					System.out.println(searchResult.getText());
+					Date searchResultDate = formatter.parse(searchResult
+							.getText().toString());
+					if (!((searchResultDate.compareTo(termDate) < 0 || searchResultDate
+							.compareTo(termDate) == 0))) {
+						Assert.fail(String.format(
+								"The '%s' date is after '%s'!",
+								searchResult.getText(), term));
+					}
+
+				}
+			}
+			if (i < noOfPages) {
+				getDriver()
+						.findElement(
+								By.cssSelector("div.page-links > a.aui-paginator-link.aui-paginator-next-link"))
+						.click();
+			}
+		}
+
 	}
 
 	public static void getListOfDatesBetweenDates(String str_date,
@@ -217,30 +268,20 @@ public class EvoCancelVacation extends PageObject{
 		formatter = new SimpleDateFormat("dd MMMM yyyy");
 		Date startDate = formatter.parse(str_date);
 		Date endDate = formatter.parse(end_date);
-		long interval = 24 * 1000 * 60 * 60; 
-		long endTime = endDate.getTime(); 
+		long interval = 24 * 1000 * 60 * 60;
+		long endTime = endDate.getTime();
 		long curTime = startDate.getTime();
 		while (curTime <= endTime) {
 			dates.add(new Date(curTime));
 			curTime += interval;
-			
-		} 
-		for(int i=0;i<dates.size();i++){
-		    Date lDate =(Date)dates.get(i);
-		    String ds = formatter.format(lDate);    
-		    System.out.println(" Date is ..." + ds);
-		}
-	
-		
-	}
-	
-	public static void main(String[] args) {
-		
-		
-		
-			
-	}
 
-	
+		}
+		for (int i = 0; i < dates.size(); i++) {
+			Date lDate = (Date) dates.get(i);
+			String ds = formatter.format(lDate);
+			System.out.println(" Date is ..." + ds);
+		}
+
+	}
 
 }

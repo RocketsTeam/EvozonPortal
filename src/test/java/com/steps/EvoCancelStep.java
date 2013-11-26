@@ -1,5 +1,7 @@
 package com.steps;
 
+import java.text.ParseException;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -47,8 +49,12 @@ public class EvoCancelStep extends ScenarioSteps {
 		evoCancelVacation.verifySearchResults(terms);
 	}
 	@Step
-	public void verifyDateResults(String... terms) {
-		evoCancelVacation.verifyDateResults(terms);
+	public void verifyStartDateResults(String terms) throws ParseException {
+		evoCancelVacation.verifyStartDateResults(terms);
+	}
+	@Step
+	public void verifyEndDateResults(String terms) throws ParseException {
+		evoCancelVacation.verifyEndDateResults(terms);
 	}
 	
 	@Step

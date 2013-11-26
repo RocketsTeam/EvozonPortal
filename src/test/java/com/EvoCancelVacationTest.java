@@ -1,5 +1,6 @@
 package com;
 
+import java.text.ParseException;
 import java.util.Date;
 
 import net.thucydides.core.annotations.Managed;
@@ -61,15 +62,12 @@ public class EvoCancelVacationTest {
 
 	@Steps
 	public ControlPanelSteps controlPanelSteps;
-	
+
 	@Steps
 	public EvoCancelStep evoCancelStep;
-	
-	@Steps
-	public SubmitNewVacRequestSteps submitVacationRequest;
 
 	@Test
-	public void evoCancelVacationTest() {
+	public void evoCancelVacationTest() throws ParseException {
 		endUser.is_the_home_page();
 		endUser.enter_user(getUser());
 		endUser.enter_password(getPass());
@@ -79,15 +77,16 @@ public class EvoCancelVacationTest {
 		controlPanelSteps.clickControlpanelButton();
 		controlPanelSteps.clickEvoVacationLink();
 		evoCancelStep.selectTheCheckBox();
-		evoCancelStep.click_monthStartName("May");
 		evoCancelStep.click_dayStartName("20");
+		evoCancelStep.click_monthStartName("May");
 		evoCancelStep.click_yearStartName("2013");
-		evoCancelStep.click_monthEndName("May");
 		evoCancelStep.click_dayEndName("20");
+		evoCancelStep.click_monthEndName("August");
 		evoCancelStep.click_yearEndName("2013");
 		evoCancelStep.select_tip_concediu("Concediu de odihna");
 		evoCancelStep.verifySearchResultsContainsItems("Concediu de odihna");
-		
+		evoCancelStep.verifyStartDateResults("20 May 2013");
+		evoCancelStep.verifyEndDateResults("20 August 2013");
 
 	}
 }
